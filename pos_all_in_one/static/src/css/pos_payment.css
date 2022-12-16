@@ -1,0 +1,41 @@
+
+
+.odoo-theme-color{
+	background: #875a7b !important;
+	color: white !important;
+}
+
+.bi-popup-width{
+	min-width: 70%;
+}
+
+.popup-tr{
+	line-height: 30px !important;
+	font-size: 15px !important;
+}
+
+.pos .popup .body.traceback{
+	font-family: 'Lato-Reg';
+}
+
+.orderline-table-head{
+	border: 1px solid black;
+	line-height: 30px;
+	font-size: 16px;
+}
+
+.orderline-table{
+	border: 1px solid black;
+	line-height: 30px;
+	font-size: 14px;
+}
+
+.screen .orders-screen {
+  max-width: 95%;
+}
+
+.odoo-theme-button{
+	background: #875a7b !important;
+	color: white !important;
+	font-size: 14px !important;
+}

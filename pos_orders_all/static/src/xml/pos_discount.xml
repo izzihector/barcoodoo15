@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<templates id="bi_pos_discount_template" inherit_id="point_of_sale.template" xml:space="preserve">
+	
+		<!-- Orderline WIdget -->
+		<t t-extend="Orderline" t-inherit="point_of_sale.Orderline" t-inherit-mode="extension" owl="1">
+			<xpath expr="//ul/t[2]" position="replace"> 
+				<t t-if="props.line.get_discount_str() !== '0'">
+					<t t-if="env.pos.config.discount_type == 'percentage'">
+						<li class="info">
+							With a
+							<em>
+								<t t-esc="props.line.get_discount_str()" />%
+							</em>
+							discount
+						</li>
+					</t>
+					
+					<t t-if="env.pos.config.discount_type == 'fixed'">
+						<li class="info">
+							With a
+							<em>
+								<t t-esc="env.pos.format_currency(props.line.get_discount_str())"/>
+							</em>
+							discount
+						</li>
+					</t>
+					
+				</t>
+			</xpath>
+		</t>
+ 
+		<!-- Add discount_type in OrderReceipt -->		
+		<t t-name="OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+			<xpath expr="//div[hasclass('orderlines')]" position="replace">
+				<div class="orderlines">
+					<t t-foreach="receipt.orderlines" t-as="line" t-key="line.id">
+						<t t-if="isSimple(line)">
+							<div>
+								<t t-esc="line.product_name_wrapped[0]" />
+								<span t-esc="env.pos.format_currency_no_symbol(line.price_display)" class="price_display pos-receipt-right-align"/>
+							</div>
+							<WrappedProductNameLines line="line" />
+						</t>
+						<t t-else="">
+							<div t-esc="line.product_name_wrapped[0]" />
+							<WrappedProductNameLines line="line" />
+							<t t-if="line.display_discount_policy == 'without_discount' and line.price != line.price_lst">
+								<div class="pos-receipt-left-padding">
+									<t t-esc="env.pos.format_currency_no_symbol(line.price_lst)" />
+									->
+									<t t-esc="env.pos.format_currency_no_symbol(line.price)" />
+								</div>
+							</t>
+							<t t-elif="line.discount !== 0">
+								<div class="pos-receipt-left-padding">
+									<t t-if="env.pos.config.iface_tax_included === 'total'">
+										<t t-esc="env.pos.format_currency_no_symbol(line.price_with_tax_before_discount)"/>
+									</t>
+									<t t-else="">
+										<t t-esc="env.pos.format_currency_no_symbol(line.price)"/>
+									</t>
+								</div>
+							</t>
+							<t t-if="env.pos.config.discount_type == 'percentage'">
+								<div class="pos-receipt-left-padding">
+									Discount: <t t-esc='line.discount' />%
+								</div>
+							</t>
+							<t t-if="env.pos.config.discount_type == 'fixed'">
+								<div class="pos-receipt-left-padding">
+									Discount: <t t-esc="env.pos.format_currency(line.discount)"/>
+								</div>
+							</t>
+							<div class="pos-receipt-left-padding">
+								<t t-esc="Math.round(line.quantity * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"/>
+								<t t-if="line.unit_name !== 'Units'" t-esc="line.unit_name" />
+								x
+								<t t-esc="env.pos.format_currency_no_symbol(line.price_display_one)" />
+								<span class="price_display pos-receipt-right-align">
+									<t t-esc="env.pos.format_currency_no_symbol(line.price_display)" />
+								</span>
+							</div>
+						</t>
+					</t>
+				</div>
+			</xpath>
+		</t>
+ 
+</templates>
+
+

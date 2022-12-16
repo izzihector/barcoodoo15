@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<!-- POS Sales Summary Report  -->
+		<!-- <report 
+			string="Pos Profit-Loss Report" 
+			id="action_profit_loss_report" 
+			model="pos.profit.loss.wizard" 
+			report_type="qweb-pdf"
+			name="bi_pos_reports.report_profit_loss" 
+			file="bi_pos_reports.report_profit_loss" 
+			paperformat="bi_pos_reports.pos_profit_paper_format"
+		/> -->
+
+		<record id="action_profit_loss_report" model="ir.actions.report">
+            <field name="name">Pos Profit-Loss Report</field>
+            <field name="model">pos.profit.loss.wizard</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">pos_all_in_one.report_profit_loss</field>
+            <field name="report_file">pos_all_in_one.report_profit_loss</field>
+            <field name="binding_type">report</field>
+        </record>
+
+
+		<record id="view_pos_profit_loss_wizard" model="ir.ui.view">
+			<field name="name">pos.profit.loss.wizard.form</field>
+			<field name="model">pos.profit.loss.wizard</field>
+			<field name="arch" type="xml">
+				<form string="Sales Summary">
+					<group>
+						<group>
+							<field name="start_dt"/>
+							<field name="end_dt"/>						
+						</group>					
+					</group>				
+					<footer>
+						<button name="pos_profit_loss_report" string="Print" type="object" class="btn-primary"/>
+						<button string="Cancel" class="btn-default" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>  
+		<record id="action_report_profit_loss" model="ir.actions.act_window">
+			<field name="name">Pos Profit-Loss Report</field>
+			<field name="res_model">pos.profit.loss.wizard</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+		<menuitem id="menu_report_parent"
+			name="Other Reports"
+			parent="point_of_sale.menu_point_root"
+			sequence="20"/>	
+		<menuitem id="menu_profit_loss_report" name="Pos Profit-Loss Report" action="action_report_profit_loss" parent="menu_report_parent" sequence="5"/>
+	</data>
+	
+</odoo>
+

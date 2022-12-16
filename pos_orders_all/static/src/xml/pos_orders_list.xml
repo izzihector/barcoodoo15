@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<templates id="pos_orders_all_template" inherit_id="point_of_sale.template" xml:space="preserve">
+
+	<t t-name="SeePOSOrdersButton" owl="1">
+		<span class="control-button see_pos_orders odoo-theme-color">
+			<i class="fa fa-university"></i>
+			<span>Orders</span>
+		</span>
+	</t>
+
+	<t t-name="POSOrdersScreen" owl="1">
+		<div class="clientlist-screen screen">
+			<div class="screen-content orders-screen">
+				<div class="top-content">
+					<div class="button back odoo-theme-color" t-on-click="back">
+						<t t-if="!env.isMobile">Discard</t>
+						<t t-else="">
+							<i class="fa fa-undo"></i>
+						</t>
+					</div>
+					<div class="button refresh-order odoo-theme-color" t-on-click="refresh_orders">
+						<i class='fa fa-refresh'></i>
+					</div>
+					<div class="searchbox-client top-content-center">
+						<input placeholder="Search Orders" size="1" t-on-keyup="updateOrderList" class="input-search-orders"/>
+					</div>
+				</div>
+				<section class="full-content">
+					<div class="client-window">
+						<section class="subwindow collapsed">
+							<div class="subwindow-container collapsed">
+							</div>
+						</section>
+						<section class="subwindow list">
+							<div class="subwindow-container">
+								<div  class="subwindow-container-fix scrollable-y">
+									<table class="client-list">
+										<thead>
+											<tr class="odoo-theme-color">
+												<th class="order_ref">Order Ref</th>
+												<th class="receipt_ref">Receipt Ref</th>
+												<th class="order_cstmr">Customer</th>
+												<th class="order_date">Order Date</th>
+												<th class="order_total">Total</th>
+												<th class="order_state">State</th>
+												<th class="reorder">Re-Order</th>
+												<th class="returnorder">Return-Order</th>
+												<th class="reprint">Receipt</th>
+											</tr>
+										</thead>
+										<tbody class="posorders-list-contents">
+											<t t-if="!pos_orders">
+												<tr>
+													<td>Loading....</td>
+												</tr>
+											</t>
+											<t t-foreach="pos_orders" t-as="order"
+											   t-key="order.id">
+												<POSOrders 
+													order = "order"
+													selectedPosOrder="state.selectedPosOrder"
+													t-on-click-order="clickPosOrder" />
+											</t>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</section>
+					</div>
+				</section>
+			</div>
+		</div>
+	</t>
+
+	<t t-name="POSOrders" owl="1">
+		<tr t-attf-class="client-line {{highlight}}" t-att-data-id="props.order.id"
+			t-on-click="trigger('click-order', {order: props.order})">
+			<td class='order-name' t-att-data-id='props.order.id' 
+				t-on-click.stop="trigger('click-showDetails',props.order)">
+				<t t-esc='props.order.name' />
+			</td>
+			<td class='order-ref' t-att-data-id='props.order.id' 
+				t-on-click.stop="trigger('click-showDetails',props.order)">
+				<t t-esc='props.order.pos_reference' />
+			</td>
+			<td class='order-partner' t-att-data-id='props.order.id' 
+				t-on-click.stop="trigger('click-showDetails',props.order)">
+				<t t-esc='props.order.partner_id[1] or ""' />
+			</td>
+			<td class='order-date' t-att-data-id='props.order.id' 
+				t-on-click.stop="trigger('click-showDetails',props.order)">
+				<t t-esc='props.order.pos_order_date' />
+			</td>
+			<td class='order-tot' t-att-data-id='props.order.id' 
+				t-on-click.stop="trigger('click-showDetails',props.order)">
+				<t t-esc='env.pos.format_currency(props.order.amount_total)' />
+			</td>
+			<td class='order-state' t-att-data-id='props.order.id' 
+				t-on-click.stop="trigger('click-showDetails',props.order)">
+				<t t-if="props.order.state == 'draft'">Draft/New</t>
+				<t t-if="props.order.state == 'invoiced'">Invoiced</t>
+				<t t-if="props.order.state == 'paid'">Paid</t>
+				<t t-if="props.order.state == 'done'">Posted</t>
+				<t t-if="props.order.state == 'cancel'">Cancelled</t>
+			</td>
+			<td class="print-order" t-att-data-id='props.order.id' 
+				t-on-click.stop="trigger('click-reorder',props.order)">
+				<button class="odoo-theme-button"><i class="fa fa-refresh"></i> Re-Order</button>
+			</td>
+			<td class="Return-order" t-att-data-id='props.order.id' 
+				t-on-click.stop="trigger('click-returnOrder',props.order)">
+				<button class="odoo-theme-button"><i class="fa fa-sign-in"></i>  Return Order</button>
+			</td>
+			<td class="print-order" t-att-data-id='props.order.id' 
+				t-on-click.stop="trigger('click-reprint',props.order)">
+				<button class="odoo-theme-button"><i class="fa fa-print"></i>Print</button>
+			</td>
+		</tr>
+	</t>
+
+	<t t-name="PosOrdersDetail" owl="1">
+		<div role="dialog" class="modal-dialog">
+			<Draggable>
+				<div class="popup bi-popup-width">
+					<header class="title drag-handle">
+						Order Details
+					</header>
+					<main class="body traceback" style="font-family: 'Lato-Reg';">
+						<t t-set="order" t-value="props.order || []"/>
+						<table style='width:100%'>
+							<tr class="popup-tr">
+								<td style='width:20%; '><strong>Order Ref:</strong>
+								</td>
+								<td style='width:30%; '>
+									<span t-esc="order['name']"/>
+								</td>
+								<td style='width:20%; '><strong>Order Date:</strong>
+								</td>
+								<td style='width:30%; '>    
+									<span t-esc="order['pos_order_date']" />
+								</td>
+							</tr>
+							<tr class="popup-tr">
+								<td style='width:20%; '><strong>Customer:</strong>
+								</td>
+								<td style='width:30%; ' 
+									t-if="order['partner_id']">
+									
+									<span t-esc="order['partner_id'][1] or ''"/>
+									
+								</td>
+								<td style='width:20%; '><strong>Total Amount:</strong>
+								</td>
+								<td style='width:30%; '>    
+									<span t-esc="env.pos.format_currency(order['amount_total'])" />
+								</td>
+							</tr>
+							<tr class="popup-tr">
+								<td style='width:20%; '><strong>Receipt Ref:</strong>
+								</td>
+								<td style='width:30%; '>
+									<span t-esc="order['pos_reference']"/>
+								</td>
+								<td style='width:20%; '><strong>Status:</strong>
+								</td>
+								<td style='width:30%; '>
+									<t t-if="order['state'] == 'draft'">Draft/New</t>
+									<t t-if="order['state'] == 'invoiced'">Invoiced</t>
+									<t t-if="order['state'] == 'paid'">Paid</t>
+									<t t-if="order['state'] == 'done'">Posted</t>
+									<t t-if="order['state'] == 'cancel'">Cancelled</t>    
+								</td>
+							</tr>
+							<tr class="popup-tr">
+								<td style='width:20%; '><strong>Company:</strong>
+								</td>
+								<td style='width:30%; ' 
+									t-if="order['company_id']">
+									<span t-esc="order['company_id'][1]"/>
+								</td>
+								<td style='width:20%; '><strong>Session:</strong>
+								</td>
+								<td style='width:30%; '
+									t-if="order['session_id']">
+
+									<span t-esc="order['session_id'][1]" />
+								</td>
+							</tr>
+						</table>
+						<br/>
+						<table style='width:100%'>
+							<thead>
+								<tr class="orderline-table-head">
+									<th style='width:25%; padding-left: 10px; '>Product</th>
+									<th style='width:25%; padding-left: 10px; '>Discount</th>
+									<th style='width:25%; padding-left: 10px; '>Quantity</th>
+									<th style='width:25%; padding-left: 10px; '>Price</th> 
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="orderline-table" t-foreach="props.orderline || []" t-as="line1">
+									<td style='width:25%; padding-left: 10px; '><span t-if="line1['product_id']" t-esc='line1.product_id[1]' /></td>
+									<td style='width:25%; padding-left: 10px; '><span t-esc='line1.discount' /></td>
+									<td style='width:25%; padding-left: 10px; '><span t-esc='line1.qty' /></td>
+									<td style='width:25%; padding-left: 10px; '><span t-esc='line1.price_unit' /></td>
+								</tr>
+							</tbody>
+						</table>
+					</main>
+					<footer class="footer">
+						<div class="button cancel odoo-theme-color" t-on-click="cancel">
+							Close
+						</div>
+					</footer>
+				</div>
+			</Draggable>
+		</div>
+	</t>
+
+
+	<t t-name="ClientListScreen" t-inherit="point_of_sale.ClientListScreen" t-inherit-mode="extension" owl="1">
+		<xpath expr="//tr" position="inside">
+			<t t-if="env.pos.config.show_order">
+				<th>Orders</th>
+			</t>
+		</xpath> 
+	</t>
+
+	
+	<t t-name="ClientLine" t-inherit="point_of_sale.ClientLine" t-inherit-mode="extension" owl="1">
+		<xpath expr="//tr" position="inside">
+			<t t-if="env.pos.config.show_order">
+				<td class='order-partner' t-att-data-id='props.partner.id' 
+				t-on-click.stop="trigger('click-show-orders',props.partner)">
+					<button><i class="fa fa-university"></i> View Orders</button>
+				</td>
+			</t>
+		</xpath> 
+	</t>
+
+
+	<t t-name="OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+		<xpath expr="//div[hasclass('pos-receipt-order-data')]" position="after">
+			<div>
+				<span style="display:none;" t-esc="receiptBarcode"/>
+				<div style="margin:auto;margin-top:10px;" id="barcode_print"></div>
+			</div>
+		</xpath> 
+	</t>
+	
+	
+	</templates>
+	
+	

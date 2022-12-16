@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="bi_pos_import_sale_template" inherit_id="point_of_sale.template" xml:space="preserve">
+
+	<t t-name="CreateSale" owl="1">
+		<span class="control-button create_so odoo-theme-color">
+			<i class="fa fa-shopping-cart"></i>
+			<span>Create Sales Order</span>
+		</span>
+	</t>
+
+	<t t-name="OpenSOButton" owl="1">
+		<span class="control-button import_so odoo-theme-color">
+			<i class="fa fa-university"></i>
+			<span>Sale Orders</span>
+		</span>
+	</t>
+
+	<t t-name="SaleOrderScreen" owl="1">
+		<div class="clientlist-screen screen">
+			<div class="screen-content orders-screen">
+				<div class="top-content">
+					<div class="button back odoo-theme-color" t-on-click="back">
+						<t t-if="!env.isMobile">Discard</t>
+						<t t-else="">
+							<i class="fa fa-undo"></i>
+						</t>
+					</div>
+					<div class="button refresh-order odoo-theme-color" t-on-click="refresh_orders">
+						<i class='fa fa-refresh'></i>
+					</div>
+					<div class="searchbox-client top-content-center">
+						<input placeholder="Search Orders" size="1" t-on-keyup="updateOrderList" class="input-search-saleorders"/>
+					</div>
+				</div>
+				<section class="full-content">
+					<div class="client-window">
+						<section class="subwindow collapsed">
+							<div class="subwindow-container collapsed">
+							</div>
+						</section>
+						<section class="subwindow list">
+							<div class="subwindow-container">
+								<div  class="subwindow-container-fix scrollable-y">
+									<table class="client-list">
+										<thead>
+											<tr class="odoo-theme-color">
+												<th class="order_ref">Order Number</th>
+												<th class="order_date">Order Date</th>
+												<th class="order_cstmr">Customer</th>
+												<th class="sale_person">SalesPerson</th>
+												<th class="subtotal">Subtotal</th>
+												<th class="order_total">Total</th>
+												<th class="order_state">State</th>
+												<th class="import_sale">Import Order</th>
+											</tr>
+										</thead>
+										<tbody class="SaleOrders-list-contents">
+											<t t-foreach="sale_orders" t-as="order"
+											   t-key="order.id">
+												<SaleOrders 
+													order = "order"
+													selectedSaleOrder="state.selectedSaleOrder"
+													t-on-click-order="clickSaleOrder" />
+											</t>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</section>
+					</div>
+				</section>
+			</div>
+		</div>
+	</t>
+
+	<t t-name="SaleOrders" owl="1">
+		<tr t-attf-class="client-line {{highlight}}" t-att-data-id="props.order.id"
+			t-on-click="trigger('click-order', {order: props.order})">
+			<td class='order-name' t-att-data-id='props.order.id' 
+				t-on-click.stop="trigger('click-showDetails',props.order)">
+				<t t-esc='props.order.name' />
+			</td>
+			<td class='order-date' t-att-data-id='props.order.id' 
+				t-on-click.stop="trigger('click-showDetails',props.order)">
+				<t t-esc='props.order.date_order' />
+			</td>
+			<td class='order-partner' t-att-data-id='props.order.id' 
+				t-on-click.stop="trigger('click-showDetails',props.order)">
+				<t t-esc='props.order.partner_id[1] or ""' />
+			</td>
+			<td class='order-saleperson' t-att-data-id='props.order.id' 
+				t-on-click.stop="trigger('click-showDetails',props.order)">
+				<t t-esc='props.order.user_id[1] or ""' />
+			</td>
+			<td class='order-subtot' t-att-data-id='props.order.id' 
+				t-on-click.stop="trigger('click-showDetails',props.order)">
+				<t t-esc='env.pos.format_currency(props.order.amount_untaxed)' />
+			</td>
+			<td class='order-tot' t-att-data-id='props.order.id' 
+				t-on-click.stop="trigger('click-showDetails',props.order)">
+				<t t-esc='env.pos.format_currency(props.order.amount_total)' />
+			</td>
+			<td class='order-state' t-att-data-id='props.order.id' 
+				t-on-click.stop="trigger('click-showDetails',props.order)">
+				<t t-if="props.order.state == 'draft'">Quotation</t>
+				<t t-if="props.order.state == 'sent'">Quotation Sent</t>
+				<t t-if="props.order.state == 'sale'">Sale Order</t>
+				<t t-if="props.order.state == 'done'">Locked</t>
+				<t t-if="props.order.state == 'cancel'">Cancelled</t>
+			</td>
+			<td class="import-order" t-att-data-id='props.order.id' 
+				t-on-click.stop="trigger('click-importSale',props.order)">
+				<button class="odoo-theme-button"><i class="fa fa-refresh"></i> Import-Order</button>
+			</td>
+		</tr>
+	</t>
+
+	<t t-name="SODetail" owl="1">
+		<div role="dialog" class="modal-dialog">
+			<Draggable>
+				<div class="popup bi-popup-width">
+					<header class="title drag-handle">
+						Order Details
+					</header>
+					<main class="body traceback" style="font-family: 'Lato-Reg';">
+						<t t-set="order" t-value="props.order || []"/>
+						<table style='width:100%'>
+							<tr class="popup-tr">
+								<td style='width:20%; '><strong>Order Number:</strong>
+								</td>
+								<td style='width:30%; '>
+									<span t-esc="order['name']"/>
+								</td>
+								<td style='width:20%; '><strong>Order Date:</strong>
+								</td>
+								<td style='width:30%; '>    
+									<span t-esc="order['date_order']" />
+								</td>
+							</tr>
+							<tr class="popup-tr">
+								<td style='width:20%; '><strong>Customer:</strong>
+								</td>
+								<td style='width:30%; ' 
+									t-if="order['partner_id']">
+									
+									<span t-esc="order['partner_id'][1] or ''"/>
+									
+								</td>
+								<td style='width:20%; '><strong>Total Amount:</strong>
+								</td>
+								<td style='width:30%; '>    
+									<span t-esc="env.pos.format_currency(order['amount_total'])" />
+								</td>
+							</tr>
+							<tr class="popup-tr">
+								<td style='width:20%; '><strong>Company:</strong>
+								</td>
+								<td style='width:30%;' t-if="order['company_id']">
+									<span t-esc="order['company_id'][1]"/>
+								</td>
+								<td style='width:20%; '><strong>Sale Person:</strong>
+								</td>
+								<td style='width:30%;' t-if="order['user_id']">
+									<span t-esc="order['user_id'][1]" />
+								</td>
+							</tr>
+						</table>
+						<br/>
+						<table style='width:100%'>
+							<thead>
+								<tr class="orderline-table-head">
+									<th style='width:25%; padding-left: 10px; '>Product</th>
+									<th style='width:25%; padding-left: 10px; '>Quantity</th>
+									<th style='width:25%; padding-left: 10px; '>Price</th> 
+									<th style='width:25%; padding-left: 10px; '>Subtotal</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="orderline-table" t-foreach="props.orderline || []" t-as="line1">
+									<td style='width:25%; padding-left: 10px; '>
+										<t t-if="line1.product_id">
+											<span t-esc='line1.product_id[1]' />
+										</t>
+										<t t-else="">
+											<t t-esc='line1.name' />
+										</t>
+									</td>
+									<td style='width:25%; padding-left: 10px; '>
+										<t t-if="line1.product_id">
+											<span t-esc='line1.product_uom_qty' />
+										</t>
+									</td>
+									<td style='width:25%; padding-left: 10px; '>
+										<t t-if="line1.product_id">
+											<span t-esc='line1.price_unit' />
+										</t>
+									</td>
+									<td style='width:25%; padding-left: 10px; '>
+										<t t-if="line1.product_id">
+											<span t-esc='line1.price_subtotal' />
+										</t>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</main>
+					<footer class="footer">
+						<div class="button cancel odoo-theme-color" t-on-click="cancel">
+							Close
+						</div>
+					</footer>
+				</div>
+			</Draggable>
+		</div>
+	</t>
+
+	<t t-name="ImportSaleOrder" owl="1">
+		<div role="dialog" class="modal-dialog">
+			<Draggable>
+				<div class="popup" style="min-width: 50%;">
+					<header class="title drag-handle">
+						Import Products
+					</header>
+					<main class="body traceback" style="font-family: 'Lato-Reg';">
+						<table class='import-product-list' style='width:100%;text-align: center;line-height: 30px;'>
+							<thead>
+								<tr class="orderline-table-head">
+									<th>Product</th>
+									<th>Ordered Qty</th>
+									<th>Import Qty</th>
+								</tr>
+							</thead>
+							<tbody class='import-product-list-contents'>
+								<tr class="orderline-table" t-foreach="props.orderlines || []" t-as="item">
+									<td>
+										<t t-if="item.product_id">
+											<t t-esc='item.product_id[1]' />
+										</t>
+										<t t-else="">
+											<t t-esc='item.name' />
+										</t>
+									</td>
+									<td>
+										<t t-if="item.product_id">
+											<t t-esc='item.product_uom_qty' />
+										</t>
+									</td>
+									<td class="entered_item_qty">
+										<t t-if="item.product_id">
+											<input type="text" name="qty" style="margin: 5px;"
+												t-att-line-id='item.id' t-att-qty-id='item.product_uom_qty'
+												class="input-field">
+											</input>
+										</t>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</main>
+					<footer class="footer">
+						<div class="button cancel odoo-theme-button" t-on-click="cancel">
+							Close
+						</div>
+
+						<div class="button confirm odoo-theme-button" t-on-click="do_import">
+							Import
+						</div>
+					</footer>
+				</div>
+			</Draggable>
+		</div>
+	</t>
+
+</templates>
+	
+	

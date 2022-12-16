@@ -1,0 +1,2981 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_all_in_one
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-08 13:43+0000\n"
+"PO-Revision-Date: 2021-03-08 13:43+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_product_template.js:0
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_product_template.js:0
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_product_template.js:0
+#, python-format
+msgid "() is Out of Stock."
+msgstr "() Est en rupture de stock."
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.pos_loyalty_setting_form_view
+msgid ""
+"<b style=\"color:blue\"> \n"
+"\t\t\t\t\t\t\t\t\t<span>1 Point(s)</span>\n"
+"\t\t\t\t\t\t\t\t\t</b>\n"
+"\t\t\t\t\t\t\t\t\t<b>\n"
+"\t\t\t\t\t\t\t\t\t\t<span>For a Purchase of every</span>\n"
+"\t\t\t\t\t\t\t\t\t</b>"
+msgstr ""
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.pos_category_loyalty_inherit
+msgid ""
+"<b style=\"color:blue\"> \n"
+"\t\t\t\t\t\t\t<span>1 Point(s)   </span>\n"
+"\t\t\t\t\t\t\t</b>\n"
+"\t\t\t\t\t\t\t<b>\n"
+"\t\t\t\t\t\t\t\t<span>For a Purchase of every   </span>\n"
+"\t\t\t\t\t\t\t</b>"
+msgstr ""
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.pos_loyalty_setting_form_view
+msgid ""
+"<b>\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t<span>: 1 reward point =</span>\n"
+"\t\t\t\t\t\t\t\t\t\t\t</b>"
+msgstr ""
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.pos_loyalty_setting_form_view
+msgid ""
+"<b>\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t<span>Rule :  Points Between</span>\n"
+"\t\t\t\t\t\t\t\t\t\t\t</b>"
+msgstr ""
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.pos_loyalty_setting_form_view
+msgid ""
+"<b>\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t<span>and</span>\n"
+"\t\t\t\t\t\t\t\t\t\t\t</b>"
+msgstr ""
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_sales_summary
+msgid "<span class=\"pull-right\">0.0</span>"
+msgstr "<span class=\"pull-right\">0.0</span>"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_sales_summary
+msgid "<span colspan=\"3\">Discount :</span>"
+msgstr "<span colspan=\"3\">Rabais :</span>"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_sales_summary
+msgid "<span colspan=\"3\">Gross Total:</span>"
+msgstr "<span colspan=\"3\">Total brut:</span>"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_sales_summary
+msgid "<span colspan=\"3\">Sales without Tax :</span>"
+msgstr "<span colspan=\"3\">Ventes sans taxe:</span>"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_sales_summary
+msgid "<span colspan=\"3\">Tax Amount :</span>"
+msgstr "<span colspan=\"3\">Montant de la taxe :</span>"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_sales_summary
+msgid "<span>Discount : </span>"
+msgstr "<span> Remise: </span>"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_profit_loss
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_sales_summary
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_top_selling
+msgid "<span>End Date : </span>"
+msgstr "<span> Date de fin: </span>"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_sales_summary
+msgid "<span>Gross Total : </span>"
+msgstr "<span> Total brut: </span>"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_sales_summary
+msgid "<span>Name : </span>"
+msgstr "<span> Nom: </span>"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_sales_summary
+msgid "<span>Report Date time :</span>"
+msgstr "<span> Date du rapport heure: </span>"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_profit_loss
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_top_selling
+msgid "<span>Report Date time </span>"
+msgstr "<span> Date / heure du rapport </span>"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_sales_summary
+msgid "<span>Sales : </span>"
+msgstr "<span> Ventes: </span>"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_profit_loss
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_sales_summary
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_top_selling
+msgid "<span>Start Date : </span>"
+msgstr "<span> Date de début: </span>"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_sales_summary
+msgid "<span>Tax : </span>"
+msgstr "<span> Taxe: </span>"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_sales_summary
+msgid "<span>Total : </span>"
+msgstr "<span> Total: </span>"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_pos_payment
+msgid "<strong>Total:</strong>"
+msgstr "<strong> Total: </strong>"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_setting__active
+msgid "Active"
+msgstr "Active"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_product_operation.xml:0
+#, python-format
+msgid "Add Products"
+msgstr "Ajouter des produits"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/pos_product_operation.js:0
+#, python-format
+msgid "Added Product Details getting Error."
+msgstr "Ajout des détails du produit obtenant une erreur."
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_hr_employee__is_allow_discount
+#: model:ir.model.fields,field_description:pos_all_in_one.field_hr_employee_base__is_allow_discount
+#: model:ir.model.fields,field_description:pos_all_in_one.field_hr_employee_public__is_allow_discount
+#: model:ir.model.fields,field_description:pos_all_in_one.field_res_users__is_allow_discount
+msgid "Allow Discount"
+msgstr "Autoriser la remise"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_hr_employee__is_edit_price
+#: model:ir.model.fields,field_description:pos_all_in_one.field_hr_employee_base__is_edit_price
+#: model:ir.model.fields,field_description:pos_all_in_one.field_hr_employee_public__is_edit_price
+#: model:ir.model.fields,field_description:pos_all_in_one.field_res_users__is_edit_price
+msgid "Allow Edit Price"
+msgstr "Autoriser la modification du prix"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_config__allow_pos_invoice
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.inherit_view_pos_payment_config_form
+msgid "Allow POS Invoice Payment and Validation"
+msgstr "Autoriser le paiement et la validation des factures PDV"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_config__allow_pos_payment
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.inherit_view_pos_payment_config_form
+msgid "Allow POS Payments"
+msgstr "Autoriser les paiements au point de vente"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_config__allow_partical_payment
+msgid "Allow Partial Payment"
+msgstr "Autoriser le paiement partiel"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_hr_employee__is_allow_payments
+#: model:ir.model.fields,field_description:pos_all_in_one.field_hr_employee_base__is_allow_payments
+#: model:ir.model.fields,field_description:pos_all_in_one.field_hr_employee_public__is_allow_payments
+#: model:ir.model.fields,field_description:pos_all_in_one.field_res_users__is_allow_payments
+msgid "Allow Payments"
+msgstr "Autoriser les paiements"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_config__allow_pos_product_operations
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.inherit_view_pos_product_operations_form
+msgid "Allow Product Operations"
+msgstr "Autoriser les opérations sur les produits"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_hr_employee__is_allow_qty
+#: model:ir.model.fields,field_description:pos_all_in_one.field_hr_employee_base__is_allow_qty
+#: model:ir.model.fields,field_description:pos_all_in_one.field_hr_employee_public__is_allow_qty
+#: model:ir.model.fields,field_description:pos_all_in_one.field_res_users__is_allow_qty
+msgid "Allow Qty"
+msgstr "Autoriser la quantité"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_hr_employee__is_allow_remove_orderline
+#: model:ir.model.fields,field_description:pos_all_in_one.field_hr_employee_base__is_allow_remove_orderline
+#: model:ir.model.fields,field_description:pos_all_in_one.field_hr_employee_public__is_allow_remove_orderline
+#: model:ir.model.fields,field_description:pos_all_in_one.field_res_users__is_allow_remove_orderline
+msgid "Allow Remove Order Line"
+msgstr "Autoriser la suppression de la ligne de commande"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.inherit_view_pos_product_operations_form
+msgid "Allow User to create/edit product from pos"
+msgstr "Autoriser l'utilisateur à créer / modifier le produit à partir de la position de vente"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_config__allow_edit_product
+msgid "Allow user to edit/create product from pos"
+msgstr "Autoriser l'utilisateur à modifier / créer un produit à partir de la position de vente"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_category__amount_footer
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_setting__loyality_amount
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_profit_loss
+#, python-format
+msgid "Amount"
+msgstr "Montante"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_order__amount_due
+#, python-format
+msgid "Amount Due"
+msgstr "Montant dû"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#, python-format
+msgid "Amount Due:"
+msgstr "Montant dû:"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_payment.js:0
+#, python-format
+msgid "Amount Error"
+msgstr "Erreur de montant"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_category__Minimum_amount
+msgid "Amount For loyalty Points"
+msgstr "Montant des points de fidélité"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_account_bank_statement_line__account_currency
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_payment__account_currency
+msgid "Amount currency"
+msgstr "Monnaie de montant"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_setting__amount_footer
+msgid "Amount."
+msgstr "Montante."
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#, python-format
+msgid "Amount:"
+msgstr "Montante:"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_reprint_reorder.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_internal_transfer.xml:0
+#, python-format
+msgid "Apply"
+msgstr "Appliquer"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_pay_later.js:0
+#, python-format
+msgid "Are you sure,You want to Cancel this payment?"
+msgstr "Êtes-vous sûr de vouloir annuler ce paiement?"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_config__loc_summery
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.inherit_view_pos_config_reports
+#, python-format
+msgid "Audit Report"
+msgstr "Rapport d'audit"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Available qty"
+msgstr "Qté disponible"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#, python-format
+msgid "Back"
+msgstr "Retour"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_disable_payment.xml:0
+#, python-format
+msgid "Backspace"
+msgstr "Retour arrière"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_account_bank_statement_line
+msgid "Bank Statement Line"
+msgstr "Ligne de relevé bancaire"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_product_operation.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_product_operation.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_product_operation.xml:0
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.pos_date
+#, python-format
+msgid "Barcode"
+msgstr "code à barre"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_hr_employee_base
+msgid "Basic Employee"
+msgstr "Employé de base"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_reprint_reorder.xml:0
+#, python-format
+msgid "CHANGE"
+msgstr "CHANGEMENT"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_product_template.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_reprint_reorder.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_internal_transfer.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_loyalty.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_product_operation.xml:0
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.sale_excel_report_wizard
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.view_pos_payment_wizard
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.view_pos_profit_loss_wizard
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.view_pos_sale_summary_wizard
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.view_pos_top_selling_wizard
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.view_pos_x_report_wizard
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.view_pos_z_report_wizard
+#, python-format
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_pay_later.js:0
+#, python-format
+msgid "Cancel Payment ?"
+msgstr "Annuler le paiement?"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Cancelled"
+msgstr "Annulé"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields.selection,name:pos_all_in_one.selection__pos_top_selling_wizard__top_selling__categories
+msgid "Categories"
+msgstr "Catégories"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_top_selling
+#, python-format
+msgid "Category"
+msgstr "Catégorie"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Category Summary"
+msgstr "Résumé de la catégorie"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_multi_currency.xml:0
+#, python-format
+msgid "Change"
+msgstr "Changement"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/pos_disable_payment.js:0
+#, python-format
+msgid "Change Cashier"
+msgstr "Changer de caissier"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/pos_product_operation.js:0
+#, python-format
+msgid "Change Customer"
+msgstr "Changer de client"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_payment.js:0
+#, python-format
+msgid "Change Invoice"
+msgstr "Modifier la facture"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Close"
+msgstr "Fermer"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_closed_session
+msgid "Close Bal:"
+msgstr "Fermer Bal:"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_closed_session
+msgid "Closed"
+msgstr "Fermée"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_report_pos_all_in_one_report_closed_session
+msgid "Closed Session Point of Sale Details"
+msgstr "Détails du point de vente en session fermée"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_z_report_wizard__company_id
+msgid "Company"
+msgstr "Entreprise"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_res_currency__rate_in_company_currency
+msgid "Company Currency Rate"
+msgstr "Taux de change de l'entreprise"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#, python-format
+msgid "Company:"
+msgstr "Entreprise:"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_pay_later.js:0
+#, python-format
+msgid "Configure Product"
+msgstr "Configurer le produit"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_res_partner
+msgid "Contact"
+msgstr "Contacter"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_product_operation.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_product_operation.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_product_operation.xml:0
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_profit_loss
+#, python-format
+msgid "Cost Price"
+msgstr "Prix de revient"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/pos_product_operation.js:0
+#, python-format
+msgid "Could Not Read Image"
+msgstr "Impossible de lire l'image"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_currency_rate__create_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_create_customer_payment__create_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_history__create_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_setting__create_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_order_location__create_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_payment_wizard__create_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_profit_loss_wizard__create_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_redeem_rule__create_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_report_category__create_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_report_journal__create_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_report_payment__create_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_sale_summary_wizard__create_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_top_selling_wizard__create_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_sale_excel_report__create_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_x_report_wizard__create_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_z_report_wizard__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_currency_rate__create_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_create_customer_payment__create_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_history__create_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_setting__create_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_order_location__create_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_payment_wizard__create_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_profit_loss_wizard__create_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_redeem_rule__create_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_report_category__create_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_report_journal__create_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_report_payment__create_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_sale_summary_wizard__create_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_top_selling_wizard__create_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_sale_excel_report__create_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_x_report_wizard__create_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_z_report_wizard__create_date
+msgid "Created on"
+msgstr "Créé sur"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields.selection,name:pos_all_in_one.selection__pos_loyalty_history__transaction_type__credit
+msgid "Credit"
+msgstr "Crédit"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_order__cur_id
+msgid "Cur"
+msgstr "Cur"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_res_currency
+#: model:ir.model.fields,field_description:pos_all_in_one.field_currency_rate__currency_id
+msgid "Currency"
+msgstr "Devise"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_multi_currency.xml:0
+#, python-format
+msgid "Currency Conversion"
+msgstr "Conversion de devises"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_currency_rate
+msgid "Currency Rate"
+msgstr "Cours des devises"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,help:pos_all_in_one.field_currency_rate__symbol
+msgid "Currency sign, to be used when printing amounts."
+msgstr "Signe de devise, à utiliser lors de l'impression des montants."
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Current Session"
+msgstr "Session actuelle"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_history__partner_id
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_top_selling
+#, python-format
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_product_operation.xml:0
+#, python-format
+msgid "Customer Taxes"
+msgstr "Taxes client"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#, python-format
+msgid "Customer:"
+msgstr "Cliente:"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields.selection,name:pos_all_in_one.selection__pos_top_selling_wizard__top_selling__customers
+msgid "Customers"
+msgstr "Clientes"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_history__date
+msgid "Date"
+msgstr "Date"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields.selection,name:pos_all_in_one.selection__pos_loyalty_history__transaction_type__debit
+msgid "Debit"
+msgstr "Débit"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_product_template.js:0
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_product_template.js:0
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_product_template.js:0
+#, python-format
+msgid "Deny Order"
+msgstr "Refuser la commande"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_product_template.js:0
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_product_template.js:0
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_product_template.js:0
+#, python-format
+msgid "Deny Order() is Out of Stock."
+msgstr "Refuser la commande () est en rupture de stock."
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_closed_session
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_open_session
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_sales_summary
+msgid "Department Sales"
+msgstr "Ventes départementales"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/pos_product_operation.js:0
+#, python-format
+msgid "Deselect Customer"
+msgstr "Désélectionner le client"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_payment.js:0
+#, python-format
+msgid "Deselect Invoice"
+msgstr "Désélectionner la facture"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_internal_transfer.xml:0
+#, python-format
+msgid "Destination Location"
+msgstr "Lieu de destination"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_pos_payment
+msgid "Detailed Product Sales Details  From"
+msgstr "Détails détaillés des ventes de produits à partir de"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_closed_session
+msgid "Difference:"
+msgstr "Différence:"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_disable_payment.xml:0
+#, python-format
+msgid "Disc"
+msgstr "Disque"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_pos_payment
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_profit_loss
+#, python-format
+msgid "Discount"
+msgstr "Rabais"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_closed_session
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_open_session
+msgid "Discount :"
+msgstr "Rabais :"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_reprint_reorder.xml:0
+#, python-format
+msgid "Discount:"
+msgstr "Rabais:"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_reprint_reorder.xml:0
+#, python-format
+msgid "Discounts"
+msgstr "Réductions"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.custom_pos_config_extended_form_view
+msgid "Display Barcode in Receipt"
+msgstr "Afficher le code-barres dans le reçu"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_currency_rate__display_name
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_create_customer_payment__display_name
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_history__display_name
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_setting__display_name
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_order_location__display_name
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_payment_wizard__display_name
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_profit_loss_wizard__display_name
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_redeem_rule__display_name
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_report_category__display_name
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_report_journal__display_name
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_report_payment__display_name
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_sale_summary_wizard__display_name
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_top_selling_wizard__display_name
+#: model:ir.model.fields,field_description:pos_all_in_one.field_report_pos_all_in_one_report_closed_session__display_name
+#: model:ir.model.fields,field_description:pos_all_in_one.field_report_pos_all_in_one_report_open_session__display_name
+#: model:ir.model.fields,field_description:pos_all_in_one.field_report_pos_all_in_one_report_pos_payment__display_name
+#: model:ir.model.fields,field_description:pos_all_in_one.field_report_pos_all_in_one_report_profit_loss__display_name
+#: model:ir.model.fields,field_description:pos_all_in_one.field_report_pos_all_in_one_report_sales_summary__display_name
+#: model:ir.model.fields,field_description:pos_all_in_one.field_report_pos_all_in_one_report_top_selling__display_name
+#: model:ir.model.fields,field_description:pos_all_in_one.field_sale_excel_report__display_name
+#: model:ir.model.fields,field_description:pos_all_in_one.field_x_report_wizard__display_name
+#: model:ir.model.fields,field_description:pos_all_in_one.field_z_report_wizard__display_name
+msgid "Display Name"
+msgstr "Afficher un nom"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.custom_pos_config_extended_form_view
+msgid "Display Orders in POS"
+msgstr "Afficher les commandes dans le PDV"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_internal_transfer.xml:0
+#, python-format
+msgid "Done"
+msgstr "Fait"
+
+#. module: pos_all_in_one
+#: model:ir.actions.act_window,name:pos_all_in_one.action_sale_report_wizard
+msgid "Download Report"
+msgstr "Télécharger le rapport"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_internal_transfer.xml:0
+#, python-format
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#, python-format
+msgid "Draft Order"
+msgstr "Projet de commande"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#, python-format
+msgid "Draft/New"
+msgstr "Brouillon / Nouveau"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_multi_currency.xml:0
+#, python-format
+msgid "Due"
+msgstr "Payable"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#, python-format
+msgid "Due Amount"
+msgstr "Montant dû"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_loyalty.xml:0
+#, python-format
+msgid "Earned Loyalty Points:"
+msgstr "Points de fidélité gagnés:"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_hr_employee
+msgid "Employee"
+msgstr "Employée"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_pay_later.js:0
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_pay_later.js:0
+#: code:addons/pos_all_in_one/static/src/js/pos_loyalty.js:0
+#, python-format
+msgid "Empty Order"
+msgstr "Commande vide"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_config__multi_currency
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.pos_config_view_inherit_form
+msgid "Enable Multi Currency"
+msgstr "Activer plusieurs devises"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_config__curr_conv
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.pos_config_view_inherit_form
+msgid "Enable Multi Currency Conversation"
+msgstr "Activer la conversation multidevise"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_payment_wizard__end_dt
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_profit_loss_wizard__end_dt
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_sale_summary_wizard__end_dt
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_top_selling_wizard__end_dt
+#, python-format
+msgid "End Date"
+msgstr "Date de fin"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "End Date:"
+msgstr "Date de fin:"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#, python-format
+msgid "Enter Payment Details Here"
+msgstr "Entrez les détails du paiement ici"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_loyalty.xml:0
+#, python-format
+msgid "Enter number of points to Redeem:"
+msgstr "Entrez le nombre de points à échanger:"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_loyalty.xml:0
+#, python-format
+msgid "Enter points to redeem"
+msgstr "Entrez des points à échanger"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_payment.js:0
+#, python-format
+msgid "Entered amount is larger then due amount. please enter valid amount"
+msgstr "Le montant saisi est supérieur au montant dû. veuillez saisir un montant valide"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/pos_product_operation.js:0
+#: code:addons/pos_all_in_one/static/src/js/pos_product_operation.js:0
+#, python-format
+msgid "Error: Could not Save Changes"
+msgstr "Erreur: impossible d'enregistrer les modifications"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_product_template.js:0
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_product_template.js:0
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_product_template.js:0
+#, python-format
+msgid "Error: Out of Stock"
+msgstr "Erreur: Rupture de stock"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_sale_excel_report__file_name
+msgid "Excel File"
+msgstr "Archivo Excel"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_currency_rate__rate
+msgid "Exchange Rate"
+msgstr "Taux de change"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_multi_currency.xml:0
+#, python-format
+msgid "Exchanged Rate"
+msgstr "Taux d'échange"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Exit"
+msgstr "Sortir"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_setting__expiry_date
+msgid "Expiry date"
+msgstr "Date d'expiration"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_setting__expiry_onlydate
+msgid "Expiry only date"
+msgstr "Date d'expiration seulement"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_profit_loss
+msgid "Gross Profit/Loss"
+msgstr "Bénéfice / perte brute"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_closed_session
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_open_session
+msgid "Gross Total:"
+msgstr "Total brut:"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_loyalty.xml:0
+#, python-format
+msgid "Hello"
+msgstr "Bonjour"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_currency_rate__id
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_create_customer_payment__id
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_history__id
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_setting__id
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_order_location__id
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_payment_wizard__id
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_profit_loss_wizard__id
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_redeem_rule__id
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_report_category__id
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_report_journal__id
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_report_payment__id
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_sale_summary_wizard__id
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_top_selling_wizard__id
+#: model:ir.model.fields,field_description:pos_all_in_one.field_report_pos_all_in_one_report_closed_session__id
+#: model:ir.model.fields,field_description:pos_all_in_one.field_report_pos_all_in_one_report_open_session__id
+#: model:ir.model.fields,field_description:pos_all_in_one.field_report_pos_all_in_one_report_pos_payment__id
+#: model:ir.model.fields,field_description:pos_all_in_one.field_report_pos_all_in_one_report_profit_loss__id
+#: model:ir.model.fields,field_description:pos_all_in_one.field_report_pos_all_in_one_report_sales_summary__id
+#: model:ir.model.fields,field_description:pos_all_in_one.field_report_pos_all_in_one_report_top_selling__id
+#: model:ir.model.fields,field_description:pos_all_in_one.field_sale_excel_report__id
+#: model:ir.model.fields,field_description:pos_all_in_one.field_x_report_wizard__id
+#: model:ir.model.fields,field_description:pos_all_in_one.field_z_report_wizard__id
+msgid "ID"
+msgstr "identifiant"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_config__internal_transfer
+msgid "Internal Stock "
+msgstr "Stock interne"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_internal_transfer.xml:0
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.inherit_view_pos_config_internal_transfer
+#, python-format
+msgid "Internal Stock Transfer"
+msgstr "Transfert de stock interne"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_internal_transfer.xml:0
+#, python-format
+msgid "Internal Transfer"
+msgstr "Transfert interne"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.inherit_view_pos_config_internal_transfer
+msgid "Internal Transfer Config"
+msgstr "Config de transfert interne"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#, python-format
+msgid "Invoice"
+msgstr "Facture d'achat"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Invoiced"
+msgstr "Facturé"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#, python-format
+msgid "Invoices"
+msgstr "Les factures"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_order__is_partial
+msgid "Is Partial Payment"
+msgstr "Est un paiement partiel"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_setting__issue_date
+msgid "Issue Date"
+msgstr "Date d'émission"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_setting__issue_onlydate
+msgid "Issue only date"
+msgstr "Date d'émission seulement"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Journal"
+msgstr "Journal"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Journal Summary"
+msgstr "Résumé du journal"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Journals"
+msgstr "Journaux"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_currency_rate____last_update
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_create_customer_payment____last_update
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_history____last_update
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_setting____last_update
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_order_location____last_update
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_payment_wizard____last_update
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_profit_loss_wizard____last_update
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_redeem_rule____last_update
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_report_category____last_update
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_report_journal____last_update
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_report_payment____last_update
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_sale_summary_wizard____last_update
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_top_selling_wizard____last_update
+#: model:ir.model.fields,field_description:pos_all_in_one.field_report_pos_all_in_one_report_closed_session____last_update
+#: model:ir.model.fields,field_description:pos_all_in_one.field_report_pos_all_in_one_report_open_session____last_update
+#: model:ir.model.fields,field_description:pos_all_in_one.field_report_pos_all_in_one_report_pos_payment____last_update
+#: model:ir.model.fields,field_description:pos_all_in_one.field_report_pos_all_in_one_report_profit_loss____last_update
+#: model:ir.model.fields,field_description:pos_all_in_one.field_report_pos_all_in_one_report_sales_summary____last_update
+#: model:ir.model.fields,field_description:pos_all_in_one.field_report_pos_all_in_one_report_top_selling____last_update
+#: model:ir.model.fields,field_description:pos_all_in_one.field_sale_excel_report____last_update
+#: model:ir.model.fields,field_description:pos_all_in_one.field_x_report_wizard____last_update
+#: model:ir.model.fields,field_description:pos_all_in_one.field_z_report_wizard____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_currency_rate__write_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_create_customer_payment__write_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_history__write_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_setting__write_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_order_location__write_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_payment_wizard__write_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_profit_loss_wizard__write_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_redeem_rule__write_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_report_category__write_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_report_journal__write_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_report_payment__write_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_sale_summary_wizard__write_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_top_selling_wizard__write_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_sale_excel_report__write_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_x_report_wizard__write_uid
+#: model:ir.model.fields,field_description:pos_all_in_one.field_z_report_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_currency_rate__write_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_create_customer_payment__write_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_history__write_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_setting__write_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_order_location__write_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_payment_wizard__write_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_profit_loss_wizard__write_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_redeem_rule__write_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_report_category__write_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_report_journal__write_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_report_payment__write_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_sale_summary_wizard__write_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_top_selling_wizard__write_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_sale_excel_report__write_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_x_report_wizard__write_date
+#: model:ir.model.fields,field_description:pos_all_in_one.field_z_report_wizard__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_product_operation.xml:0
+#, python-format
+msgid "List Price"
+msgstr "Liste des prix"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Location Summary"
+msgstr "Résumé de l'emplacement"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Locations"
+msgstr "Emplacements"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_reprint_reorder.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Logo"
+msgstr "Logo"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_res_partner__loyalty_amount
+#: model:ir.model.fields,field_description:pos_all_in_one.field_res_users__loyalty_amount
+msgid "Loyalty Amount"
+msgstr "Montant de la fidélité"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_setting__loyalty_basis_on
+msgid "Loyalty Basis On"
+msgstr "Base de fidélité sur"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.pos_loyalty_setting_form_view
+msgid "Loyalty Calculation"
+msgstr "Calcul de fidélité"
+
+#. module: pos_all_in_one
+#: model:ir.actions.act_window,name:pos_all_in_one.action_pos_loyalty_setting
+#: model:ir.ui.menu,name:pos_all_in_one.menu_pos_loyalty_setting
+msgid "Loyalty Configuration"
+msgstr "Configuration de la fidélité"
+
+#. module: pos_all_in_one
+#: model:ir.actions.act_window,name:pos_all_in_one.action_pos_loyalty_history
+#: model:ir.model,name:pos_all_in_one.model_pos_loyalty_history
+#: model:ir.ui.menu,name:pos_all_in_one.menu_pos_loyalty_history
+msgid "Loyalty History"
+msgstr "Histoire de fidélité"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_redeem_rule__loyality_id
+msgid "Loyalty ID"
+msgstr "ID de fidélité"
+
+#. module: pos_all_in_one
+#: model:ir.ui.menu,name:pos_all_in_one.menu_pos_loyalty_id
+msgid "Loyalty Management"
+msgstr "Gestion de la fidélité"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_loyalty.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_loyalty.xml:0
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_history__points
+#: model:ir.model.fields,field_description:pos_all_in_one.field_res_partner__loyalty_points
+#: model:ir.model.fields,field_description:pos_all_in_one.field_res_users__loyalty_points
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.view_res_partner_loyalty_form
+#, python-format
+msgid "Loyalty Points"
+msgstr "Points de fidélité"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_loyalty.xml:0
+#, python-format
+msgid "Loyalty Points. Total:"
+msgstr "Points de fidélité. Total:"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_pos_redeem_rule
+msgid "Loyalty Redeem Rule"
+msgstr "Règle d'échange de fidélité"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_loyalty.xml:0
+#, python-format
+msgid "Loyalty Reedemption"
+msgstr "Échange de fidélité"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_pos_loyalty_setting
+msgid "Loyalty Setting"
+msgstr "Paramètre de fidélité"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_res_partner__loyalty_history_ids
+#: model:ir.model.fields,field_description:pos_all_in_one.field_res_users__loyalty_history_ids
+msgid "Loyalty history"
+msgstr "Histoire de la fidélité"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_redeem_rule__max_amt
+msgid "Maximum Amount"
+msgstr "Quantité maximale"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_multi_currency.xml:0
+#, python-format
+msgid "Method"
+msgstr "Méthode"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_redeem_rule__min_amt
+msgid "Minimum Amount"
+msgstr "Montant minimal"
+
+#. module: pos_all_in_one
+#: code:addons/pos_all_in_one/models/pos_loyalty.py:0
+#, python-format
+msgid "Minimum Point is not larger than Maximum Point"
+msgstr "Le point minimum n'est pas plus grand que le point maximum"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Month :"
+msgstr "Mois :"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Month:"
+msgstr "Mois:"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.pos_config_view_inherit_form
+msgid "Multi Currency conversation"
+msgstr "Conversation multi-devises"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_product_operation.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_setting__name
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_redeem_rule__name
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_pos_payment
+#, python-format
+msgid "Name"
+msgstr "Nom"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "New"
+msgstr "Nouvelle"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/pos_loyalty.js:0
+#, python-format
+msgid "No Redmption Rule"
+msgstr "Aucune règle de redmption"
+
+#. module: pos_all_in_one
+#: code:addons/pos_all_in_one/models/pos_order_inherit.py:0
+#, python-format
+msgid ""
+"No cash statement found for this session. Unable to record returned cash."
+msgstr ""
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_product_operation.xml:0
+#, python-format
+msgid "None"
+msgstr "Aucune"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_pay_later.js:0
+#, python-format
+msgid "Not Allowed"
+msgstr "Interdit"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_account_payment__notes_pos
+msgid "Notes"
+msgstr "Remarques"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_top_selling_wizard__no_product
+msgid "Number of Products (Top)"
+msgstr "Nombre de produits (haut)"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_order__pos_order_date
+msgid "Oder Date"
+msgstr "Date d'Oder"
+
+#. module: pos_all_in_one
+#: model:ir.actions.act_window,name:pos_all_in_one.action_x_report
+#: model:ir.actions.report,name:pos_all_in_one.action_x_report_print
+#: model:ir.ui.menu,name:pos_all_in_one.x_report
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_open_session
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.view_pos_x_report_wizard
+msgid "Ongoing Session Report"
+msgstr "Rapport de session en cours"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields.selection,name:pos_all_in_one.selection__pos_config__pos_session_limit__current_day
+msgid "Only Current Day Orders"
+msgstr "Uniquement les commandes du jour en cours"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields.selection,name:pos_all_in_one.selection__pos_config__pos_session_limit__current_session
+msgid "Only Current Session's Orders"
+msgstr "Uniquement les ordres de la session en cours"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_sale_summary_wizard__only_summary
+msgid "Only Summary"
+msgstr "Seul résumé"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/pos_product_operation.js:0
+#, python-format
+msgid "Only web-compatible Image formats such as .png or .jpeg are supported"
+msgstr "Seuls les formats d'image compatibles avec le Web tels que .png ou .jpeg sont pris en charge"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_closed_session
+msgid "Open Bal:"
+msgstr "Bal ouvert:"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_open_session
+msgid "Opened"
+msgstr "Ouverte"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_open_session
+msgid "Opening Balance:"
+msgstr "Solde d'ouverture:"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_order__barcode
+msgid "Order Barcode"
+msgstr "Code à barres de la commande"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_order__barcode_img
+msgid "Order Barcode Image"
+msgstr "Commander l'image du code-barres"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Order Date"
+msgstr "Date de commande"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#, python-format
+msgid "Order Date:"
+msgstr "Date de commande:"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#, python-format
+msgid "Order Details"
+msgstr "détails de la commande"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#, python-format
+msgid "Order Ref"
+msgstr "Réf de commande"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#, python-format
+msgid "Order Ref:"
+msgstr "Réf de commande:"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.inherit_view_pos_config_reports
+#, python-format
+msgid "Order Summary"
+msgstr "Récapitulatif de la commande"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_config__order_summery
+msgid "Order Summery"
+msgstr "Récapitulatif de la commande"
+
+#. module: pos_all_in_one
+#: model:ir.ui.menu,name:pos_all_in_one.menu_report_parent
+msgid "Other Reports"
+msgstr "Autres rapports"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.pos_loyalty_setting_form_view
+msgid "POS Categories"
+msgstr "Catégories de PDV"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_pos_create_customer_payment
+msgid "POS Create Customer Payment"
+msgstr "PDV Créer un paiement client"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.pos_loyalty_setting_form_view
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.view_pos_loyalty_setting_tree_view
+msgid "POS Loyalty Configuration"
+msgstr "Configuration de la fidélité au point de vente"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.pos_loyalty_history_form_view
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.view_pos_loyalty_history_tree_view
+msgid "POS Loyalty History"
+msgstr "Historique de fidélité aux points de vente"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_history__order_id
+msgid "POS Order"
+msgstr "Commande au point de vente"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_pos_order_location
+msgid "POS Order Locaton"
+msgstr "Emplacement de la commande au point de vente"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.inherit_view_pos_payment_config_form
+msgid "POS Payment Configuration"
+msgstr "Configuration de paiement PDV"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_report_pos_all_in_one_report_pos_payment
+msgid "POS Payment Report"
+msgstr "Rapport de paiement PDV"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_pos_payment_wizard
+msgid "POS Payment Wizard"
+msgstr "Assistant de paiement PDV"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_pos_payment
+msgid "POS Payments Details"
+msgstr "Détails des paiements au point de vente"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields.selection,name:pos_all_in_one.selection__pos_loyalty_setting__loyalty_basis_on__pos_category
+msgid "POS Product Categories"
+msgstr "Catégories de produits PDV"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_pos_payment
+msgid "POS Products Details"
+msgstr "Détails des produits de point de vente"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_report_pos_all_in_one_report_profit_loss
+msgid "POS Profit Loss Report"
+msgstr "Rapport sur la perte de profit du PDV"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_pos_profit_loss_wizard
+msgid "POS Profit Loss Wizard"
+msgstr "Assistant de perte de profit PDV"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.pos_loyalty_setting_form_view
+msgid "POS Redeem Rule Form"
+msgstr "Formulaire de règle d'échange au PDV"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_pos_report_category
+msgid "POS Report Category"
+msgstr "Catégorie de rapport PDV"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_pos_report_journal
+msgid "POS Report Journal"
+msgstr "Journal de rapport de point de vente"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_pos_report_payment
+msgid "POS Report Payment"
+msgstr "Paiement du rapport de point de vente"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.inherit_view_pos_config_reports
+msgid "POS Reports Configuration"
+msgstr "Configuration des rapports POS"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_report_pos_all_in_one_report_sales_summary
+msgid "POS Sale Summary Report"
+msgstr "Rapport récapitulatif des ventes au point de vente"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_pos_sale_summary_wizard
+msgid "POS Sale Summary Wizard"
+msgstr "Assistant de résumé de vente au point de vente"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_x_report_wizard__pos_session_ids
+#: model:ir.model.fields,field_description:pos_all_in_one.field_z_report_wizard__pos_session_ids
+msgid "POS Session(s)"
+msgstr "Session (s) de point de vente"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_report_pos_all_in_one_report_top_selling
+msgid "POS Top Selling Report"
+msgstr "Rapport sur les ventes les plus vendues au point de vente"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_pos_top_selling_wizard
+msgid "POS Top Selling Wizard"
+msgstr "Assistant de vente au plus haut point de vente"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_x_report_wizard
+msgid "POS X Report Wizard"
+msgstr "Assistant de rapport POS X"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_z_report_wizard
+msgid "POS Z Report Wizard"
+msgstr "Assistant de rapport POS Z"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_sale_excel_report
+msgid "POS sale excel Report"
+msgstr "Rapport Excel sur la vente au point de vente"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.inherit_view_bi_hr_employee_form
+msgid "POS-related settings are managed on"
+msgstr "Les paramètres liés au point de vente sont gérés sur"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Paid"
+msgstr "Payé"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#, python-format
+msgid "Partial Payment"
+msgstr "Paiement partiel"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_config__partial_product_id
+msgid "Partial Payment Product"
+msgstr "Produit de paiement partiel"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#, python-format
+msgid "Pay"
+msgstr "Payer"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#, python-format
+msgid "Payment"
+msgstr "Paiement"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#, python-format
+msgid "Payment Journal:"
+msgstr "Journal des paiements:"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#, python-format
+msgid "Payment Note:"
+msgstr "Note de paiement:"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.inherit_view_payment_form_notes
+msgid "Payment Notes"
+msgstr "Notes de paiement"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.inherit_view_pos_config_reports
+#, python-format
+msgid "Payment Summary"
+msgstr "Résumé de paiement"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_config__payment_summery
+msgid "Payment Summery"
+msgstr "Résumé de paiement"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_multi_currency.xml:0
+#, python-format
+msgid "Payment amount in"
+msgstr "Montant du paiement en"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_account_payment
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_closed_session
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_open_session
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_sales_summary
+msgid "Payments"
+msgstr "Paiements"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_internal_transfer.xml:0
+#, python-format
+msgid "Picking Type"
+msgstr "Picking Type"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Please Select Location."
+msgstr "Please Select Location."
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Please Select Session."
+msgstr "Veuillez sélectionner une session."
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/pos_loyalty.js:0
+#, python-format
+msgid "Please add Redmption Rule in loyalty configuration"
+msgstr "Veuillez ajouter une règle de redmption dans la configuration de fidélité"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_pay_later.js:0
+#, python-format
+msgid "Please configure partial product."
+msgstr "Veuillez configurer un produit partiel."
+
+#. module: pos_all_in_one
+#: code:addons/pos_all_in_one/models/bi_pos_pay_later.py:0
+#: code:addons/pos_all_in_one/models/bi_pos_pay_later.py:0
+#, python-format
+msgid "Please enable available in POS for the Partial Payment Product"
+msgstr "Veuillez activer disponible dans le PDV pour le produit de paiement partiel"
+
+#. module: pos_all_in_one
+#: code:addons/pos_all_in_one/wizard/pos_payment.py:0
+#: code:addons/pos_all_in_one/wizard/pos_sale_summary.py:0
+#: code:addons/pos_all_in_one/wizard/profit_loss.py:0
+#: code:addons/pos_all_in_one/wizard/top_selling.py:0
+#, python-format
+msgid "Please enter valid start and end date."
+msgstr "Veuillez saisir des dates de début et de fin valides."
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Please fill End Date."
+msgstr "Veuillez remplir la date de fin."
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Please fill Start Date."
+msgstr "Veuillez remplir la date de début."
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#, python-format
+msgid "Please select a payment method."
+msgstr "Veuillez choisir un moyen de paiement."
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/pos_loyalty.js:0
+#, python-format
+msgid "Please select some products"
+msgstr "Veuillez sélectionner quelques produits"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.inherit_view_bi_hr_employee_form
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.inherit_view_bi_res_users_form
+msgid "Point Of Sale"
+msgstr "Point de vente"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_pos_category
+msgid "Point of Sale Category"
+msgstr "Catégorie de point de vente"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuration du point de vente"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_report_pos_all_in_one_report_open_session
+msgid "Point of Sale Details"
+msgstr "Détails du point de vente"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Commandes au point de vente"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_pos_payment
+msgid "Point of Sale Payments"
+msgstr "Paiements au point de vente"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Session de point de vente"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_loyalty.xml:0
+#, python-format
+msgid "Point(s)"
+msgstr "Points)"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_currency_rate__pos
+msgid "Pos"
+msgstr "Pos"
+
+#. module: pos_all_in_one
+#: model:ir.actions.act_window,name:pos_all_in_one.action_report_pos_payment
+#: model:ir.actions.report,name:pos_all_in_one.action_pos_payment_report
+#: model:ir.ui.menu,name:pos_all_in_one.menu_pos_payment_report
+msgid "Pos Payment Report"
+msgstr "Rapport de paiement Pos"
+
+#. module: pos_all_in_one
+#: model:ir.actions.act_window,name:pos_all_in_one.action_report_profit_loss
+#: model:ir.actions.report,name:pos_all_in_one.action_profit_loss_report
+#: model:ir.ui.menu,name:pos_all_in_one.menu_profit_loss_report
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_profit_loss
+msgid "Pos Profit-Loss Report"
+msgstr "Rapport de profits / pertes Pos"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Posted"
+msgstr "Publié"
+
+#. module: pos_all_in_one
+#: model:ir.actions.act_window,name:pos_all_in_one.action_z_report
+#: model:ir.actions.report,name:pos_all_in_one.action_z_report_print
+#: model:ir.ui.menu,name:pos_all_in_one.z_report_1
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_closed_session
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.view_pos_z_report_wizard
+msgid "Posted Session Report"
+msgstr "Rapport de session publié"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_disable_payment.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#, python-format
+msgid "Price"
+msgstr "Prix"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_reprint_reorder.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.view_pos_profit_loss_wizard
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.view_pos_sale_summary_wizard
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.view_pos_top_selling_wizard
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.view_pos_x_report_wizard
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.view_pos_z_report_wizard
+#, python-format
+msgid "Print"
+msgstr "Impression"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.view_pos_payment_wizard
+msgid "Print PDF"
+msgstr "Imprimer PDF"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_reprint_reorder.xml:0
+#, python-format
+msgid "Print Receipt"
+msgstr "Imprimer le reçu"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Print Receipt Location Summary"
+msgstr "Imprimer le récapitulatif de l'emplacement du reçu"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Print Receipt Order Summary"
+msgstr "Imprimer le récapitulatif de la commande de reçu"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Print Receipt Payment Summary"
+msgstr "Imprimer le récapitulatif du paiement du reçu"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Print Receipt Product Category"
+msgstr "Catégorie de produit de reçu d'impression"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Print Receipt Product Summary"
+msgstr "Imprimer le récapitulatif du produit du reçu"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.view_pos_payment_wizard
+msgid "Print XLS"
+msgstr "Imprimer XLS"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_reprint_reorder.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: model:ir.model,name:pos_all_in_one.model_product_product
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_setting__product_id
+#, python-format
+msgid "Product"
+msgstr "Produit"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_product_operation.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_product_operation.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_product_operation.xml:0
+#, python-format
+msgid "Product Category"
+msgstr "catégorie de produit"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.inherit_view_pos_config_reports
+msgid "Product Category Summary"
+msgstr "Résumé de la catégorie de produit"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_product_operation.xml:0
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_pos_payment
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_profit_loss
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_top_selling
+#, python-format
+msgid "Product Name"
+msgstr "Nom du produit"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.inherit_view_pos_product_operations_form
+msgid "Product Operations"
+msgstr "Opérations produit"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.inherit_view_pos_config_reports
+#, python-format
+msgid "Product Summary"
+msgstr "Informations sur le produit"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_config__product_summery
+msgid "Product Summery"
+msgstr "Informations sur le produit"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_product_template.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_product_template.xml:0
+#, python-format
+msgid "Product image"
+msgstr "Image du produit"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_config__product_categ_summery
+msgid "Product product Summery"
+msgstr "Résumé du produit du produit"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_product_operation.xml:0
+#: model:ir.model.fields.selection,name:pos_all_in_one.selection__pos_top_selling_wizard__top_selling__products
+#, python-format
+msgid "Products"
+msgstr "Des produits"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_product_template.xml:0
+#, python-format
+msgid "Products Variants"
+msgstr "Variantes de produits"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields.selection,name:pos_all_in_one.selection__pos_loyalty_setting__loyalty_basis_on__amount
+msgid "Purchase Amount"
+msgstr "Montant des achats"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_disable_payment.xml:0
+#, python-format
+msgid "Qty"
+msgstr "Qté"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_pos_payment
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_profit_loss
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_top_selling
+#, python-format
+msgid "Quantity"
+msgstr "Quantité"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_reprint_reorder.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_reprint_reorder.xml:0
+#, python-format
+msgid "Re-Order"
+msgstr "Réorganiser"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_reprint_reorder.xml:0
+#, python-format
+msgid "Receipt"
+msgstr "Le reçu"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#, python-format
+msgid "Receipt Ref"
+msgstr "Réf du reçu"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#, python-format
+msgid "Receipt Ref:"
+msgstr "Réf du reçu:"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_multi_currency.xml:0
+#, python-format
+msgid "Receipt in"
+msgstr "Reçu en"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_loyalty.xml:0
+#, python-format
+msgid "Redeem"
+msgstr "Racheter"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/pos_loyalty.js:0
+#, python-format
+msgid "Redeem Product"
+msgstr "Utiliser le produit"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_redeem_rule__reward_amt
+msgid "Redemption Amount"
+msgstr "Montant du remboursement"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.pos_loyalty_setting_form_view
+msgid "Redemption Computation"
+msgstr "Calcul de rachat"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_setting__redeem_ids
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.pos_loyalty_setting_form_view
+msgid "Redemption Rule"
+msgstr "Redemption Rule"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_loyalty.xml:0
+#, python-format
+msgid "Reedem Now"
+msgstr "Échangez maintenant"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#, python-format
+msgid "Register Payment"
+msgstr "Enregistrer le paiement"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#, python-format
+msgid "Register Payment for the Invoice & Validate"
+msgstr "Enregistrer le paiement de la facture et valider"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_reprint_reorder.xml:0
+#, python-format
+msgid "Reorder Products"
+msgstr "Réorganiser les produits"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_reprint_reorder.xml:0
+#, python-format
+msgid "Reorder Qty"
+msgstr "Réorganiser la quantité"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_closed_session
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_open_session
+msgid "Report Date:"
+msgstr "Report Date:"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_closed_session
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_open_session
+msgid "Report Time :"
+msgstr "Heure du rapport:"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_sale_summary_wizard__report_type
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_top_selling_wizard__report_type
+#: model:ir.model.fields,field_description:pos_all_in_one.field_x_report_wizard__report_type
+#: model:ir.model.fields,field_description:pos_all_in_one.field_z_report_wizard__report_type
+msgid "Report Type"
+msgstr "Type de rapport"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_sale_summary_wizard__res_user_ids
+msgid "Res User"
+msgstr "Res User"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_reprint_reorder.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_reprint_reorder.xml:0
+#, python-format
+msgid "Return Order"
+msgstr "Commande de retour"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_closed_session
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_open_session
+msgid "Returns :"
+msgstr "Retour :"
+
+#. module: pos_all_in_one
+#: code:addons/pos_all_in_one/models/pos_loyalty.py:0
+#, python-format
+msgid "Reward amount is not a zero or less than zero"
+msgstr "Le montant de la récompense n'est ni nul ni inférieur à zéro"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_product_operation.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_product_operation.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_product_operation.xml:0
+#, python-format
+msgid "Sale Price"
+msgstr "Prix de vente"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_sale_excel_report__excel_file
+msgid "Sales Daily Excel Report"
+msgstr "Rapport Excel quotidien des ventes"
+
+#. module: pos_all_in_one
+#: model:ir.actions.act_window,name:pos_all_in_one.action_report_sale_summary
+#: model:ir.actions.report,name:pos_all_in_one.action_sales_summary_report
+#: model:ir.ui.menu,name:pos_all_in_one.menu_report_sale_summary
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_sales_summary
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.sale_excel_report_wizard
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.view_pos_payment_wizard
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.view_pos_profit_loss_wizard
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.view_pos_sale_summary_wizard
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.view_pos_top_selling_wizard
+msgid "Sales Summary"
+msgstr "Résumé des ventes"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_open_session
+msgid "Sales without Tax :"
+msgstr "Ventes sans taxe:"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_closed_session
+msgid "Sales:"
+msgstr "Ventes:"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Salesperson:"
+msgstr "Vendeuse:"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Salespersons"
+msgstr "Vendeuses"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#, python-format
+msgid "Search Invoices"
+msgstr "Rechercher des factures"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#, python-format
+msgid "Search Orders"
+msgstr "Ordres de Recherche"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_product_operation.xml:0
+#, python-format
+msgid "Search Products"
+msgstr "Recherche de produits"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_multi_currency.xml:0
+#, python-format
+msgid "Select Currency"
+msgstr "Sélectionnez la devise"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Select Session"
+msgstr "Sélectionnez une session"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Select State"
+msgstr "Sélectionnez l'état"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Select Stock Locations"
+msgstr "Sélectionnez les emplacements de stock"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_product_template.xml:0
+#, python-format
+msgid "Select Your Variants"
+msgstr "Sélectionnez vos variantes"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_pay_later.js:0
+#, python-format
+msgid "Select customer first."
+msgstr "Sélectionnez d'abord le client."
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_reprint_reorder.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Served by"
+msgstr "Servi par"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.custom_pos_config_extended_form_view
+msgid "Session Limit Configuration"
+msgstr "Configuration de la limite de session"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Session Summary"
+msgstr "Résumé de la session"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_config__pos_session_limit
+msgid "Session limit"
+msgstr "Limite de session"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_closed_session
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_open_session
+msgid "Session(s) :"
+msgstr "Session (s):"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#, python-format
+msgid "Session:"
+msgstr "Session:"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Sessions"
+msgstr "Séances"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/pos_product_operation.js:0
+#, python-format
+msgid "Set Customer"
+msgstr "Définir le client"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_payment.js:0
+#, python-format
+msgid "Set Invoice"
+msgstr "Définir la facture"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.inherit_view_pos_config_pay_later
+msgid "Set Product for partial payment calculation."
+msgstr "Définissez le produit pour le calcul du paiement partiel."
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.custom_pos_config_extended_form_view
+msgid ""
+"Set session limit to load pos orders. If you have more than 1000 orders, "
+"then we recommend not to use \"Load all\" option."
+msgstr ""
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_config__show_barcode
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.custom_pos_config_extended_form_view
+msgid "Show Barcode in Receipt"
+msgstr "Afficher le code-barres dans le reçu"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_config__show_draft
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.custom_pos_config_extended_form_view
+msgid "Show Draft Orders"
+msgstr "Afficher les commandes préliminaires"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_config__show_order
+msgid "Show Orders"
+msgstr "Afficher les commandes"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.custom_pos_config_extended_form_view
+msgid "Show POS Orders in POS"
+msgstr "Afficher les commandes PDV dans PDV"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_config__show_posted
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.custom_pos_config_extended_form_view
+msgid "Show Posted Orders"
+msgstr "Afficher les commandes publiées"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Sold qty"
+msgstr "Quantité vendue"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_internal_transfer.xml:0
+#, python-format
+msgid "Sorce Location"
+msgstr "Emplacement Sorce"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/pos_loyalty.js:0
+#, python-format
+msgid "Sorry, you already added the redeem product."
+msgstr "Désolé, vous avez déjà ajouté le produit à utiliser."
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_payment_wizard__start_dt
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_profit_loss_wizard__start_dt
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_sale_summary_wizard__start_dt
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_top_selling_wizard__start_dt
+#, python-format
+msgid "Start Date"
+msgstr "Date de début"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Start Date:"
+msgstr "Date de début:"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_internal_transfer.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "State"
+msgstr "État"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "States"
+msgstr "États"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_closed_session
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_open_session
+#, python-format
+msgid "Status:"
+msgstr "Statut:"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Stock Locations"
+msgstr "Emplacements des stocks"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#, python-format
+msgid "Subtotal"
+msgstr "Total"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_sales_summary
+#, python-format
+msgid "Summary"
+msgstr "Résumé"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_reprint_reorder.xml:0
+#, python-format
+msgid "TOTAL"
+msgstr "TOTALE"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_closed_session
+msgid "Tax :"
+msgstr "Impôt :"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_open_session
+msgid "Tax Amount :"
+msgstr "Montant de la taxe :"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_profit_loss
+msgid "Taxes"
+msgstr "Les impôts"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_reprint_reorder.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Tel:"
+msgstr "Tél:"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/pos_product_operation.js:0
+#, python-format
+msgid "The provided file could not be read due to an unknown error"
+msgstr "Le fichier fourni n'a pas pu être lu en raison d'une erreur inconnue"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,help:pos_all_in_one.field_currency_rate__rate
+msgid "The rate of the currency to the currency of rate 1."
+msgstr "Le taux de la devise par rapport à la devise du taux 1."
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.inherit_view_bi_hr_employee_form
+msgid "The related user"
+msgstr "L'utilisateur associé"
+
+#. module: pos_all_in_one
+#: code:addons/pos_all_in_one/models/bi_pos_pay_later.py:0
+#, python-format
+msgid ""
+"There are still orders in draft state in the session. Pay or cancel the following orders to validate the session:\n"
+"%s"
+msgstr ""
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_pay_later.js:0
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_pay_later.js:0
+#, python-format
+msgid ""
+"There must be at least one product in your order before it can be validated."
+msgstr ""
+
+#. module: pos_all_in_one
+#: code:addons/pos_all_in_one/models/bi_pos_pay_later.py:0
+#, python-format
+msgid "This session is already closed."
+msgstr "Cette session est déjà fermée."
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "To"
+msgstr "À"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_top_selling
+msgid "Top Categories"
+msgstr "Top Catégories"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_top_selling
+msgid "Top Customers"
+msgstr "Top clients"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_top_selling
+msgid "Top Products"
+msgstr "Top produits"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_top_selling_wizard__top_selling
+msgid "Top Selling"
+msgstr "Meilleures ventes"
+
+#. module: pos_all_in_one
+#: model:ir.ui.menu,name:pos_all_in_one.menu_report_top_selling
+msgid "Top Selling Customer/Product Report"
+msgstr "Rapport sur les clients / produits les plus vendus"
+
+#. module: pos_all_in_one
+#: model:ir.actions.act_window,name:pos_all_in_one.action_report_top_selling
+#: model:ir.actions.report,name:pos_all_in_one.action_top_selling_report
+msgid "Top Selling Customer/Product/Category"
+msgstr "Client / Produit / Catégorie le plus vendu"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_pos_payment
+#, python-format
+msgid "Total"
+msgstr "Totale"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_payment.xml:0
+#, python-format
+msgid "Total Amount"
+msgstr "Montant total"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_multi_currency.xml:0
+#, python-format
+msgid "Total Amount ="
+msgstr "Montant total ="
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_orders_list.xml:0
+#, python-format
+msgid "Total Amount:"
+msgstr "Montant total:"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_loyalty.xml:0
+#, python-format
+msgid "Total Loyalty Points:"
+msgstr "Total des points de fidélité:"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#, python-format
+msgid "Total Paid Amount:"
+msgstr "Montant total payé:"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_top_selling
+msgid "Total Selling"
+msgstr "Vente totale"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Total Summary"
+msgstr "Résumé total"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_reprint_reorder.xml:0
+#, python-format
+msgid "Total Taxes"
+msgstr "Taxes totales"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "Total:"
+msgstr "Totale:"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_loyalty_history__transaction_type
+msgid "Transaction Type"
+msgstr "Type de transaction"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_pos_payment
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_profit_loss
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_top_selling
+msgid "Unit"
+msgstr "Unité"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_pos_payment
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_profit_loss
+msgid "Unit Price"
+msgstr "Prix unitaire"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_pay_later.js:0
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_pay_later.js:0
+#: code:addons/pos_all_in_one/static/src/js/pos_loyalty.js:0
+#, python-format
+msgid "Unknown customer"
+msgstr "Client inconnu"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#, python-format
+msgid "Unpaid"
+msgstr "Non payé"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/pos_product_operation.js:0
+#, python-format
+msgid "Unsupported File Format"
+msgstr "Format de fichier non pris en charge"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_multi_currency.xml:0
+#, python-format
+msgid "Update Amount"
+msgstr "Mettre à jour le montant"
+
+#. module: pos_all_in_one
+#: model:ir.model,name:pos_all_in_one.model_res_users
+msgid "Users"
+msgstr "Utilisatrices"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_reprint_reorder.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#: code:addons/pos_all_in_one/static/src/xml/pos_report.xml:0
+#, python-format
+msgid "VAT:"
+msgstr "T.V.A:"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_pay_later.xml:0
+#, python-format
+msgid "Validate"
+msgstr "Valider"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_product_template.xml:0
+#, python-format
+msgid "Variants"
+msgstr "Variantes"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_internal_transfer.xml:0
+#, python-format
+msgid "Waiting"
+msgstr "Attendre"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,help:pos_all_in_one.field_pos_loyalty_setting__loyalty_basis_on
+msgid "Where you want to apply Loyalty Method in POS."
+msgstr "Où vous souhaitez appliquer la méthode de fidélité dans le PDV"
+
+#. module: pos_all_in_one
+#: code:addons/pos_all_in_one/models/bi_pos_pay_later.py:0
+#: code:addons/pos_all_in_one/models/bi_pos_pay_later.py:0
+#, python-format
+msgid ""
+"You are not allowed to add Customer Taxes in the Partial Payment Product"
+msgstr ""
+
+#. module: pos_all_in_one
+#: code:addons/pos_all_in_one/models/pos_loyalty.py:0
+#: code:addons/pos_all_in_one/models/pos_loyalty.py:0
+#, python-format
+msgid ""
+"You can not apply two Loyalty Configuration within same date range please "
+"change dates."
+msgstr ""
+
+#. module: pos_all_in_one
+#: code:addons/pos_all_in_one/models/pos_loyalty.py:0
+#, python-format
+msgid "You can not create Redemption Rule with same points range."
+msgstr "Vous ne pouvez pas créer de règle d'échange avec la même plage de points."
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_pay_later.js:0
+#, python-format
+msgid "You cannot change customer of draft order"
+msgstr "Vous ne pouvez pas changer le client de la commande provisoire"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/bi_pos_pay_later.js:0
+#, python-format
+msgid "You cannot perform partial payment. Select customer first."
+msgstr "Vous ne pouvez pas effectuer de paiement partiel. Sélectionnez d'abord le client."
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/pos_loyalty.js:0
+#, python-format
+msgid "You cannot use redeeming loyalty points. Select customer first."
+msgstr "Vous ne pouvez pas utiliser les points de fidélité d'échange. Sélectionnez d'abord le client."
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_loyalty.xml:0
+#, python-format
+msgid "Your Loyalty Balance:"
+msgstr "Votre solde de fidélité:"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_loyalty.xml:0
+#, python-format
+msgid "Your Loyalty Points:"
+msgstr "Vos points de fidélité:"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/bi_pos_reprint_reorder.xml:0
+#, python-format
+msgid "back"
+msgstr "retour"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,help:pos_all_in_one.field_pos_loyalty_history__transaction_type
+msgid "credit/debit loyalty transaction in POS."
+msgstr "transaction de fidélité crédit / débit dans le point de vente."
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_account_bank_statement_line__currency
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_payment__currency
+msgid "currency"
+msgstr "devise"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_currency_rate__symbol
+msgid "currency symbol"
+msgstr "symbole de la monnaie"
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_currency_rate__date
+msgid "current Date"
+msgstr "date actuelle"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_multi_currency.xml:0
+#, python-format
+msgid "payment"
+msgstr "Paiement"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/js/pos_product_operation.js:0
+#, python-format
+msgid "please enter product details."
+msgstr "veuillez entrer les détails du produit."
+
+#. module: pos_all_in_one
+#: model:ir.model.fields,field_description:pos_all_in_one.field_pos_config__selected_currency
+msgid "pos"
+msgstr "pos"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_product_operation.xml:0
+#, python-format
+msgid "product logo"
+msgstr "logo du produit"
+
+#. module: pos_all_in_one
+#: code:addons/pos_all_in_one/models/pos_order_inherit.py:0
+#, python-format
+msgid "return"
+msgstr "revenir"
+
+#. module: pos_all_in_one
+#. openerp-web
+#: code:addons/pos_all_in_one/static/src/xml/pos_multi_currency.xml:0
+#, python-format
+msgid "select currency"
+msgstr "Sélectionnez la devise"
+
+#. module: pos_all_in_one
+#: model_terms:ir.ui.view,arch_db:pos_all_in_one.report_pos_payment
+msgid "to"
+msgstr "à"

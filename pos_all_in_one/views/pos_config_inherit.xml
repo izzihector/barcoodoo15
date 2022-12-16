@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="pos_config_view_inherit_form" model="ir.ui.view">
+		<field name="name">pos.config.inherit.form.view</field>
+		<field name="model">pos.config</field>
+		<field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//h2[@name='order']" position="before">
+				<h2 name="order">Multi Currency conversation</h2>
+				<div class="row mt16 o_settings_container">
+					<div id="category_reference" class="col-xs-12 col-md-6 o_setting_box">
+						<div class="o_setting_left_pane">
+							<field name="multi_currency"/>
+						</div>
+						<div class="o_setting_right_pane">
+							<label for="multi_currency" string="Enable Multi Currency"/>
+							<div class="text-muted">
+								Enable Multi Currency
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-md-6 o_setting_box" attrs="{'invisible': [('multi_currency', '=',False)]}">
+						<div class="o_setting_left_pane">
+							<field name="curr_conv"/>
+						</div>
+						<div class="o_setting_right_pane">
+							<label for="curr_conv"/>
+							<div class="text-muted">
+								Enable Multi Currency Conversation
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt16 o_settings_container" attrs="{'invisible': ['|',('curr_conv', '=',False),('multi_currency', '=',False)]}">
+					<field name="selected_currency"/>
+				</div>
+			</xpath>
+		</field>
+		</record>
+
+
+		<record id="pos_order_view_inherit_form" model="ir.ui.view">
+			<field name="name">pos.order.inherit.form.view</field>
+			<field name="model">pos.order</field>
+			<field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='payment_ids']/tree/field[@name='amount']" position="after">
+					<field name = "account_currency"/>
+					<field name = "currency"/>
+				</xpath>
+			</field>
+		</record>
+
+	</data>
+</odoo>

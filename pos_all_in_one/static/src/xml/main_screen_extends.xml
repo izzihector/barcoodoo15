@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="pos_new_view_template" inherit_id="point_of_sale.template" xml:space="preserve">
+
+	 <t t-name="ProductScreen" t-inherit="point_of_sale.ProductScreen" t-inherit-mode="extension" owl="1">
+	 	<xpath expr="//div[hasclass('control-buttons')]" position="after">
+			<div class="actn-btn-div">
+				<span class="action-btn" t-on-click="trigger('click-actions')">
+					<t t-if="show_buttons">Hide Action Buttons</t>
+					<t t-else="">Show Action Buttons</t>
+				</span>
+			</div>
+	 	</xpath>
+	</t>
+</templates>

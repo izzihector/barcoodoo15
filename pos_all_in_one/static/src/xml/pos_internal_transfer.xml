@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="pos_internal_transfer" inherit_id="point_of_sale.template" xml:space="preserve">
+
+
+	<t t-name="PosTransferWidget"  owl="1">
+		<div class="control-button">
+			<i class="fa fa-shopping-cart"></i>
+			<span> </span>
+			<span>Internal Transfer </span>
+		</div>
+	</t>
+	<!--<Discount POPUP>-->
+	<t t-name="PosInternalStockPopupWidget" owl="1">
+		<div role="dialog" class="modal-dialog">
+			<div class="popup popup-confirm">
+				<p class="title">
+					<t t-esc="props.title" />
+				</p>
+
+				<div class="body">
+					<p style="color: #0075AC; text-align: left;">Picking Type
+						<select class='drop-type' name='id' id='picking_type' style="float: right; font-size : 15px; width: 50%; border-radius:5px;">
+							<t t-foreach='env.pos.stockpickingtype' t-as='type'
+								t-key="type.id">
+								<option t-att-value='type.id'>
+									<t t-esc='type.display_name'/>
+								</option>
+							</t>
+						</select>
+					</p>
+					<p  style="color: #0075AC; text-align: left;">Sorce Location
+						<select class='drop-src' name='id' id='src_loc' style="float: right; font-size : 15px; width: 50%; border-radius:5px;">
+							<t t-foreach='env.pos.stocklocations' t-as='src' t-key="src.id">
+								<option t-att-value='src.id'>
+									<t t-esc='src.display_name'/>
+								</option>
+							</t>
+						</select>
+					</p>
+					<p  style="color: #0075AC; text-align: left;">Destination Location
+						<select class='drop-dest' name='id' id='dest_loc' style="float: right; font-size : 15px; width: 50%; border-radius:5px;">
+							<t t-foreach='env.pos.stocklocations' t-as='dest' t-key="dest.id">
+								<option t-att-value='dest.id'>
+									<t t-esc='dest.display_name'/>
+								</option>
+							</t>
+						</select>
+					</p>
+					<p  style="color: #0075AC; text-align: left;">State
+						<select class='drop-state' name='id' id='cur' style="float: right; font-size : 15px; width: 50%; border-radius:5px;">
+							<option value="Draft">Draft</option>
+							<option value="Waiting">Waiting</option>
+							<option value="Done">Done</option>
+						</select>
+					</p>
+				</div>
+
+				<div class="footer">
+					<div class="button create_transfer" t-on-click="create_transfer">
+						<t t-esc="props.confirmText" />
+					</div>
+					<div class="button cancel " t-on-click="cancel">
+						<t t-esc="props.cancelText" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</t>
+
+</templates>

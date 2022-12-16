@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<templates id="bi_pos_stock_template" inherit_id="point_of_sale.template" xml:space="preserve">
+		
+		<t t-name="SyncStock" owl="1">
+			<div class="oe_status">
+				<span class="pos-stock-sync" style="padding-right: 30px;" t-on-click="pos_stock_sync">
+					Sync
+					<i class="fa fa-refresh " style='font-size: 28px;position: absolute;margin-left: 1%;color: #5db937;'/>
+				</span>
+			</div>
+		</t>
+		
+		<t t-name="Chrome" t-inherit="point_of_sale.Chrome" t-inherit-mode="extension" owl="1">
+			<xpath expr="//div[hasclass('search-bar-portal')]" position="after">
+				<SyncStock t-if="is_stock_sync"/>
+			</xpath>
+		</t>
+
+		<t t-name="ProductItem" t-inherit="point_of_sale.ProductItem" t-inherit-mode="extension" owl="1">
+			<xpath expr="//div[hasclass('product-img')]" position="inside">
+				<t t-if="props.product.type != 'consu' and props.product.type != 'service'">
+					<t t-if="env.pos.config.pos_display_stock">
+						<t t-if="env.pos.config.pos_stock_type == 'onhand'">
+							<span class="price-tag" id="stockqty" style="position: absolute;top: 25px;left: 5px;font-size: 11px;border-radius: 2px;background-color: #7f82ac;color: white;padding: 2px;width: 16px;height: 15px;display: flex;justify-content: center;align-items: center;">
+								<t t-esc="props.product.bi_on_hand"/>
+							</span>
+						</t>
+						<t t-if="env.pos.config.pos_stock_type == 'incoming'">
+							<span class="price-tag" style="position: absolute;top: 25px;left: 5px;font-size: 11px;border-radius: 2px;background-color: #7f82ac;color: white;padding: 2px;width: 16px;height: 15px;display: flex;justify-content: center;align-items: center;">
+								<t t-esc="props.product.incoming_qty"/>
+							</span>
+						</t>
+						<t t-if="env.pos.config.pos_stock_type == 'outgoing'">
+							<span class="price-tag" style="position: absolute;top: 25px;left: 5px;font-size: 11px;border-radius: 2px;background-color: #7f82ac;color: white;padding: 2px;width: 16px;height: 15px;display: flex;justify-content: center;align-items: center;">
+								<t t-esc="props.product.outgoing_qty"/>
+							</span>
+						</t>
+						<t t-if="env.pos.config.pos_stock_type == 'available'">
+							<span class="price-tag" id="availqty" style="position: absolute;top: 25px;left: 5px;font-size: 11px;border-radius: 2px;background-color: #7f82ac;color: white;padding: 2px;width: 16px;height: 15px;display: flex;justify-content: center;align-items: center;">
+								<t t-if="env.pos.config.show_stock_location == 'specific'">
+									<t t-esc="props.product.bi_available"/>
+								</t>
+								<t t-if="env.pos.config.show_stock_location == 'all'">
+									<t t-esc="props.product.virtual_available"/>
+								</t>
+							</span>
+						</t>
+					</t>
+				</t>
+			</xpath>
+		</t> 
+
+	</templates>
+	
+	

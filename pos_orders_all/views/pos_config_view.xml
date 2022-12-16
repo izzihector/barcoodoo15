@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    	<record model="ir.ui.view" id="custom_pos_config_extended_form_view">
+			<field name="name">pos.config.form.extended.view</field>
+			<field name="model">pos.config</field>
+			<field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//div[4]" position="after">
+					<br/>
+					<h2>Display Orders in POS </h2>
+					<div class="row mt16 o_settings_container" id="session_config">
+						<div id="show_odr" class="col-xs-12 col-md-6 o_setting_box">
+							<div class="o_setting_left_pane">
+								<field name="show_order"/>
+							</div>
+							<div class="o_setting_right_pane">
+								<label for="show_order" string='Show POS Orders in POS'/>
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-6 o_setting_box"  attrs="{'invisible': [('show_order' ,'=', False)]}">
+							<div class="o_setting_right_pane">
+								<label for="pos_session_limit" string="Session Limit Configuration "/>
+								<div class="text-muted">
+									Set session limit to load pos orders. If you have more than 1000 orders, then we recommend not to use "Load all" option.
+								</div>
+								<div class="content-group mt16">
+									<field name="pos_session_limit" attrs="{'required': [('show_order', '!=', False)]}"/>
+								</div>
+							</div>
+						</div>
+						<div id="draft_div" class="col-xs-12 col-md-6 o_setting_box"  attrs="{'invisible': [('show_order' ,'=', False)]}">
+							<div class="o_setting_left_pane">
+								<field name="show_draft"/>
+							</div>
+							<div class="o_setting_right_pane">
+								<label for="show_draft" string='Show Draft Orders'/>
+							</div>
+						</div>	
+						<div id="posted_div" class="col-xs-12 col-md-6 o_setting_box" attrs="{'invisible': [('show_order' ,'=', False)]}">
+							<div class="o_setting_left_pane">
+								<field name="show_posted"/>
+							</div>
+							<div class="o_setting_right_pane">
+								<label for="show_posted" string='Show Posted Orders'/>
+							</div>
+						</div>
+					</div>
+					<br/>
+
+					<h2>Display Barcode in Receipt </h2>
+					<div class="row mt16 o_settings_container" id="session_config">
+						<div id="barcode_div" class="col-xs-12 col-md-6 o_setting_box">
+							<div class="o_setting_left_pane">
+								<field name="show_barcode"/>
+							</div>
+							<div class="o_setting_right_pane">
+								<label for="show_barcode" string='Show Barcode in Receipt'/>
+							</div>
+						</div>		
+					</div>
+					<br/>
+
+					<h2 name="order">Import Configuration in POS</h2>
+					<div class="row mt16 o_settings_container">
+						<div id="check" class="col-xs-12 col-md-6 o_setting_box">
+							<div class="o_setting_left_pane">
+								<field name="check"/>
+							</div>
+							<div class="o_setting_right_pane">
+								<label for="check" string='Import Sale Order'/>
+							</div>
+						</div>
+						<div  class="col-xs-12 col-md-6 o_setting_box">
+							<div class="o_setting_right_pane">
+								<label for="load_orders_days" string="Load Orders of Last Days "/>
+								<field name="load_orders_days"/>
+							</div>
+						</div>
+						<div id="load_draft_sent" class="col-xs-12 col-md-6 o_setting_box">
+							<div class="o_setting_left_pane">
+								<field name="load_draft_sent"/>
+							</div>
+							<div class="o_setting_right_pane">
+								<label for="load_draft_sent" string='Load only draft/sent sale orders'/>
+							</div>
+						</div>
+						<div  class="col-xs-12 col-md-6 o_setting_box">
+							<div class="o_setting_left_pane">
+								<field name="cancle_order"/>
+							</div>
+							<div class="o_setting_right_pane">
+								<label for="cancle_order" string='Cancel Sale Order after Import'/>
+							</div>
+						</div>
+					</div>
+					<br/>
+
+					<h2 name="order">Discount Configuration in POS</h2>
+					<div class="row mt16 o_settings_container">
+						<div id="discount_type" class="col-xs-12 col-md-6 o_setting_box">
+							<div class="o_setting_right_pane">
+								<label for="discount_type" string='Discount Type'/>
+								<field name="discount_type"/>
+							</div>
+						</div>
+					</div>
+					<br/>
+
+					<h2>Stock Configuration in POS</h2>
+					<div class="row mt16 o_settings_container">
+						<div class="col-xs-12 col-md-6 o_setting_box">
+							<div class="o_setting_left_pane">
+								<field name="pos_display_stock"/>
+							</div>
+							<div class="o_setting_right_pane">
+								<label for="pos_display_stock"/>
+								<div class="text-muted">
+									Check this to display stock in pos screen.
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-6 o_setting_box">
+							<div class="o_setting_right_pane">
+								<label for="pos_stock_type" string="Stock Type"/>
+								<div class="text-muted">
+									Stock type show up in POS screen.
+								</div>
+								<div class="content-group mt16">
+									<field name="pos_stock_type"/>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-6 o_setting_box">
+							<div class="o_setting_left_pane">
+								<field name="pos_allow_order"/>
+							</div>
+							<div class="o_setting_right_pane">
+								<label for="pos_allow_order"/>
+								<div class="text-muted">
+									Allow pos order when product is out of stock.
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-6 o_setting_box">
+							<div class="o_setting_right_pane">
+								<label for="pos_deny_order" string="Deny pos order"/>
+								<div class="text-muted">
+									Deny pos order when product quanity goes down to the entered quantity.
+								</div>
+								<div class="content-group mt16">
+									<field name="pos_deny_order"/>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br/>
+				
+					<h2>Stock Location Configuration</h2>
+					<div class="row mt16 o_settings_container">
+						
+						<div class="col-xs-12 col-md-6 o_setting_box" id="stock_location">
+							<div class="o_setting_right_pane">
+								<label for="show_stock_location"/>
+								<div class="text-muted">
+									Product stock location type
+								</div>
+								<div class="content-group">
+									<div class="mt16">
+										<field name="show_stock_location" class="o_light_label" widget="radio"/>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-6 o_setting_box">
+							<div class="o_setting_right_pane">
+								<label for="stock_location_id"/>
+								<div class="text-muted">
+									Stock location used for inventory
+								</div>
+								<div class="content-group mt16">
+									<field name="stock_location_id"/>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br/>
+
+					<h2>POS Bag Charges </h2>
+					<div class="row mt16 o_settings_container" id="session_config">
+						<div id="bag" class="col-xs-12 col-md-6 o_setting_box">
+							<div class="o_setting_left_pane">
+								<field name="allow_bag_charges"/>
+							</div>
+							<div class="o_setting_right_pane">
+								<label for="allow_bag_charges" />
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-6 o_setting_box"  attrs="{'invisible': [('allow_bag_charges' ,'=', False)]}">
+							<div class="o_setting_right_pane">
+								<label for="pos_bag_category_id"/>
+								<div class="text-muted">
+									Select Bag Category
+								</div>
+								<div class="content-group mt16">
+									<field name="pos_bag_category_id" attrs="{'required': [('allow_bag_charges', '!=', False)]}"/>
+								</div>
+							</div>
+						</div>
+					</div>	
+				</xpath> 
+
+				<xpath expr="//div[@id='iface_invoicing']" position="after">
+					<div class="col-xs-12 col-md-6 o_setting_box" attrs="{'invisible': [('module_account' ,'=', False)]}">
+						<div class="o_setting_left_pane">
+							<field name="auto_check_invoice"/>
+						</div>
+						<div class="o_setting_right_pane">
+							<label for="auto_check_invoice"/>
+							<div class="text-muted">
+								POS Auto Check Invoice
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-md-6 o_setting_box" attrs="{'invisible': [('module_account' ,'=', False)]}">
+						<div class="o_setting_left_pane">
+						</div>
+						<div class="o_setting_right_pane">
+							<label for="credit_note"/>
+							<div class="text-muted">
+								Return order Credit note configuration
+							</div>
+							<div class="content-group mt16">
+								<field name="credit_note" attrs="{'required': [('module_account' ,'=', True)]}"/>
+							</div>
+						</div>
+					</div>			
+				</xpath> 	
+			</field>
+		</record>
+    </data>
+</odoo>

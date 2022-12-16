@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<templates id="pos_coupons_gift_voucher_template" inherit_id="point_of_sale.template" xml:space="preserve">
+	
+	<t t-name="GiftCouponButton" owl="1">
+		<span class="control-button pos_bag odoo-theme-color">
+			<i class="fa fa-gift"></i>
+			<span>Coupon</span>
+		</span>
+	</t>
+
+	<t t-name="CouponConfigPopup" owl="1">
+		<div role="dialog" class="modal-dialog">
+			<Draggable>
+				<div class="popup popup-textinput" >
+					<header class="title drag-handle">
+						Coupon Options
+					</header>
+					<main class="body traceback" style="font-family: 'Lato-Reg';text-align: center;color: #875a7b;    font-size: 1.20rem;">
+						<div class="creat_coupon left" t-on-click="create_coupon">
+							<div class="left_wrapper" style="max-width: 43%;float:left;margin: 0px 10px;">
+								<div class="left_img" style="opacity: 0.5;">
+									<img src="/pos_orders_all/static/src/img/create_coupon.png" style="max-width: 100%;"/>
+								</div>
+								<span class="text-center">Create Coupon</span>
+							</div>
+						</div>
+						<div class="select_coupon right" t-on-click="select_coupon">
+							<div class="right_wrapper" style="max-width: 43%;float:left;margin: 0px 10px;">
+								<div class="right_img" style="opacity: 0.5;">
+									<img src="/pos_orders_all/static/src/img/apply_coupon.png" style="max-width: 100%;"/>
+								</div>
+								<span class="text-center">Select Coupon</span>
+							</div>
+						</div>
+					</main>
+					<footer class="footer">
+						<div class="button cancel odoo-theme-button" t-on-click="cancel">
+							Close
+						</div>
+					</footer>
+				</div>
+			</Draggable>
+		</div>
+	</t>
+
+	<t t-name="CreateCouponPopupWidget" owl="1">
+		<div role="dialog" class="modal-dialog">
+			<Draggable>
+				<div class="popup" style="text-align:left;">
+					<header class="title drag-handle">
+						Create Coupon
+					</header>
+					<main class="body traceback" style="font-family: 'Lato-Reg';text-align: center;min-height: 400px;">
+						<div id="error_text" style="color: #ec1010; font-size: inherit; margin: 5px; text-align: center;"></div>
+						<div class="body touch-scrollable scrollable-y" >
+							<div class="create_wrapper">
+								<table id="create_coupon_table" class="table">
+									<tr>
+										<td>
+											<span>Name </span><sup style="color:red;">*</sup>
+											<span>
+												<input id="coupon_name" type="text" class="input-field" name="c_name" style="margin:8px auto"/>
+											</span>
+										</td>
+										<td>
+											<span>Coupon usage limit</span>
+											<span>
+												<input id="coupon_limit" type="number" min="0" class="input-field" name="c_limit" style="margin:8px auto"/>
+											</span>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<span>Product </span><sup style="color:red;">*</sup>
+											<span>
+												<select id="coupon_product" style="margin:8px auto;min-width: 176px;    min-height: 40px;">
+													<t t-foreach="env.pos.db.product_by_id" t-as="prod" t-key='prod.id'>
+														<t t-if=" env.pos.db.product_by_id[prod]['is_coupon_product']">
+															<option t-att-value="env.pos.db.product_by_id[prod]['id']"><t t-esc="env.pos.db.product_by_id[prod]['display_name']"/></option>
+														</t>
+													</t>
+												</select>
+											</span>
+										</td>
+										<td>
+											<span>Amount Type </span><sup style="color:red;">*</sup>
+											<select id="coup_amount_type" style="margin:8px auto;min-width: 176px;    min-height: 40px;" t-on-change="_CoupAmountType">
+												<option value="Fixed">Fixed</option>
+												<option value="Percentage">Percentage</option>
+											</select>
+										</td>
+									</tr>
+									<tr id="apply_coupon_type">
+										<td></td>
+										<td>
+											<span>Apply Coupon On </span>
+											<select id="apply_coupon_on" style="margin:8px auto;min-width: 176px;    min-height: 40px;">
+												<option value="taxed">Taxed Amount</option>
+												<option value="untaxed">Untaxed Amount</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<span>Coupon Amount </span><sup style="color:red;">*</sup>
+											<span>
+												<input id="coupon_amount" type="text" class="input-field" name="c_amount" style="margin:8px auto"/>
+											</span>
+										</td>
+										<td>
+											<span>Max Amount </span>
+											<span>
+												<input id="coupon_max_amount" type="text" class="input-field" name="c_max_amount" style="margin:8px auto"/>
+											</span>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<span>Issue Date </span><sup style="color:red;">*</sup>
+											<span>
+												<input id="coupon_issue_dt" type="date" class="input-field" name="c_issue_dt" style="margin:8px auto;
+													font-size:15px;"/>
+											</span>
+										</td>
+										<td>
+											<span>Expiry Date </span>
+											<span style="display: inline-block;vertical-align: sub;">
+												<input id="coupon_expdt_box" type="checkbox" name="c_expdt_box" style="min-height: auto;margin:8px;font-size:15px;" t-on-click="trigger('click-c_expdt_box')"/>
+											</span>
+											<span>
+												<input id="coupon_exp_dt" type="date" class="input-field" name="c_exp_dt" style="margin:8px auto"/>
+											</span>
+										</td>
+									</tr>
+									<tr>
+										<td style="padding: 10px 0px;">
+											<span>Specific Category </span>
+										</td>
+										<td class="multi_categ">
+											<select class="multi_select" id="coupon_categ" name="categs[]" multiple="multiple" style="margin:8px auto;min-width: 176px;min-height: 40px;">
+												<t t-foreach="categories" t-as="c" t-key='c.id'>
+													<option t-att-value="c.id">
+														<t t-esc="c.name"/>
+													</option>
+												</t>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td style="padding: 10px 0px;">
+											<span>Specific Customer </span>
+											<span style="display: inline-block;vertical-align: sub;">
+												<input id="c_cust_box" type="checkbox" name="c_cust_box" class="c_cust_box" style="min-height: auto;margin:8px;" t-on-click="trigger('click-c_cust_box')"/>
+											</span>
+										</td>
+										<td>
+											<select id="coupon_customer" style="margin:8px auto;min-width: 176px;    min-height: 40px;">
+												<t t-foreach="env.pos.partners" t-as="d" t-key="d.id">
+													<option><t t-esc='d.name'/></option>
+												</t>
+											</select>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</main>
+					<footer class="footer">
+						<div class="button cancel odoo-theme-button" t-on-click="cancel">
+							Close
+						</div>
+						<div class="button confirm odoo-theme-button" t-on-click="create_coupon">
+							Create
+						</div>
+					</footer>
+				</div>
+			</Draggable>
+		</div>
+	</t>
+
+	<!-- After Created the Coupon -->
+	<t t-name="AfterCreateCouponPopup" owl="1">
+		<div role="dialog" class="modal-dialog">
+			<Draggable>
+				<div class="popup">
+					<header class="title drag-handle">
+						Confirmation
+					</header>
+					<main class="body traceback" style="font-family: 'Lato-Reg';color: #875a7b;font-size: 1.5rem;text-align: center;">
+						<p>Gift coupon is created successfully.</p>
+					</main>
+					<footer class="footer">
+						<div class="button cancel odoo-theme-button" t-on-click="cancel">
+							Close
+						</div>
+						<div class="button confirm odoo-theme-button" t-on-click="print_gift_coupon">
+							Print
+						</div>
+					</footer>
+				</div>
+			</Draggable>
+		</div>
+	</t>
+
+	<!-- SelectExistingCouponPopup -->     
+	<t t-name="SelectExistingCouponPopup" owl="1">
+		<div role="dialog" class="modal-dialog">
+			<Draggable>
+				<div class="popup popup-textinput">
+					<header class="title drag-handle">
+						Apply Coupon/Gift Voucher Code
+					</header>
+					<main class="body traceback" style="font-family: 'Lato-Reg';text-align: center;">
+						<p style="color: #875a7b;font-size: 1.5rem;">Enter Your Coupon Code Here</p>
+						<input id ="existing_coupon_code" type="text" class="input-field" name="code"></input>
+					</main>
+					<footer class="footer">
+						<div class="button confirm odoo-theme-button" t-on-click="apply_coupon">
+							Apply 
+						</div>
+						<div class="button cancel odoo-theme-button" t-on-click="cancel">
+							Close
+						</div>
+					</footer>
+				</div>
+			</Draggable>
+		</div>
+	</t>
+
+	<!-- After Created Coupon Print Buttton -->
+	<t t-name="CouponReceiptScreen" owl="1">
+		<div class="receipt-screen screen">
+			<div class="screen-content">
+				<div class="top-content">
+					<span class="button back" t-on-click="back">
+						<i class="fa fa-angle-double-left"></i>
+						<span> </span>
+						<span>Back</span>
+					</span>
+					<div class="top-content-center">
+						<h1>Coupon Receipt</h1>
+					</div>
+				</div>
+				<div class="centered-content">
+					<div class="button print" t-on-click="printReceipt">
+						<i class="fa fa-print"></i>
+						<span> </span>
+						<span>Print</span>
+					</div>
+					<div class="pos-receipt-container">
+						<CouponPrint
+							t-ref="order-receipt"
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</t>
+
+	<t t-name="CouponPrint" owl="1">
+		<div class="pos-receipt">
+			<div class="pos-center-align" style="text-align: center;">
+				<p>Gift coupon</p>
+				<div class="pos-center-align" style="text-align: center;">
+					<t t-esc="date_o"/> <br/>
+					<t t-esc="env.pos.company.name"/><br />
+					<div class="receipt-phone">
+						Phone: <t t-esc="env.pos.company.phone || ''"/><br />
+					</div>
+					<div class="receipt-user">
+						User: <t t-esc="env.pos.get_cashier().name"/><br />
+					</div>
+					<div class="receipt-user">
+						Email: <t t-esc="env.pos.company.email || ''"/><br />
+					</div>
+					<br />
+				</div>
+				<img class="img img-responsive" src="/pos_orders_all/static/src/img/gift-card2.png" style="max-width:100%;"/>
+				<t t-set="obj" t-value="coupon_render_env()"/>
+				<div class="coup_details" style="margin:16px auto">
+					<p><strong>Name : </strong><span t-esc="obj.name"/></p>
+					<p><strong>Issue date : </strong><span t-esc="obj.issue"/></p>
+					<t t-if="obj.expire">
+						<p><strong>Expiry date : </strong><span t-esc="obj.expire"/></p>
+					</t>
+					<p>
+						<strong>Amount : </strong>
+						<span t-esc="obj.amount"/>
+						<t t-if="obj.am_type == 'per'">
+							<span style="margin-left:5px;">%</span>
+						</t>
+						<t t-if="obj.am_type == 'fix'">
+							<span style="margin-left:5px;">Fixed</span>
+						</t>
+					</p>
+					<span id="coup_barcode"/>
+					<p><strong>Coupon Number : </strong><span t-esc="obj.number"/></p>
+				</div>
+			</div>
+		</div>
+	</t>
+ 
+</templates>
+	
+	

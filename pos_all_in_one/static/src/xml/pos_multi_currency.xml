@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="add_currency_conversation">
+
+	
+	<t t-name="PaymentScreen" t-inherit="point_of_sale.PaymentScreen" t-inherit-mode="extension" owl="1">
+		<xpath expr="//h1" position="after">
+			<t t-if = "env.pos.config.multi_currency">
+				<label class="switch">
+					<input type="checkbox" id="cur-switch" class="cur-switch" name="cur-switch" tabindex="0" checked=""/>
+					<span class="slider round" t-on-click="trigger('click-cur-switch')"></span>
+				</label>
+			</t>
+		</xpath>
+		<xpath expr="//div[hasclass('right-content')]//section[hasclass('paymentlines-container')]" position="before">
+			<div id = "details" class="container" style="padding-top: 0; border-bottom: dashed 1px gainsboro; min-height: 154px;font-size: 15px;">
+				<div style=" display: inline-block; width: 50%; box-sizing: border-box; padding: 16px; text-align: left; float: left;">
+					<span class='label' style="font-size:18px;"><b>Select Currency</b></span><br/>
+					<div class="client-detail">
+						<br/>
+						<select class='drop-currency' name='id'  style="font-size : 15px; border-radius:5px;" t-on-change="_ChangeCurrency">
+							<option>select currency</option>
+							<t t-foreach='env.pos.poscurrency' t-as='cur' t-key="cur.id">
+								<option t-att-value='cur.id'>
+									<t t-esc='cur.name'/>
+								</option>
+							</t>
+						</select>
+					</div>
+					<label class="container">Receipt in <span class="currency_name"/>
+						<input type="checkbox" id="Receipt" class="reciptclass" t-on-click="trigger('click-config')" style="zoom:1.5;"/>
+					</label>
+					<br/>
+					<label class="container">
+						Payment amount in <span class="currency_name" /> 
+						<input type="text" class="edit-amount" name="pos_amount" id="pos_amount"/>
+					</label>
+				</div>
+				<div style="display: inline-block; width: 50%; box-sizing: border-box; padding: 16px; padding-left: 0; float: right;font-size: 15px;">
+					<t t-if='env.pos.config.curr_conv'>
+						<span class='label' style="font-size:18px;"><b>Currency Conversion</b></span><br/>
+						<div style="border: 1px solid black; padding: 5px; padding: 5px;border-radius: 5px;margin-top: 14px;margin-bottom: 11px;font-size:18px;">
+							<div>
+								<span class="label">1 <t t-esc='env.pos.currency.name'/> =  </span><span class="currency_rate"/><span class="currency_name"/>
+							</div>
+							<div>
+								<span class= "label">Total Amount = </span><b><span class="currency_cal"/><span class="currency_symbol"/></b>
+								<input type="hidden" class="curr_cal" id="curr_cal"/>
+							</div>
+						</div>
+					</t>
+					<div>
+						<button class='button-getamount' data-action="" style="border-radius:5px; font-size:15px; background-color: #43996E;color: white;" t-on-click="trigger('click-update_amount')">
+							Update Amount
+						</button>
+					</div>
+				</div>
+			</div>
+		</xpath>
+	</t>
+
+	<t t-name="PaymentScreenPaymentLines" t-inherit="point_of_sale.PaymentScreenPaymentLines" t-inherit-mode="extension" owl="1">
+		<xpath expr="//t[@t-if='line.selected']/div[hasclass('paymentline')]/div[hasclass('payment-amount')]" position="before">
+			<div>
+				<t t-if="env.pos.company_currency.symbol != line.currency_symbol">
+					(<span t-esc="line.currency_amount"/>
+					 <span t-esc="line.currency_symbol"/>)
+				</t>
+			</div>
+		</xpath>
+
+		<xpath expr="//t[@t-else='']/div[hasclass('paymentline')]/div[hasclass('payment-amount')]" position="before">
+			<div>
+				<t t-if="env.pos.company_currency.symbol != line.currency_symbol">
+					(<span t-esc="line.currency_amount"/>
+					 <span t-esc="line.currency_symbol"/>)
+				</t>
+			</div>
+		</xpath>
+	</t>
+
+	<t t-name="OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+		<xpath expr="//t[@t-foreach='receipt.paymentlines']" position="replace">
+			<t t-foreach="receipt.paymentlines" t-as="line" t-key="line.cid">
+				<div style="display: inline-flex;width:100%;">
+					<span style="width:33%;" t-esc="line.name" />
+					<div style="width:33%;text-align: center;">
+						<t t-if="env.pos.get_order().recipet">
+							<t t-if="env.pos.company_currency.symbol != line.currency_symbol">
+								(<span t-esc="line.currency_amount"/>
+							 	<span t-esc="line.currency_symbol"/>)
+							</t>
+						</t>
+					</div>
+					<span style="width:33%;text-align: right;" t-esc="env.pos.format_currency(line.amount)"/>
+				</div>
+			</t>
+			<br/>
+		</xpath>
+	</t>
+</templates>

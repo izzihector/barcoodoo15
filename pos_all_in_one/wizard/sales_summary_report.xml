@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<template id="report_sales_summary">
+			<t t-call="web.html_container">
+				<t t-call="web.external_layout">
+					<div class="page">
+						<div class="text-center container" style="border: 1px solid black;">
+							<h2>Sales Summary</h2>
+						</div>
+						<br/>
+						<br/>
+						<br/>
+						
+						<div class="container">
+							<t t-if="only_summary == false">								
+								<div>
+									<span >Report Date time :</span> 
+									<span style="margin-left:25%;">
+										<t t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M %p')" />
+									</span><br/>
+								</div>
+								<div>
+									<span >Start Date : </span>
+									<span style="margin-left:36%;"><t t-esc="start_dt"/></span>
+									<br/>
+								</div>
+								<div>
+									<span >End Date : </span>
+									<span style="margin-left:38%;"><t t-esc="end_dt"/></span>
+								</div>
+								<br/>
+								<br/>
+								<t t-foreach="user_name" t-as="u">									
+									<t t-if="u['name']">
+										<p><strong><span>Name : </span><span t-esc="u['name']"/></strong></p>
+									</t>
+									<p>
+										<span>Sales : </span>
+										<t t-if="u['total']">
+											<span class="pull-right" t-esc="'%.2f' % u['total']"/>
+										</t>
+										<t t-else="">
+											<span class="pull-right">0.0</span>
+										</t>
+									</p>
+									<p>
+										<span>Total : </span>
+										<t t-if="u['total']">
+											<span class="pull-right" t-esc="'%.2f' % u['total']"/>
+										</t>
+										<t t-else="">
+											<span class="pull-right">0.0</span>
+										</t>
+									</p>									
+									<p>
+										<span>Tax : </span>
+										<t t-if="u['tax']">
+											<span class="pull-right" t-esc="'%.2f' % u['tax']"/>
+										</t>
+										<t t-else="">
+											<span class="pull-right" >0.0</span>
+										</t>
+									</p>
+									<p>
+										<span>Discount : </span>
+										<t t-if="u['discount']">
+											<span class="pull-right" t-esc="'%.2f' % u['discount']"/>
+										</t>
+										<t t-else="">
+											<span class="pull-right" >0.0</span>
+										</t>
+									</p>
+									<p>
+										<span>Gross Total : </span>
+										<t t-if="u['total']">
+											<span class="pull-right" t-esc="'%.2f' % u['total']"/>
+										</t>
+										<t t-else="">
+											<span class="pull-right">0.0</span>
+										</t>
+									</p>
+									<t t-foreach="all_data" t-as="l">
+										<t t-if="l == u['name']">
+											<h6 class="text-center">Department Sales</h6>
+											<t t-foreach="all_data[l]['categ']" t-as="p">
+												<p>
+													<span t-esc="p['c_name']"/>
+													<span t-esc="p['c_total']" class="pull-right"/>
+												</p>
+											</t>
+											<h6 class="text-center">Payments</h6>
+											<t t-foreach="all_data[l]['journal']" t-as="j">
+												<p>
+													<span t-esc="j['name']"/>
+													<span t-esc="j['total']" class="pull-right"/>
+												</p>
+											</t>
+										</t>
+									</t>
+									<hr/>
+									<br/>
+									<br/>
+								</t>
+							</t>
+							<br/>
+							<h5 class="text-center">Summary</h5>
+							<p>
+								<span colspan="3" >Sales without Tax :</span>
+								<span class="pull-right"><t t-esc="final_total-final_tax" t-options="{'widget': 'float', 'precision': currency_precision}"/></span>
+							</p>
+							<p>
+								<span colspan="3" >Discount :</span>
+								<span  class="pull-right"><t t-esc=" final_discount" t-options="{'widget': 'float', 'precision': currency_precision}"/></span>
+							</p>
+							<p>
+								<span colspan="3" >Tax Amount :</span>
+								<span  class="pull-right"><t t-esc="final_tax" t-options="{'widget': 'float', 'precision': currency_precision}"/></span>
+							</p>
+							<p>
+								<span colspan="3" >Gross Total:</span>
+								<span  class="pull-right"><t t-esc=" final_total" t-options="{'widget': 'float', 'precision': currency_precision}"/></span>
+							</p>
+					
+							<br/>
+							<h5 class="text-center">Department Sales</h5>
+							<div>
+								<t t-set="cat_tot" t-value="0.0"/>
+								<t t-foreach='categories_data' t-as='line'>
+									<p>
+										<span colspan="3"><t t-esc="line['name']" /></span>
+										<span  class="pull-right">
+											<t t-esc="line['total']"  t-options="{'widget': 'float', 'precision': currency_precision}"/>
+										</span>
+										<t t-set="cat_tot" t-value="cat_tot + line['total']"/>
+									</p>
+								</t>
+								<p>
+									<span colspan="3" ></span>
+									<span  class="pull-right"><t t-esc="cat_tot" t-options="{'widget': 'float', 'precision': currency_precision}"/></span>
+								</p>
+							</div>								
+							<br/>
+							<h5 class="text-center">Payments</h5>
+							<div>
+								<t t-set="tot" t-value="0.0"/>
+								<p t-foreach='payments' t-as='payment'>
+									<span colspan="3"><t t-esc="payment['name']" /></span>
+									<span  class="pull-right"><t t-esc="payment['total']" t-options="{'widget': 'float', 'precision': currency_precision}"/></span>
+									<t t-set="tot" t-value="tot + payment['total']"/>
+								</p>
+								<p>
+									<span colspan="3" ></span>
+									<span  class="pull-right"><t t-esc="tot" t-options="{'widget': 'float', 'precision': currency_precision}"/></span>
+								</p>
+							</div>
+						</div>
+						<hr/>
+					</div>
+				</t>
+			</t>
+		</template>
+		<record id="pos_paper_format" model="report.paperformat">
+			<field name="name">Sales Details</field>
+			<field name="default" eval="True" />
+			<field name="format">custom</field>
+			<field name="page_height">230</field>
+			<field name="page_width">100</field>
+			<field name="margin_top">40</field>
+			<field name="margin_bottom">10</field>
+			<field name="margin_left">5</field>
+			<field name="margin_right">5</field>
+			<field name="header_line" eval="False" />
+			<field name="orientation">Portrait</field>
+			<field name="header_spacing">36</field>
+			<field name="dpi">110</field>
+		</record>
+
+	</data>
+</odoo>

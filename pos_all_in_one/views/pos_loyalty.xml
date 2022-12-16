@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<!-- POS Loyalty Configuration -->
+		<record id="view_pos_loyalty_setting_tree_view" model="ir.ui.view">
+			<field name="name">pos.loyalty.config.tree.view</field>
+			<field name="model">pos.loyalty.setting</field>
+			<field name="arch" type="xml">
+			   <tree string="POS Loyalty Configuration">
+					<field name="name"/>	
+					<field name="product_id"/>			
+					<field name="issue_date"/>	
+					<field name="expiry_date"/>
+					<field name="active"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="pos_loyalty_setting_form_view" model="ir.ui.view">
+			<field name="name">pos.loyalty.config.form.view</field>
+			<field name="model">pos.loyalty.setting</field>
+			<field name="arch" type="xml">
+				<form string="POS Loyalty Configuration">
+					<sheet>
+						<group>
+							<group>
+								<field name="name" required="1"/>
+								<field name="product_id"/>
+								<field name="active"/>
+								
+							</group>
+							<group>
+								<field name="issue_date"/>
+								<field name="expiry_date"/>
+							</group>
+						</group>
+						<notebook>
+							<page string="Loyalty Calculation">
+								<group>
+									<field name="loyalty_basis_on"/>
+									<field name="loyality_amount" attrs="{'invisible':[('loyalty_basis_on', '=', 'pos_category')]}"/>
+									<br/>
+									<div attrs="{'invisible':[('loyalty_basis_on', '!=', 'pos_category')]}">
+										<button name="%(point_of_sale.product_pos_category_action)d" icon="fa-arrow-right" type="action" string="POS Categories" class="btn-link"/>
+									</div>
+								</group>
+									<div attrs="{'invisible':[('loyalty_basis_on', '!=', 'amount')]}">
+									<b style="color:blue"> 
+									<span>1 Point(s)</span>
+									</b>
+									<b>
+										<span>For a Purchase of every</span>
+									</b>
+									<b style="color:blue">
+										<field name="amount_footer" nolabel="1" class="oe_inline"  options="{'currency_field': 'currency_id'}"/>
+									</b>
+									</div>
+							</page>
+							<page string="Redemption Rule">
+								<field name="redeem_ids">
+									<form string="POS Redeem Rule Form">
+										<sheet>
+											<group>
+												<field name="name"/>
+							
+											</group>
+											<seperator col="4" string="Redemption Computation"/>
+											<b>
+												<span>Rule :  Points Between</span>
+											</b>
+											<b style="color:blue">
+												<field name="min_amt" nolabel="1" class="oe_inline"/>
+											</b>
+											<b>
+												<span>and</span>
+											</b>
+											<b style="color:blue">
+												<field name="max_amt" nolabel="1" class="oe_inline"/>
+											</b>
+											<b>
+												<span>: 1 reward point =</span>
+											</b>
+											<b style="color:green">
+												<field name="reward_amt" nolabel="1" class="oe_inline"  options="{'currency_field': 'currency_id'}"/>
+											</b>
+										</sheet>
+									</form>
+								</field>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.actions.act_window" id="action_pos_loyalty_setting">
+			<field name="name">Loyalty Configuration</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pos.loyalty.setting</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<!-- POS Loyalty History -->
+		<record id="view_pos_loyalty_history_tree_view" model="ir.ui.view">
+			<field name="name">pos.loyalty.history.tree.view</field>
+			<field name="model">pos.loyalty.history</field>
+			<field name="arch" type="xml">
+			   <tree string="POS Loyalty History" create="0" edit="0">
+					<field name="order_id"/>	
+					<field name="partner_id"/>			
+					<field name="transaction_type"/>	
+					<field name="date"/>
+					<field name="points"/>
+				</tree>
+			</field>
+		</record>
+
+   		<record id="pos_loyalty_history_form_view" model="ir.ui.view">
+			<field name="name">pos.loyalty.history.form.view</field>
+			<field name="model">pos.loyalty.history</field>
+			<field name="arch" type="xml" >
+				<form string="POS Loyalty History" create="0" edit="0">
+					<sheet>
+						<group>
+							<group>
+								<field name="order_id"/>
+								<field name="partner_id"/>
+								<field name="transaction_type"/>
+							</group>
+							<group>
+								<field name="date"/>
+								<field name="points"/>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.actions.act_window" id="action_pos_loyalty_history">
+			<field name="name">Loyalty History</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">pos.loyalty.history</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+		<menuitem name="Loyalty Management" id="menu_pos_loyalty_id" parent="point_of_sale.menu_point_root" sequence="10"/>
+
+		<menuitem parent="pos_all_in_one.menu_pos_loyalty_id" action="action_pos_loyalty_setting" id="menu_pos_loyalty_setting"
+			sequence="5"/>
+			
+		<menuitem parent="pos_all_in_one.menu_pos_loyalty_id" action="action_pos_loyalty_history" id="menu_pos_loyalty_history"
+			sequence="6"/>
+
+
+		<!-- res.partner Configuration -->
+		<record id="view_res_partner_loyalty_form" model="ir.ui.view">
+			<field name="name">res.partner.pos.loyalty.form.inherit</field>
+			<field name="model">res.partner</field>
+			<field name="inherit_id" ref="point_of_sale.view_partner_property_form"/>
+			<field name="arch" type="xml">
+				<field name="barcode" position="after">
+					<field string="Loyalty Points" name="loyalty_points"/>
+				</field>
+				<div name="button_box" position="inside">
+					<button type="object" name="action_view_loyalty_points" class="oe_stat_button" icon="fa-usd"  attrs="{'invisible': [('loyalty_points','=',0)]}">
+						<div class="o_form_field o_stat_info">
+							<span class="o_stat_value">
+								<field name="loyalty_points" widget='statinfo'/>
+							</span>
+							<span class="o_stat_text">Loyalty Points</span>
+						</div>
+					</button>
+				</div>
+			</field>
+		</record>
+		
+		
+		<!-- pos.category Configuration -->
+		<record model="ir.ui.view" id="pos_category_loyalty_inherit">
+			<field name="name">pos.category.loyalty.view.form</field>
+			<field name="model">pos.category</field>
+			<field name="inherit_id" ref="point_of_sale.product_pos_category_form_view"/>
+			<field name="arch" type="xml">
+				<xpath expr="//group/group" position="after">
+					<group>
+						<field name="Minimum_amount"/>
+					</group>
+					<group>
+						<div>
+							<b style="color:blue"> 
+							<span>1 Point(s) &#160;&#160;</span>
+							</b>
+							<b>
+								<span>For a Purchase of every &#160;&#160;</span>
+							</b>
+							<b style="color:blue">
+								<field name="amount_footer" nolabel="1" class="oe_inline" options="{'currency_field': 'currency_id'}"/>
+							</b>
+						</div>
+					</group>
+				</xpath>
+			</field>
+		</record>
+	
+	</data>
+</odoo>

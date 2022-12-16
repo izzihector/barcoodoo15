@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="pos_payment_template" inherit_id="point_of_sale.template" xml:space="preserve">
+	<t t-name="SeeAllProductsButtonWidget"  owl="1">
+		<div class="control-button">
+			<i class="fa fa-money"></i>
+			<span> </span>
+			<span>Products</span>
+		</div>
+	</t>
+
+	<t t-name="POSProductScreen" owl="1">
+		<div class="clientlist-screen screen">
+			<div class="screen-content orders-screen">
+				<div class="top-content">
+					<div class="button back odoo-theme-color" t-on-click="cancel">
+						<t t-if="!env.isMobile">Discard</t>
+						<t t-else="">
+							<i class="fa fa-undo"></i>
+						</t>
+					</div>
+					<div class="button refresh-order odoo-theme-color" t-on-click="refresh_orders">
+						<i class='fa fa-refresh'></i>
+					</div>
+					<t t-if= "env.pos.config.allow_edit_product">
+						<div class="button confirm odoo-theme-color" id="create_customer_payment" t-on-click="create_order">
+							Create Product
+						</div>
+					</t>
+					<div class="searchbox-client top-content-center">
+						<input placeholder="Search Products" size="1"  t-on-keyup="updateProductList" class="input-search-orders"/>
+					</div>
+				</div>
+				<section class="full-content">
+					<div class="client-window">
+						<section class="subwindow collapsed">
+							<div class="subwindow-container collapsed">
+							</div>
+						</section>
+						<section class="subwindow list">
+							<div class="subwindow-container">
+								<div  class="subwindow-container-fix scrollable-y">
+									<table class="client-list">
+										<thead>
+											<tr class="odoo-theme-color">
+												<th>Product Name</th>
+												<th>Product Category</th>
+												<th>POS Category</th>
+												<th>List Price</th>
+												<th>Cost Price</th>
+												<th>Barcode</th>
+											</tr>
+										</thead>
+										<tbody class="posorders-list-contents">
+											<t t-if="!pos_orders">
+												<tr>
+													<td>Loading....</td>
+												</tr>
+											</t>
+											<t t-foreach="pos_orders" t-as="order" t-key="order.id">
+												<POSProduct order = "order" selectedPosOrder="state.selectedPosOrder" t-on-click-order="clickPosOrder"/>
+											</t>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</section>
+					</div>
+				</section>
+			</div>
+		</div>
+	</t>
+
+
+	<t t-name="POSProduct" owl="1">
+		<tr t-attf-class="client-line {{highlight}}" t-att-data-id="props.order.id" t-on-click="trigger('click-order', {order: props.order})">
+			<td class='order-name' t-att-data-id='props.order.id' t-on-click.stop="trigger('click-showDetails',props.order)">
+				<t t-esc='props.order.display_name' />
+			</td>
+			<td class='order-name' t-att-data-id='props.order.id'  t-on-click.stop="trigger('click-showDetails',props.order)">
+				<t t-esc='props.order.categ_id[1] or ""' />
+			</td>
+			<td class='order-name' t-att-data-id='props.order.id'  t-on-click.stop="trigger('click-showDetails',props.order)">
+				<t t-if="props.order.pos_categ_id">
+					<t t-esc='props.order.pos_categ_id[1] or ""' />
+				</t>
+			</td>
+			<td class='order-name' t-att-data-id='props.order.id' t-on-click.stop="trigger('click-showDetails',props.order)">
+				<t t-esc="env.pos.format_currency(props.order.lst_price or 0.0)"/>
+			</td>
+			<td class='order-name' t-att-data-id='props.order.id'  t-on-click.stop="trigger('click-showDetails',props.order)">
+				<t t-esc="env.pos.format_currency(props.order.standard_price or 0.0)"/>
+			</td>
+			<td class='order-name' t-att-data-id='props.order.id' t-on-click.stop="trigger('click-showDetails',props.order)">
+				<t t-esc='props.order.barcode or ""' />
+			</td>
+		</tr>
+	</t>
+
+	<t t-name="POSProductDetail" owl="1">
+		<div role="dialog" class="modal-dialog">
+			<Draggable>
+				<div class="popup bi-popup-width">
+					<header class="title drag-handle">
+						Product Details
+					</header>
+					<main class="body" style="font-family: 'Lato-Reg';">
+						<div>
+							<div class='client-name' style='float: left;margin-left: 50px;'>
+								<h2><t t-esc='order["display_name"]'/></h2>
+							</div>
+							<div class="client-picture" style='float: right;margin-right: 40px;'>
+								<t t-if="imageUrl">
+									<img t-att-src="imageUrl" alt="Product" style="width: 100px;height: 100px;"/>
+								</t>
+								<t t-else="">
+									<i class="fa fa-camera no-img" role="img" aria-label="Picture" title="Picture"></i>
+								</t>
+							</div>
+						</div>
+						<t t-set="order" t-value="props.order || []"/>
+						<table style='width:100%'>
+							<tr class="popup-tr">
+								<td style='width:20%; '><strong>Product Category:</strong>
+								</td>
+								<td style='width:30%; '  t-if="order['categ_id']">
+									<span t-esc="order['categ_id'][1] or ''"/>
+								</td>
+								<td style='width:20%; '><strong>POS Category:</strong>
+								</td>
+								<td style='width:30%; '  t-if="order['pos_categ_id']">
+									<span t-esc="order['pos_categ_id'][1] or ''"/>
+								</td>
+
+							</tr>
+							<tr class="popup-tr" t-if="order['taxes_id']">
+								<td style='width:20%; '><strong>Customer Taxes:</strong>
+								</td>
+								<td style='width:30%; '>
+									<div t-foreach="order['taxes_id']" t-as="tax" t-key='tax'>
+										<t t-esc="env.pos.taxes_by_id[tax].name" />
+									</div>
+								</td>
+								<td style='width:20%; '><strong>Barcode:</strong>
+								</td>
+								<td style='width:30%; '>
+									<span t-esc="order['barcode'] or ''"/>
+								</td>
+							</tr>
+							<tr class="popup-tr">
+								<td style='width:20%; '><strong>Sale Price:</strong>
+								</td>
+								<td style='width:30%; '>
+									<t t-esc="env.pos.format_currency(order['lst_price'])"/>
+								</td>
+								<td style='width:20%; '><strong>Cost Price:</strong>
+								</td>
+								<td style='width:30%; '>
+									<t t-esc="env.pos.format_currency(order['standard_price'])"/>
+								</td>
+							</tr>
+						</table>
+						<br/>
+					</main>
+					<footer class="footer">
+						<t t-if= "env.pos.config.allow_edit_product">
+							<div class="button confirm odoo-theme-color" id="create_customer_payment" t-on-click="edit_product">
+								Edit
+							</div>
+						</t>
+						<div class="button cancel odoo-theme-color" t-on-click="cancel">
+							Close
+						</div>
+					</footer>
+				</div>
+			</Draggable>
+		</div>
+	</t>
+
+	<t t-name="ProductDetailsCreate" owl="1">
+		<div role="dialog" class="modal-dialog">
+			<Draggable>
+				<div class="popup popup-confirm">
+					<header class="title drag-handle">
+						<t t-esc="props.title" />
+					</header>
+					<main class="body" style="font-family: 'Lato-Reg';">
+						<div class='product-details-box clearfix'>
+							<div>
+								<i class="fa fa-camera no-img" role="img" aria-label="Picture" title="Picture"></i>
+								<input type="file" class="image-uploader product-image" t-on-change="uploadImage" placeholder='product Image' name="img"/>
+							</div>
+							<div >
+								<input class='product-input name' name='display_name' placeholder='Name'/>
+							</div>
+							<div>
+								<select class="product-select pos-category product-input" name="pos_categ_id">
+									<option value="">Select POS Category</option>
+									<t t-foreach="env.pos.pos_category" t-as="category" t-key="category.id">
+										<option t-att-value="category.id">
+											<t t-esc="category.name" />
+										</option>
+									</t>
+								</select>
+							</div>
+							<div >
+								<input class='product-input barcode' name='barcode' placeholder='Barcode'></input>
+							</div>
+							<div >
+								<input class='product-input lst-price'  name='list_price' placeholder='Sale Price'></input>
+							</div>
+							<div >
+								<input class='product-input standard-price' name='cost_price'  placeholder='Cost Price'></input>
+							</div>
+						</div>
+					</main>
+					<footer class="footer">
+						<div class="button confirm odoo-theme-color" t-on-click="create_product">
+							Create
+						</div>
+						<div class="button cancel odoo-theme-color" t-on-click="cancel">
+							Close
+						</div>
+					</footer>
+				</div>
+			</Draggable>
+		</div>
+	</t>
+
+
+	<t t-name="ProductDetailsEdit" owl="1">
+		<div role="dialog" class="modal-dialog">
+			<Draggable>
+				<div class="popup popup-confirm">
+					<header class="title drag-handle">
+						<t t-esc="props.title" />
+					</header>
+					<main class="body" style="font-family: 'Lato-Reg';">
+						<div class='product-details-box clearfix'>
+							<div>
+								<t t-if="imageUrl">
+									<img t-att-src="imageUrl" alt="Product" style="width: 100px;height: 100px;"/>
+								</t>
+								<t t-else="">
+									<i class="fa fa-camera no-img" role="img" aria-label="Picture" title="Picture"></i>
+								</t>
+								<input type="file" class="image-uploader product-image" t-on-change="uploadImage" placeholder='product Image' name="img"/>
+							</div>
+
+							<div >
+								<input class='product-input name' name='display_name' t-att-value='product.display_name' placeholder='Name'></input>
+							</div>
+							<div>
+								<select class="product-select pos-category product-input" name="pos_categ_id">
+									<option value="">Select POS Category</option>
+									<t t-foreach="env.pos.pos_category" t-as="category" t-key="category.id">
+										<option t-att-value="category.id"
+											 t-att-selected="category.id ? ((category.id === product.pos_categ_id[0]) ? true : undefined) : undefined">
+											<t t-esc="category.name" />
+										</option>
+									</t>
+								</select>
+
+							</div>
+							<div >
+								<input class='product-input barcode' name='barcode' t-att-value='product.barcode || ""' placeholder='Barcode'></input>
+							</div>
+
+							<div >
+								<input class='product-input lst-price'  name='list_price' t-att-value='product.lst_price' placeholder='Sale Price'></input>
+							</div>
+
+							<div >
+								<input class='product-input standard-price'  name='cost_price' t-att-value='product.standard_price || ""' placeholder='Cost Price'></input>
+							</div>
+						</div>
+					</main>
+					<footer class="footer">
+						<div t-if= "env.pos.config.allow_edit_product"  class="button confirm odoo-theme-color" t-on-click="save_product">
+							Save
+						</div>
+						<div class="button cancel odoo-theme-color" t-on-click="cancel">
+							Close
+						</div>
+					</footer>
+				</div>
+			</Draggable>
+		</div>
+	</t>
+</templates>

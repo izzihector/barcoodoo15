@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<template id='pos_pay_assets' name='POS Summary Assets' inherit_id='point_of_sale.assets'>
+			<xpath expr='.' position='inside'>
+				<link rel="stylesheet" href="/pos_all_in_one/static/src/css/new_base_update.css"/>
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/ProductwidgetExtends.js"/>
+				<!-- POS Pay later -->
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/models.js"/>
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/Screens/PayPOSOrdersScreen.js"></script>
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/Screens/CreateDraftPOS.js"></script>
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/Screens/PaymentScreen.js"></script>
+
+				<!-- POS Product Template -->
+				<link rel="stylesheet" href="/pos_all_in_one/static/src/css/product.css" />
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/ProductTemplateListWidget.js"/>
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/screens.js"/>
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/BiProductScreen.js"/>
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/ProductTemplatePopupWidgetCustom.js"/>
+
+
+				<!-- pos product operation -->
+				<!-- <link rel="stylesheet" href="/pos_all_in_one/static/src/css/pos.css" /> -->
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/pos_product_operation.js"/>
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/Popup/POSProductDetail.js"/>
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/Popup/ProductDetailsCreate.js"/>
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/Popup/ProductDetailsEdit.js"/>
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/Screens/POSProduct.js"/>
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/Screens/POSProductScreen.js"/>
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/Widget/SeeAllProductsButtonWidget.js"/>
+
+
+				<!-- POS multi Currency -->
+				<link rel="stylesheet" href="/pos_all_in_one/static/src/css/button.css"/>
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/pos_data.js"></script>
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/BiPaymentScreen.js"></script>
+
+				<!-- Add custom js for pos_disable_payments -->
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/pos_disable_models.js"/>
+
+				<!-- Add custom js for pos_payments -->
+				<link rel="stylesheet" href="/pos_all_in_one/static/src/css/pos_payment.css" />
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/pos_payment.js"/>
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/Widget/CreatePaymentButtonWidget.js"/>
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/Widget/SeeAllInvoicesButtonWidget.js"/>
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/Popup/RegisterInvoicePaymentPopupWidget.js"/>
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/Popup/PosInvoiceDetail.js"/>
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/Popup/RegisterPaymentPopupWidget.js"/>
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/Screens/POSInvoiceScreen.js"/>
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/Screens/ClientListScreen.js"/>
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/Screens/POSInvoice.js"/>
+
+				<!-- Add custom js for pos_loyalty -->
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/loyalty_pos.js"/>
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/OrderWidgetExtended.js"/>
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/LoyaltyButtonWidget.js"/>
+				<script type="text/javascript" src="/pos_all_in_one/static/src/js/LoyaltyPopupWidget.js"/>
+
+				<!-- Add custom js for pos_internal -->
+				<script type='text/javascript' src='/pos_all_in_one/static/src/js/Screens/PosTransferWidget.js'/>
+				<script type='text/javascript' src='/pos_all_in_one/static/src/js/Popup/PosInternalStockPopupWidget.js'/>
+				<script type='text/javascript' src='/pos_all_in_one/static/src/js/pos_internal_transfer.js'/>
+
+				<!-- Add custom js for pos_report -->
+				
+				<!-- <script type='text/javascript' src='/bi_pos_reports/static/src/js/XMLPosPaymentSummaryReceipt.js'/> -->
+				<script type='text/javascript' src='/pos_all_in_one/static/src/js/ReportPaymentButtonWidget.js'/>
+				<script type='text/javascript' src='/pos_all_in_one/static/src/js/pos_reports.js'/>
+				<script type='text/javascript' src='/pos_all_in_one/static/src/js/PaymentSummaryPopup.js'/>
+				<script type='text/javascript' src='/pos_all_in_one/static/src/js/PaymentReceiptWidget.js'/>
+				<script type='text/javascript' src='/pos_all_in_one/static/src/js/XMLPosPaymentSummaryReceipt.js'/>
+
+				<script type='text/javascript' src='/pos_all_in_one/static/src/js/ReportProductButton/ReportProductButtonWidget.js'/>
+				<script type='text/javascript' src='/pos_all_in_one/static/src/js/ReportProductButton/PopupProductWidget.js'/>
+				<script type='text/javascript' src='/pos_all_in_one/static/src/js/ReportProductButton/ProductReceiptWidget.js'/>
+				<script type='text/javascript' src='/pos_all_in_one/static/src/js/ReportProductButton/XMLPosProductSummaryReceipt.js'/>
+				
+
+
+				<script type='text/javascript' src='/pos_all_in_one/static/src/js/AuditReport/ReportLocationButtonWidget.js'/>
+				<script type='text/javascript' src='/pos_all_in_one/static/src/js/AuditReport/PopupLocationWidget.js'/>
+				<script type='text/javascript' src='/pos_all_in_one/static/src/js/AuditReport/LocationReceiptWidget.js'/>
+				<script type='text/javascript' src='/pos_all_in_one/static/src/js/AuditReport/LLocationSummaryReceipt.js'/>
+				
+				
+				<script type='text/javascript' src='/pos_all_in_one/static/src/js/CategorySummary/ReportCategoryButtonWidget.js'/>
+				<script type='text/javascript' src='/pos_all_in_one/static/src/js/CategorySummary/PopupCategoryWidget.js'/>
+				<script type='text/javascript' src='/pos_all_in_one/static/src/js/CategorySummary/CategoryReceiptWidget.js'/>
+				<script type='text/javascript' src='/pos_all_in_one/static/src/js/CategorySummary/XMLPosCategorySummaryReceipt.js'/>
+				
+				
+
+				<script type='text/javascript' src='/pos_all_in_one/static/src/js/OrderSummary/ReportOrderButtonWidget.js'/>
+				<script type='text/javascript' src='/pos_all_in_one/static/src/js/OrderSummary/PopupOrderWidget.js'/>
+				<script type='text/javascript' src='/pos_all_in_one/static/src/js/OrderSummary/OrderReceiptWidget.js'/>
+				<script type='text/javascript' src='/pos_all_in_one/static/src/js/OrderSummary/XMLPosOrderSummaryReceipt.js'/>
+
+				<link rel="stylesheet" href="/pos_all_in_one/static/src/css/reports.css" />
+
+			</xpath>
+		</template>
+	
+	</data>
+</odoo>
+

@@ -40,3 +40,6 @@ Version 15.0.1.1 : (07-12-22)
         -- update security file
         -- Update the template name ProductTemplatePopupWidget to ProductTemplatePopupWidgetCustom
         
+
+Version 15.0.1.2 : (19-12-22)
+        -- When we try to close the session if there is an partial order is pending at that time we can not close the session fixed that issue.

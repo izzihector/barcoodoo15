@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<template id="report_top_selling">
+			<t t-call="web.html_container">
+				<t t-call="web.external_layout">
+					<div class="page">
+						<div class="text-center container" style="border: 1px solid black;">
+							<t t-if="top_selling == 'products'">
+								<h2>Top Products</h2>
+							</t>
+							<t t-if="top_selling == 'categories'">
+								<h2>Top Categories</h2>
+							</t>
+							<t t-if="top_selling == 'customers'">
+								<h2>Top Customers</h2>
+							</t>						
+						</div>
+						<br/>
+						<br/>
+						<br/>						
+						<div class="container">	
+							<div>
+								<span >Report Date time :</span> 
+								<span style="margin-left:25%;">
+									<t t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M %p')" />
+								</span><br/>
+							</div>
+							<div>
+								<span >Start Date : </span>
+								<span style="margin-left:36%;"><t t-esc="start_dt"/></span>
+								<br/>
+							</div>
+							<div>
+								<span >End Date : </span>
+								<span style="margin-left:38%;"><t t-esc="end_dt"/></span>
+							</div>
+							<br/>
+							<br/>
+							<t t-if="top_selling == 'products'">
+								<table class="table table-sm">
+									<tbody>
+										<tr>												
+											<th colspan="3" >Product Name</th>
+											<th style="text-align:right;" >Quantity</th>
+											<th style="text-align:right;" >Unit</th>
+										</tr>											
+										<t t-foreach="prod_data" t-as="u">
+											<tr>
+												<td colspan="3"><t t-esc="u['product_name']"/></td>
+												<td style="text-align:right;"><t t-esc="u['qty']"/></td>
+												<td style="text-align:right;"><t t-esc="u['uom_name']"/></td>
+											</tr>											
+										</t>
+									</tbody>
+								</table>
+							</t>
+							<t t-if="top_selling == 'categories'">
+								<table class="table table-sm">
+									<tbody>
+										<tr>												
+											<th colspan="3" >Category</th>
+											<th style="text-align:right;" >Total Selling</th>
+										</tr>											
+										<t t-foreach="prod_data" t-as="u">
+											<tr>
+												<td colspan="3"><t t-esc="u['name']"/></td>
+												<td style="text-align:right;"><t t-esc="u['total']" t-options="{'widget': 'float', 'precision': currency_precision}"/></td>
+											</tr>											
+										</t>
+									</tbody>
+								</table>
+							</t>
+							<t t-if="top_selling == 'customers'">
+								<table class="table table-sm">
+									<tbody>
+										<tr>												
+											<th colspan="3" >Customer</th>
+											<th style="text-align:right;" >Total Selling</th>
+										</tr>											
+										<t t-foreach="prod_data" t-as="u">
+											<tr>
+												<td colspan="3"><t t-esc="u['partner_id']"/></td>
+												<td style="text-align:right;"><t t-esc="u['amount_paid']" t-options="{'widget': 'float', 'precision': currency_precision}"/></td>
+											</tr>											
+										</t>
+									</tbody>
+								</table>
+							</t>
+						</div>
+						<hr/>
+					</div>
+				</t>
+			</t>
+		</template>
+
+		<record id="pos_paper_format" model="report.paperformat">
+			<field name="name">Sales Details</field>
+			<field name="default" eval="True" />
+			<field name="format">custom</field>
+			<field name="page_height">230</field>
+			<field name="page_width">100</field>
+			<field name="margin_top">40</field>
+			<field name="margin_bottom">10</field>
+			<field name="margin_left">5</field>
+			<field name="margin_right">5</field>
+			<field name="header_line" eval="False" />
+			<field name="orientation">Portrait</field>
+			<field name="header_spacing">36</field>
+			<field name="dpi">110</field>
+		</record>
+
+	</data>
+</odoo>

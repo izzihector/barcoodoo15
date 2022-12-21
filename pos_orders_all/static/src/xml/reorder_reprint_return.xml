@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="pos_orders_reprint_template" inherit_id="point_of_sale.template" xml:space="preserve">
+
+	<t t-name="ReturnOrderButton" owl="1">
+		<span class="control-button return_orders odoo-theme-color">
+			<i class="fa fa-barcode"></i>
+			<span>Return Order with Barcode</span>
+		</span>
+	</t>
+
+
+	<t t-name="ReOrderPopup" owl="1">
+		<div role="dialog" class="modal-dialog">
+			<Draggable>
+				<div class="popup" style="min-width: 50%;">
+					<header class="title drag-handle">
+						Reorder Products
+					</header>
+					<main class="body traceback" style="font-family: 'Lato-Reg';">
+						<table class='reorder-product-list' style='width:100%;    text-align: center;line-height: 30px;'>
+							<thead>
+								<tr class="orderline-table-head">
+									<th>Product</th>
+									<th>Reorder Qty</th>
+								</tr>
+							</thead>
+							<tbody class='reorder-product-list-contents'>
+								<tr class="orderline-table" t-foreach="props.orderlines || []" t-as="item">
+									<td><t t-esc='item.product_id[1]' /></td>
+									<td class="entered_item_qty">
+										<input type="text" name="qty" style="margin: 5px;"
+											t-att-line-id='item.id' t-att-qty-id='item.qty'
+											class="input-field">
+										</input>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</main>
+					<footer class="footer">
+						<div class="button cancel odoo-theme-button" t-on-click="cancel">
+							Close
+						</div>
+
+						<div class="button confirm odoo-theme-button" t-on-click="do_reorder">
+							Re-Order
+						</div>
+					</footer>
+				</div>
+			</Draggable>
+		</div>
+	</t>
+
+	<t t-name="OrderReprintScreen" owl="1">
+		<div class="receipt-screen screen">
+			<div class="screen-content">
+				<div class="top-content">
+					<span class="button back" t-on-click="back">
+						<i class="fa fa-angle-double-left"></i>
+						<span> </span>
+						<span>Back</span>
+					</span>
+					<div class="top-content-center">
+						<h1> Reprint Order</h1>
+					</div>
+					<span class="button next highlight" t-on-click="back">
+						<span>Ok</span>
+						<span> </span>
+						<i class="fa fa-angle-double-right"></i>
+					</span>
+				</div>
+				<div class="centered-content">
+					<div class="button print" t-on-click="printReceipt">
+						<i class="fa fa-print"></i>
+						<span> </span>
+						<span>Print</span>
+					</div>
+					<div class="pos-receipt-container">
+						<OrderReprintReceipt 
+							order="props.order"
+							barcode = "props.barcode"
+							discount = "props.discount"
+							orderlines = "props.orderlines"
+							paymentlines = "props.paymentlines"
+							change = "props.change"
+							subtotal = "props.subtotal"	
+							tax = "props.tax"	
+							user_name = "props.user_name"
+							t-ref="order-receipt"
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</t>
+
+	<t t-name="OrderReprintReceipt" owl="1">
+		<div class="pos-receipt">
+			<img class="pos-receipt-logo" t-att-src='env.pos.company_logo_base64' alt="Logo"/>
+			<br/>
+			<div class="pos-receipt-contact">
+				<t t-if='env.pos.company.contact_address'>
+					<div><t t-esc='env.pos.company.contact_address' /></div>
+				</t>
+				<t t-if='env.pos.company.phone'>
+					<div>Tel:<t t-esc='env.pos.company.phone' /></div>
+				</t>
+				<t t-if='env.pos.company.vat'>
+					<div>VAT:<t t-esc='env.pos.company.vat' /></div>
+				</t>
+				<t t-if='env.pos.company.email'>
+					<div><t t-esc='env.pos.company.email' /></div>
+				</t>
+				<t t-if='env.pos.company.website'>
+					<div><t t-esc='env.pos.company.website' /></div>
+				</t>
+				<br/>
+				
+				<t t-if='props.user_name'>
+					<div class='cashier'>
+						<div>--------------------------------</div>
+						<div>Served by <t t-esc='props.user_name' /></div>
+					</div>
+				</t>
+			</div>
+			<br /><br />
+			<div class='orderlines'>
+				<t t-foreach='props.orderlines' t-as='line'>
+					<t t-set='simple' t-value='(line.discount === 0 and line.qty === 1)' />
+					<div t-if='simple'>
+						<t t-esc="line.product_id"/>
+						<span t-esc='env.pos.format_currency_no_symbol(line.total_price)' class="price_display pos-receipt-right-align"/>
+					</div>
+					<t t-if='!simple'>
+						<div t-esc='line.product_id'/>
+						<t t-if='line.discount !== 0'>
+							<div class="pos-receipt-left-padding">
+								<t t-esc="env.pos.format_currency_no_symbol(line.price_unit)"/>
+							</div>
+							<div class="pos-receipt-left-padding">
+								Discount: <t t-esc='line.discount' />%
+							</div>
+						</t>
+						<div class="pos-receipt-left-padding">
+							<t t-esc="Math.round(line.qty)"/>
+							x
+							<t t-esc='env.pos.format_currency_no_symbol(line.total_price/line.qty)' />
+							<span class="price_display pos-receipt-right-align">
+								<t t-esc='env.pos.format_currency_no_symbol(line.total_price)'/>
+							</span>
+						</div>
+					</t>
+				</t>
+			</div>
+			<div class="pos-receipt-right-align">--------</div>
+			<br/>
+			<div class="pos-receipt-amount">
+				TOTAL
+				<span t-esc='env.pos.format_currency(props.order.amount_total)' class="pos-receipt-right-align"/>
+			</div>
+			<br/><br/>
+			<t t-foreach='props.paymentlines' t-as='line'>
+				<div>
+					<t t-esc='line.name' />
+					<span t-esc='env.pos.format_currency_no_symbol(line.amount)' class="pos-receipt-right-align"/>
+				</div>
+			</t>
+			<br/>
+			<div class="pos-receipt-amount receipt-change">
+				CHANGE
+				<span t-esc='env.pos.format_currency(-props.change)' class="pos-receipt-right-align"/>
+			</div>
+			<br/>
+			<t t-if='discount_total'>
+				<div>
+					Discounts
+					<span t-esc='env.pos.format_currency(props.discount)' class="pos-receipt-right-align"/>
+				</div>
+			</t>
+			<div>
+				Total Taxes
+				<span t-esc='env.pos.format_currency(props.tax)' class="pos-receipt-right-align"/>
+			</div>
+			<div class='before-footer' />
+			<br/>
+			<div class="pos-receipt-order-data">
+				<div><t t-esc='props.order.pos_reference' /></div>
+				<div><t t-esc='props.order.date_order' /></div>
+				
+			</div>
+			<t t-if="env.pos.config.show_barcode">
+				<div>
+					<span style="display:none;" t-esc="receiptBarcode"/>
+					<div style="margin:auto;margin-top:10px;" id="barcode_print1"></div>
+				</div>
+			</t>
+		</div>
+	</t>
+
+	<t t-name="TextInputPopup" t-inherit="point_of_sale.TextInputPopup" t-inherit-mode="extension" owl="1">
+		<xpath expr="//div[hasclass('footer')]" position="replace">
+			<div class="footer">
+				<div class="button confirm odoo-theme-color" t-on-click="confirm">
+					<t t-esc="props.confirmText" />
+				</div>
+				<div class="button cancel odoo-theme-color" t-on-click="cancel">
+					<t t-esc="props.cancelText" />
+				</div>
+			</div>
+		</xpath> 
+	</t>
+
+	<t t-name="ReturnOrderPopup" owl="1">
+		<div role="dialog" class="modal-dialog">
+			<Draggable>
+				<div class="popup" style="min-width: 50%;">
+					<header class="title drag-handle">
+						Return Products
+					</header>
+					<main class="body traceback" style="font-family: 'Lato-Reg';">
+						<table class='reorder-product-list' style='width:100%;text-align: center;line-height: 30px;'>
+							<thead>
+								<tr class="orderline-table-head">
+									<th>Product</th>
+									<th>Ordered Qty</th>
+									<th>Remain Qty</th>
+									<th>Return Qty</th>
+								</tr>
+							</thead>
+							<tbody class='return-product-list-contents'>
+								<tr class="orderline-table" t-foreach="props.orderlines || []" t-as="item">
+									<td><t t-esc='item.product_id[1]' /></td>
+									<td><t t-esc='item.qty' /></td>
+									<td><t t-esc='item.qty - item.return_qty' /></td>
+									<td class="entered_item_qty">
+										<input type="text" style="margin: 5px;" class="input-field" t-att-line-id='item.id' t-att-qty-id='item.qty' name="qty"
+										t-att-return-qty='item.return_qty' >
+										</input>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</main>
+					<footer class="footer">
+						<div class="button cancel odoo-theme-button" t-on-click="cancel">Close</div>
+						<div class="button confirm odoo-theme-button" t-on-click="do_returnOrder">Return-Order</div>
+					</footer>
+				</div>
+			</Draggable>
+		</div>
+	</t>
+
+</templates>
+
+

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		
+		<record id="view_pos_x_report_wizard" model="ir.ui.view">
+			<field name="name">x.report.wizard.form</field>
+			<field name="model">x.report.wizard</field>
+			<field name="arch" type="xml">
+				<form string="Ongoing Session Report">
+					<group>
+						<field name="pos_session_ids" widget="many2many_tags"/>
+					</group>
+					<group>
+						<field name="report_type" />
+					</group>
+					<footer>
+						<button name="generate_x_report" string="Print" type="object" class="btn-primary"/>
+						<button string="Cancel" class="btn-default" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>  
+
+		<record id="action_x_report" model="ir.actions.act_window">
+			<field name="name">Ongoing Session Report</field>
+			<field name="res_model">x.report.wizard</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+		<!-- <report 
+			string="Ongoing Session Report" 
+			id="action_x_report_print" 
+			model="x.report.wizard" 
+			report_type="qweb-pdf"
+			name="bi_pos_reports.report_open_session" 
+			file="bi_pos_reports.report_open_session" 
+			paperformat="bi_pos_reports.pos_paper_format"
+		/> -->
+
+		<record id="action_x_report_print" model="ir.actions.report">
+            <field name="name">Ongoing Session Repor</field>
+            <field name="model">x.report.wizard</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">pos_all_in_one.report_open_session</field>
+            <field name="report_file">pos_all_in_one.report_open_session</field>
+           
+            <field name="binding_type">report</field>
+        </record>
+
+		<menuitem id="x_report" name="Ongoing Session Report" action="action_x_report" parent="menu_report_parent" sequence="2"/>
+
+		<template id="report_open_session">
+				<t t-call="web.html_container">
+					<t t-call="web.external_layout">
+						<div class="page">
+							<div class="text-center container" style="border: 1px solid black;">
+								<h2>Ongoing Session Report</h2>
+							</div>
+							<br/>
+							<table  class="table table-sm">
+								<tbody>
+									<tr>
+										<td colspan="3" >Report Date:</td>
+										<td style="text-align:right;"><t t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/></td>
+									</tr>
+									<tr>
+										<td colspan="3" >Report Time :</td>
+										<td style="text-align:right;"><t t-esc="context_timestamp(datetime.datetime.now()).strftime('%H:%M %p')"/></td>
+									</tr>
+									<tr>
+										<td colspan="3" >Session(s) :</td>
+										<td style="text-align:right;"><t t-esc="num_sessions"/></td>
+									</tr>
+									<tr>
+										<td colspan="3" >Status:</td>
+										<td style="text-align:right;">Opened</td>
+									</tr>
+									<tr>
+										<td colspan="3" >Opening Balance:</td>
+										<td style="text-align:right;"><t t-esc="opening_balance" t-options='{"widget": "float", "precision": 2}'/></td>
+									</tr>
+									<tr>
+										<td colspan="3" >Sales without Tax :</td>
+										<td style="text-align:right;"><t t-esc="total_paid - taxes" t-options="{'widget': 'float', 'precision': currency_precision}"/></td>
+									</tr>
+									<tr>
+										<td colspan="3" >Discount :</td>
+										<td style="text-align:right;"><t t-esc=" total_discount" t-options="{'widget': 'float', 'precision': currency_precision}"/></td>
+									</tr>
+									<tr>
+										<td colspan="3" >Tax Amount :</td>
+										<td style="text-align:right;"><t t-esc=" taxes" t-options="{'widget': 'float', 'precision': currency_precision}"/></td>
+									</tr>
+									<tr>
+										<td colspan="3" >Returns :</td>
+										<td style="text-align:right;"><t t-esc="return_total" t-options="{'widget': 'float', 'precision': currency_precision}"/></td>
+									</tr>
+
+									<tr>
+										<td colspan="3" >Gross Total:</td>
+										<td style="text-align:right;"><t t-esc=" total_paid" t-options="{'widget': 'float', 'precision': currency_precision}"/></td>
+									</tr>
+								</tbody>
+							</table>
+							<br/>
+							<h5 class="text-center">Department Sales</h5>
+							<table  class="table table-sm">
+								<tbody>
+								<t t-foreach='categories_data' t-as='line'>
+									<tr>
+										<td colspan="3"><t t-esc="line['name']" /></td>
+										<td style="text-align:right;">
+											<t t-esc="line['total']"  t-options="{'widget': 'float', 'precision': currency_precision}"/>
+										</td>
+									</tr>
+								</t>
+								<tr>
+									<td colspan="3" ></td>
+									<td style="text-align:right;"><t t-esc=" total_paid" t-options="{'widget': 'float', 'precision': currency_precision}"/></td>
+								</tr>
+								</tbody>
+							</table>
+							<br/>
+							<h5 class="text-center">Payments</h5>
+							<table  class="table table-sm">
+								<tbody>
+								<tr t-foreach='payments' t-as='payment'>
+									<td colspan="3"><t t-esc="payment['name']" /></td>
+									<td style="text-align:right;"><t t-esc="payment['total']" t-options="{'widget': 'float', 'precision': currency_precision}"/></td>
+								</tr>
+								<tr>
+									<td colspan="3" ></td>
+									<td style="text-align:right;"><t t-esc=" total_paid" t-options="{'widget': 'float', 'precision': currency_precision}"/></td>
+								</tr>
+
+								</tbody>
+							</table>
+
+							<hr/>
+						</div>
+					</t>
+				</t>
+		</template>
+
+	</data>
+</odoo>
+

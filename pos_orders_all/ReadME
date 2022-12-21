@@ -1,0 +1,18 @@
+Date : 31-12-2021
+Version : 15.0.0.1
+    - Solve Traceback error for Gift Coupons
+    - Solve issue which is generated while validate payment
+    - Make proper view for pop-up of Bag button
+
+Date : 17-02-2022
+Version : 15.0.0.2
+    - solve the issue of giving an unknown error in the backend, it gives traceback while take product in which Customer Taxes are added->on the payment screen ->select invoice->validate payment-> it gives traceback
+    - solve the issue Invoice-> Add products in invoice lines->traceback occurs(screenshot attached)
+
+Date : 30-03-2022
+Version : 15.0.0.3
+    -- Solved tax related issue it is work in the sale order but not in the invoice.
+
+Date : 02-09-2022
+Version : 15.0.0.4
+    -- Update code for the discount when discount type is not Percentage.

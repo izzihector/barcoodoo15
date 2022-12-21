@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Customer Sale Analysis Report PaperFormat -->
+    <record id="paperformat_customer_sale_analysis" model="report.paperformat">
+        <field name="name">Customer Sale Analysis</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">297</field>
+        <field name="page_width">210</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">55</field>
+        <field name="margin_bottom">15</field>
+        <field name="margin_left">10</field>
+        <field name="margin_right">10</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">50</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <!-- Customer Sale Analysis Report -->
+    <record id="action_report_customer_sale_analysis" model="ir.actions.report">
+        <field name="name">Customer Sale Analysis</field>
+        <field name="model">res.partner</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">bi_customer_sales_analysis.report_customersaleanalysis</field>
+        <field name="report_file">bi_customer_sales_analysis.report_customersaleanalysis</field>
+        <field name="paperformat_id" ref="paperformat_customer_sale_analysis"/>
+    </record>
+</odoo>

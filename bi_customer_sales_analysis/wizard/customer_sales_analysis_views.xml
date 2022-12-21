@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="customer_sales_analysis_view_form" model="ir.ui.view">
+        <field name="name">Customer Sale Analysis</field>
+        <field name="model">customer.sale.analysis.wiz</field>
+        <field name="arch" type="xml">
+            <form string="Customer Sale Analysis">
+                <sheet>
+                    <group attrs="{'invisible': [('file', '!=', False)]}">
+                        <field name="company_id" required="1"/>
+                        <field name="account_ids" required="1" widget="many2many_tags"/>
+                        <field name="start_date" required="1"/>
+                        <field name="end_date" required="1"/>
+                    </group>
+                    <group>
+                        <field name="file" invisible="1"/>
+                        <field name="document" filename="file" attrs="{'invisible': [('file', '==', False)]}" readonly="1"/>
+                    </group>
+                    <separator string="Customers" attrs="{'invisible': [('file', '!=', False)]}"/>
+                    <group attrs="{'invisible': [('file', '!=', False)]}">
+                        <field name="partner_ids" widget="many2many_tags" nolabel="1" required="1" attrs="{'invisible': [('file', '!=', False)]}"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="print_pdf_report" string="Print PDF" type="object" icon="fa-print" class="btn-primary" attrs="{'invisible': [('file', '!=', False)]}"/>
+                    <t attrs="{'invisible': [('file', '!=', False)]}">OR</t>
+                    <button name="print_excel_report" string="Print Excel" type="object" icon="fa-print" class="btn-primary" attrs="{'invisible': [('file', '!=', False)]}"/>
+                    <t attrs="{'invisible': [('file', '!=', False)]}">OR</t>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    <t attrs="{'invisible': [('file', '==', False)]}">OR</t>
+                    <button name="action_back" string="_Back" type="object" attrs="{'invisible': [('file', '==', False)]}" class="oe_highlight"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="customer_sales_analysis_action" model="ir.actions.act_window">
+        <field name="name">Customer Sale Analysis</field>
+        <field name="res_model">customer.sale.analysis.wiz</field>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+
+    <menuitem name="Customer Sale Analysis" 
+        action="customer_sales_analysis_action"
+        id="menu_action_customer_analysis_report"
+        parent="account.account_reports_management_menu" 
+       />
+
+</odoo>
+
+

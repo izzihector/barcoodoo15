@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<templates id="pos_payment_template" inherit_id="point_of_sale.template" xml:space="preserve">
+   
+
+	<t t-name="CreatePaymentButtonWidget"  owl="1">
+		<div class="control-button">
+			<i class="fa fa-money"></i>
+			<span> </span>
+			<span>Payment</span>
+		</div>
+	</t>
+
+	<t t-name="SeeAllInvoicesButtonWidget"  owl="1">
+		<div class="control-button">
+			<i class="fa fa-money"></i>
+			<span> </span>
+			<span>Invoices</span>
+		</div>
+	</t>
+
+	<t t-name="ClientListScreen" t-inherit="point_of_sale.ClientListScreen" t-inherit-mode="extension" owl="1">
+		<xpath expr="//div[hasclass('top-content')]" position="inside">
+			<div class="button odoo-theme-button"  t-on-click="register_payment">
+				<i class='fa fa-sign-in'/>  Register Payment
+			</div>
+		</xpath>
+	</t>
+
+	<t t-name="POSInvoiceScreen" owl="1">
+		<div class="clientlist-screen screen">
+			<div class="screen-content orders-screen">
+				<div class="top-content">
+					<div class="button back odoo-theme-color" t-on-click="cancel">
+						<t t-if="!env.isMobile">Discard</t>
+						<t t-else="">
+							<i class="fa fa-undo"></i>
+						</t>
+					</div>
+					<div class="button refresh-order odoo-theme-color" t-on-click="refresh_orders">
+						<i class='fa fa-refresh'></i>
+					</div>
+					<div class="searchbox-client top-content-center">
+						<input placeholder="Search Orders" size="1" t-on-keyup="updateOrderList" class="input-search-orders"/>
+					</div>
+				</div>
+				<section class="full-content">
+					<div class="client-window">
+						<section class="subwindow collapsed">
+							<div class="subwindow-container collapsed">
+							</div>
+						</section>
+						<section class="subwindow list">
+							<div class="subwindow-container">
+								<div  class="subwindow-container-fix scrollable-y">
+									<table class="client-list">
+										<thead>
+											<tr class="odoo-theme-color">
+												<th class="order_ref">Invoice</th>
+												<th class="receipt_ref">Customer Ref</th>
+												<th class="order_cstmr">Total Amount</th>
+												<th class="order_date">Due Amount</th>
+												<th class="order_state">State</th>
+											</tr>
+										</thead>
+										<tbody class="posorders-list-contents">
+											<t t-if="!pos_orders">
+												<tr>
+													<td>Loading....</td>
+												</tr>
+											</t>
+											<t t-foreach="pos_orders" t-as="order"
+											   t-key="order.id">
+												<POSInvoice order="order" selectedPosOrder="state.selectedPosOrder" t-on-click-order="clickPosOrder" />
+											</t>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</section>
+					</div>
+				</section>
+			</div>
+		</div>
+	</t>
+
+
+	<t t-name="POSInvoice" owl="1">
+		<tr t-attf-class="client-line {{highlight}}" t-att-data-id="props.order.id"
+			t-on-click="trigger('click-order', {order: props.order})">
+			<td class='order-name' t-att-data-id='props.order.id'
+				t-on-click.stop="trigger('click-showDetails',props.order)">
+				<t t-esc='props.order.name' />
+			</td>
+			<td class='order-partner' t-att-data-id='props.order.id'
+				t-on-click.stop="trigger('click-showDetails',props.order)">
+				<t t-esc='props.order.partner_id[1] or ""' />
+			</td>
+			<td class='order-date' t-att-data-id='props.order.id'
+				t-on-click.stop="trigger('click-showDetails',props.order)">
+				<t t-esc='env.pos.format_currency(props.order.amount_total)' />
+			</td>
+			<td class='order-tot' t-att-data-id='props.order.id'
+				t-on-click.stop="trigger('click-showDetails',props.order)">
+				<t t-esc='env.pos.format_currency(props.order.amount_residual)' />
+			</td>
+			<td class='order-state' t-att-data-id='props.order.id'
+				t-on-click.stop="trigger('click-showDetails',props.order)">
+				<t t-if="props.order.state == 'draft'">Draft/New</t>
+				<t t-if="props.order.state == 'posted'">Posted</t>
+				<t t-if="props.order.state == 'cancel'">Cancelled</t>
+			</td>
+		</tr>
+	</t>
+
+	<t t-name="PosInvoiceDetail" owl="1">
+		<div role="dialog" class="modal-dialog">
+			<Draggable>
+				<div class="popup bi-popup-width">
+					<header class="title drag-handle">
+						Order Details
+					</header>
+					<main class="body traceback" style="font-family: 'Lato-Reg';">
+						<t t-set="order" t-value="props.order || []"/>
+						<table style='width:100%'>
+							<tr class="popup-tr">
+								<td style='width:20%; '><strong>Customer:</strong>
+								</td>
+								<td style='width:30%; '  t-if="order['partner_id']">
+									<span t-esc="order['partner_id'][1] or ''"/>
+								</td>
+								<td style='width:20%; '><strong>Amount Due:</strong>
+								</td>
+								<td style='width:30%; '>
+									<span t-esc="env.pos.format_currency(order['amount_residual'])" />
+								</td>
+							</tr>
+							<tr class="popup-tr">
+								<td style='width:20%; '><strong>Total Amount:</strong>
+								</td>
+								<td style='width:30%; '>
+									<span t-esc="env.pos.format_currency(order['amount_total'])" />
+								</td>
+								<td style='width:20%; '><strong>Status:</strong>
+								</td>
+								<td style='width:30%; '>
+									<t t-if="order['state'] == 'draft'">Draft/New</t>
+									<t t-if="order['state'] == 'posted'">Posted</t>
+									<t t-if="order['state'] == 'cancel'">Cancelled</t>
+								</td>
+							</tr>
+						</table>
+						<br/>
+					</main>
+					<footer class="footer">
+						<div class="button confirm" id="create_customer_payment" style="background-color: rgb(110,200,155) !important; color: #fff;" t-on-click="register_payment">
+							Register Payment
+						</div>
+						<div class="button cancel odoo-theme-color" t-on-click="cancel">
+							Close
+						</div>
+					</footer>
+				</div>
+			</Draggable>
+		</div>
+	</t>
+
+
+	<t t-name="RegisterPaymentPopupWidget" owl="1">
+		<div role="dialog" class="modal-dialog">
+			<div class="popup popup-confirm" style="height: 400px !important;">
+				<p class="title"  style='background-color:rgb(110,200,155) !important; color:white'>
+					<t t-esc="props.title" />
+				</p>
+
+				<div class="body" style="color: rgb(110,200,155) !important;">
+					<p style="color: rgb(110,200,155) !important; height: 30px;">Enter Payment Details Here</p><br/>
+
+					<div style="text-align: left; margin-left: 37px;">
+						<label style="text-align:left"> Payment Journal:  </label>
+						<select id="payment_type" class='detail' name='type' style="height: 35px;width: 59%;float: right;   margin-right: 6%;">
+							<t t-foreach='env.pos.journals' t-as='jrn' t-key="jrn.id">
+								<option t-att-value='jrn.id'>
+									<t t-esc='jrn.name'/>
+								</option>
+							</t>
+						</select>
+					</div><br/>
+					<div style="text-align: left; margin-left: 37px;">
+						<label style="text-align:left"> Amount:  </label><input id ="entered_amount" type="text" class="input-field" name="code" style="height: 35px;width: 59%;float: right;   margin-right: 6%;"></input>
+					</div><br/>
+					<div style="text-align: left; margin-left: 37px;margin-top: 2%;">
+						<label style="text-align:left"> Payment Note:  </label><input id ="entered_note" type="text" class="input-field" name="code" ></input>
+					</div>
+				</div>
+				<div class="footer">
+					<div class="button cancel" id="cancel_coupon_code" style="background-color: rgb(110,200,155) !important; color: #fff;" t-on-click="cancel">
+						<t t-esc="props.cancelText" />
+					</div>
+					<div class="button confirm" id="create_customer_payment" style="background-color: rgb(110,200,155) !important; color: #fff;" t-on-click="register_payment">
+						<t t-esc="props.confirmText" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</t>
+
+
+	<t t-name="RegisterInvoicePaymentPopupWidget" owl="1">
+		<div role="dialog" class="modal-dialog">
+			<div class="popup popup-confirm" style="height: 400px !important;">
+
+				<p class="title"  style='background-color:rgb(110,200,155) !important; color:white'>
+					<t t-esc="props.title" />
+				</p>
+
+				<div class="body">
+					<p style="color: rgb(110,200,155) !important; ">Enter Payment Details Here</p><br/>
+					<div style="text-align: left; margin-left: 37px;">
+						<label style="text-align:left"> Payment Journal:  </label>
+						<select id="payment_type1" class='detail' name='type' style="height: 35px;width: 59%;float: right;   margin-right: 6%;">
+							<t t-foreach='env.pos.journals' t-as='jrn'>
+								<option t-att-value='jrn.id'>
+									<t t-esc='jrn.name'/>
+								</option>
+							</t>
+						</select>
+					</div><br/>
+					<div style="text-align: left; margin-left: 37px;">
+						<label style="text-align:left"> Amount:  </label><input id ="entered_amount1" type="text" class="input-field" name="code" style="height: 35px;width: 59%;float: right;   margin-right: 6%;"></input>
+					</div><br/>
+					<div style="text-align: left; margin-left: 37px;margin-top: 2%;">
+						<label style="text-align:left"> Payment Note:  </label><input id ="entered_note1" type="text" class="input-field" name="code" ></input>
+					</div>
+				</div>
+
+				<div class="footer">
+					<div class="button cancel" id="cancel_coupon_code" style="background-color: rgb(110,200,155) !important; color: #fff;" t-on-click="cancel">
+						<t t-esc="props.cancelText" />
+					</div>
+					<div class="button confirm" id="create_customer_payment" style="background-color: rgb(110,200,155) !important; color: #fff;" t-on-click="register_payment">
+						<t t-esc="props.confirmText" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</t>
+	
+</templates>

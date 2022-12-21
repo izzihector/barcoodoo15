@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<template id="report_pos_payment">
+			<t t-call="web.html_container">
+				<t t-call="web.external_layout">
+					<div class="page">											
+						<div class="container">							
+							<h4 style="color: #006400;  text-align: center;">Detailed Product Sales Details  From <t t-esc="start_dt"/> to  <t t-esc="end_dt"/></h4>
+							<br/>
+							<br/>								
+							 <table class="table table-condensed able table-striped">
+								<h3>POS Products Details</h3>
+								<thead>
+									<tr>
+										<th colspan="3" >Product Name</th>
+										<th style="text-align:right;" >Quantity</th>
+										<th style="text-align:right;" >Unit</th>
+										<th style="text-align:right;" >Unit Price</th>	
+										<th style="text-align:right;" >Discount</th>									
+										<th style="text-align:right;" >Total</th>										
+								</tr></thead>
+								<tbody>
+									<t t-set="grand_total" t-value="0.0" />
+									<t t-set="grand_qty" t-value="0.0" />
+									<t t-set="grand_discount" t-value="0.0" />
+								<t t-foreach="prod_data" t-as="u">
+										<tr>
+											<td colspan="3"><t t-esc="u['product_name']"/></td>
+											<td style="text-align:right;"><t t-esc="u['qty']"/></td>
+											<td style="text-align:right;"><t t-esc="u['uom_name']"/></td>
+											<td style="text-align:right;">
+												<t t-esc="'%.2f'% u['price_unit']" />
+											</td>
+											<td style="text-align:right;">
+												<t t-esc="'%.2f'% u['discount']" />
+											</td>
+											<td style="text-align:right;">
+												<t t-esc="'%.2f'% u['price_subtotal']" />
+											</td>
+										</tr>
+										<t t-set="grand_total" t-value="grand_total + u['price_subtotal']"/>
+										<t t-set="grand_qty" t-value="grand_qty + u['qty']"/>		
+										<t t-set="grand_discount" t-value="grand_discount + float (u['discount'])"/>									
+									</t>
+									<tr>
+										<td colspan="3"><strong>Total:</strong></td>
+										<td style="text-align:right;">
+											<t t-esc="'%.2f'% grand_qty" />
+										</td>
+									  	<!--  <td style="text-align:right;">  <t t-esc="'{:,}'.format(grand_qty).split('.')[0]"/></td> -->
+									   	<td style="text-align:right;"></td>
+								  		<td style="text-align:right;"></td>
+
+								  		<td style="text-align:right;">
+											<t t-esc="'%.2f'% grand_discount" />
+										</td>
+										<td style="text-align:right;">
+											<t t-esc="'%.2f'% grand_total" />
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<table  class="table table-condensed able table-striped">
+								<h3>POS Payments Details</h3>
+								<thead>
+									<tr>
+										<th colspan="1">Name</th>
+										<th style="text-align:right;">Total</th>
+									</tr>
+								</thead>
+								<tbody>
+									<t t-set="pos_payment_total" t-value="0.0" />
+									<t t-foreach="payments" t-as='payment'>
+										<tr>
+											<td colspan="1"><t t-esc="payment['name']" /></td>				
+											<td style="text-align:right;">
+												<t t-esc="'%.2f'% payment['total']" />
+											</td>                    			
+										</tr>
+										<t t-set="pos_payment_total" t-value="pos_payment_total + payment['total']"/>
+									</t>
+										<tr>
+											<td colspan="1"></td>
+											<td style="text-align:right;">
+												<t t-esc="'%.2f'% pos_payment_total" />
+											</td>
+										</tr>
+								</tbody>
+							</table>		
+						</div>
+						<hr/>
+					</div>
+				</t>
+			</t>
+		</template>
+
+		<record id="pos_payment_format" model="report.paperformat">
+			<field name="name">Sales Details</field>
+			<field name="default" eval="True" />
+			<field name="format">custom</field>			
+			<field name="margin_top">40</field>
+			<field name="margin_bottom">10</field>
+			<field name="margin_left">5</field>
+			<field name="margin_right">5</field>
+			<field name="header_line" eval="False" />
+			<field name="orientation">Portrait</field>
+			<field name="header_spacing">36</field>
+			<field name="dpi">110</field>
+		</record>
+
+	</data>
+</odoo>

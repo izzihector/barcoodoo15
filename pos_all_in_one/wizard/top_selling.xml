@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<!-- POS Sales Summary Report  -->
+		<!-- <report 
+			string="Top Selling Customer/Product/Category" 
+			id="action_top_selling_report" 
+			model="pos.top.selling.wizard" 
+			report_type="qweb-pdf"
+			name="bi_pos_reports.report_top_selling" 
+			file="bi_pos_reports.report_top_selling" 
+			paperformat="bi_pos_reports.pos_paper_format"
+		/> -->
+
+		<record id="action_top_selling_report" model="ir.actions.report">
+            <field name="name">Top Selling Customer/Product/Category</field>
+            <field name="model">pos.top.selling.wizard</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">pos_all_in_one.report_top_selling</field>
+            <field name="report_file">pos_all_in_one.report_top_selling</field>
+            
+            <field name="binding_type">report</field>
+        </record>
+
+
+		<record id="view_pos_top_selling_wizard" model="ir.ui.view">
+			<field name="name">pos.top.selling.wizard.form</field>
+			<field name="model">pos.top.selling.wizard</field>
+			<field name="arch" type="xml">
+				<form string="Sales Summary">
+					<group>
+						<group>
+							<field name="start_dt"/>
+							<field name="end_dt"/>
+							<field name="no_product"/>
+						</group>
+						<group>
+							<field name="top_selling" widget="radio"/>
+							<field name="report_type" />
+						</group>
+					</group>				
+					<footer>
+						<button name="top_selling_generate_report" string="Print" type="object" class="btn-primary"/>
+						<button string="Cancel" class="btn-default" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record> 
+		<record id="action_report_top_selling" model="ir.actions.act_window">
+			<field name="name">Top Selling Customer/Product/Category</field>
+			<field name="res_model">pos.top.selling.wizard</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+		<menuitem id="menu_report_parent"
+			name="Other Reports"
+			parent="point_of_sale.menu_point_root"
+			sequence="20"/>	
+		<menuitem id="menu_report_top_selling" name="Top Selling Customer/Product Report" action="action_report_top_selling" parent="menu_report_parent" sequence="4"/>
+	</data>
+</odoo>
+

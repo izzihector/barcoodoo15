@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_customer_sale_analysis_wiz,customer_sale_analysis_wiz,bi_customer_sales_analysis.model_customer_sale_analysis_wiz,,1,1,1,1

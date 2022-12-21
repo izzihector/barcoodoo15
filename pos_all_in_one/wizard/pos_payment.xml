@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<!-- POS Sales Summary Report  -->
+		<!-- <report 
+			string="Pos Payment Report" 
+			id="action_pos_payment_report" 
+			model="pos.payment.wizard" 
+			report_type="qweb-pdf"
+			name="bi_pos_reports.report_pos_payment" 
+			file="bi_pos_reports.report_pos_payment" 
+			paperformat="bi_pos_reports.pos_payment_format"
+		/> -->
+
+		<record id="action_pos_payment_report" model="ir.actions.report">
+            <field name="name">Pos Payment Report</field>
+            <field name="model">pos.payment.wizard</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">pos_all_in_one.report_pos_payment</field>
+            <field name="report_file">pos_all_in_one.report_pos_payment</field>
+            <field name="binding_type">report</field>
+        </record>
+
+		<record id="view_pos_payment_wizard" model="ir.ui.view">
+			<field name="name">pos.payment.wizard</field>
+			<field name="model">pos.payment.wizard</field>
+			<field name="arch" type="xml">
+				<form string="Sales Summary">
+					<group>
+						<group>
+							<field name="start_dt"/>
+							<field name="end_dt"/>						
+						</group>					
+					</group>				
+					<footer>
+						<button name="print_excel_report" string="Print XLS" type="object" class="btn-primary"/>
+						<button name="pos_payment_report" string="Print PDF" type="object" class="btn-primary"/>
+						<button string="Cancel" class="btn-default" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
+		<record id="action_report_pos_payment" model="ir.actions.act_window">
+			<field name="name">Pos Payment Report</field>
+			<field name="res_model">pos.payment.wizard</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+		<menuitem id="menu_report_parent"
+			name="Other Reports"
+			parent="point_of_sale.menu_point_root"
+			sequence="20"/>
+
+		<menuitem id="menu_pos_payment_report" name="Pos Payment Report" action="action_report_pos_payment" parent="menu_report_parent" sequence="6"/>
+
+
+		<record id="view_pos_payment_xls" model="ir.ui.view">
+			<field name="name">sale.excel.report.xls</field>
+			<field name="model">sale.excel.report</field>
+			<field name="arch" type="xml">
+				<form string="Sales Summary">
+					<group>
+						<group>
+							<field name="file_name"/>
+							<field name="excel_file"/>						
+						</group>					
+					</group>				
+					<footer>
+						<button string="Cancel" class="btn-default" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
+	</data>
+</odoo>
+

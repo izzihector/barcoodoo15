@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<record model="ir.ui.view" id="pos_date">
+			<field name="name">pos.order.view.date.form</field>
+			<field name="model">pos.order</field>
+			<field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+			<field name="arch" type="xml">
+				<field name="partner_id" position="after">
+					<field string="Coupon" name="coupon_id" readonly="True" 
+						attrs="{'invisible': [('coupon_id', '=', False)]}"/>
+					<field name="return_order_ref" attrs="{'invisible': [('return_order_ref', '=', False)]}" readonly="True"/>
+					<field name="sale_order_ids" widget="many2many_tags" readonly="1" />
+					<field name="discount_type" readonly="1" >Discount type</field>
+				</field>
+
+				<field name="pos_reference" position="after">
+					<field string="Barcode" name="barcode" readonly="1" />
+					<field name="pos_order_date" invisible="1"/>
+				</field>
+
+				<xpath expr="//form/sheet/notebook/page/field[@name='lines']//tree/field[@name='discount']" position="attributes">
+					<attribute name="string">Discount</attribute>
+				</xpath>
+				<xpath expr="//form/sheet/notebook/page/field[@name='lines']//form/group/field[@name='discount']" position="attributes">
+					<attribute name="string">Discount</attribute>
+				</xpath>
+
+				<xpath expr="//form/sheet/notebook/page/field[@name='lines']//tree/field[@name='discount']" position="before">
+					<field name="original_line_id" invisible="1"/>
+					<field name="return_qty"  invisible="0"/>
+					<field name="discount_line_type" invisible="1">Discount type</field>
+				</xpath>
+			</field>
+		</record>
+
+		<template id="report_saledetails_inherit_discount" inherit_id="point_of_sale.report_saledetails">
+			<xpath expr="//div/table" position="replace">
+				<table  class="table table-sm">
+					<thead><tr>
+						<th>Product</th>
+						<th>Quantity</th>
+						<th>Price Unit</th>
+					</tr></thead>
+					<tbody>
+					<tr t-foreach='products' t-as='line'>
+						<t t-set="internal_reference" t-value="line['code'] and '[%s] ' % line['code'] or ''" />
+						<td><t t-esc="internal_reference" /><t t-esc="line['product_name']" /></td>
+						<td>
+							<t t-esc="line['quantity']" />
+							<t t-if='line["uom"] != "Units"'>
+								<t t-esc='line["uom"]' /> 
+							</t>
+						</td>
+						<td>
+							<t t-esc='line["price_unit"]' />
+							<t t-if='line["discount"] != 0'>
+								<t t-if="line['discount_line_type'] == 'Percentage' ">
+									Disc: <t t-esc='line["discount"]' />%
+								</t>
+								<t t-if="line['discount_line_type'] != 'Percentage' ">
+									Disc: <t t-esc='line["discount"]' />
+								</t>
+							</t>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</xpath>
+		</template>
+	</data>
+</odoo>

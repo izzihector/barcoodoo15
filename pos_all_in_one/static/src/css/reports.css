@@ -1,0 +1,135 @@
+.pos .modal-dialog .popup-delivery{
+    width: 445px;
+    height: 645px;
+}
+/*.pos .popup .title {
+    background: #6EC89B;
+    margin: 0;
+    padding: 10px;
+}*/
+.pos .order .del_summary{
+    width:100%;
+    text-align:center;
+    font-weight: bold;
+    margin-top:20px;
+    margin-bottom:10px;
+}
+.pos .make_green { color:black; 
+    background:#6EC89B;
+}
+
+.pos .delivery-detail input
+{
+    line-height: 12px;
+    border-radius: 2px;
+    border: solid 1px rgb(220,220,220);
+    margin-bottom: 1px;
+    background: white;
+    color: #555555;
+    width: 350px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+.pos .delivery-note input
+{
+    line-height: 12px;
+    background: white;
+    color: #555555;
+    width: 352px;
+    box-sizing: border-box;
+    margin-right: -60px;
+}
+.pos .delivery-detail select
+{
+    line-height: 16px;
+    border-radius: 3px;
+    border: solid 12px #cecbcb;
+    margin-bottom: 10px;
+    background: white;
+    color: #555555;
+    width: 350px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+.pos .delivery-detail > .label{
+    font-weight: italic;
+    display: inline-block;
+    width: 56px;
+    margin-right: 2px;
+    float:left;
+}
+.pos .delivery-detail .s_small {
+    font-size: 14px;
+    padding: 5px;
+}
+
+
+/* Custom CSS For Tabs */
+.tabs{
+    width: 600px;
+    display: block;
+    margin: 40px auto;
+    position: relative;
+}
+
+.tabs .tab{
+    float: left;
+    display: block;
+}
+
+.tabs .tab>input[type="radio"] {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+.tabs .tab>label {
+    display: block;
+	padding: 15px 43px;
+    font-size: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    color: #555555;
+    background: #F0EEEE;
+    border: solid 1px #bfbfbf;
+}
+
+.tabs .content {
+    z-index: 0;/* or display: none; */
+    overflow: hidden;
+    width: 370px;
+    padding: 25px;
+    position: absolute;
+    left: 0;
+    background: #F0EEEE;
+    color: #555555;
+    opacity:0;
+    transition: opacity 400ms ease-out;
+    padding-left: 0px;
+}
+
+.tabs>.tab>[id^="tab"]:checked + label {
+    top: 0;
+    background: #6EC89B;
+    color: #555555;
+}
+
+.tabs>.tab>[id^="tab"]:checked ~ [id^="tab-content"] {
+    z-index: 1;/* or display: block; */
+   
+    opacity: 1;
+    transition: opacity 400ms ease-out;
+}
+
+.pos .popup .body li:before {
+	content: none;
+}
+
+.pos_shipping_address {
+    min-height: 14px !important;
+    width: 22px !important;
+    box-shadow: none !important;
+}
+    
+    

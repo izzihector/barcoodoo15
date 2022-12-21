@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<!-- POS Sales Summary Report  -->
+		<!-- <report 
+			string="Sales Summary" 
+			id="action_sales_summary_report" 
+			model="pos.sale.summary.wizard" 
+			report_type="qweb-pdf"
+			name="bi_pos_reports.report_sales_summary" 
+			file="bi_pos_reports.report_sales_summary" 
+			paperformat="bi_pos_reports.pos_paper_format"
+		/> -->
+
+		<record id="action_sales_summary_report" model="ir.actions.report">
+            <field name="name">Sales Summary</field>
+            <field name="model">pos.sale.summary.wizard</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">pos_all_in_one.report_sales_summary</field>
+            <field name="report_file">pos_all_in_one.report_sales_summary</field>
+        
+            <field name="binding_type">report</field>
+           
+        </record>
+
+		<record id="view_pos_sale_summary_wizard" model="ir.ui.view">
+			<field name="name">pos.sale.summary.wizard.form</field>
+			<field name="model">pos.sale.summary.wizard</field>
+			<field name="arch" type="xml">
+				<form string="Sales Summary">
+					<group>
+						<group>
+							<field name="start_dt"/>
+							<field name="end_dt"/>
+						</group>
+					</group>
+					<group>
+						<field name="report_type" />
+					</group>
+					<group>
+						<field name="only_summary" />
+					</group>
+					<group>
+						<field name="res_user_ids" colspan="4" nolabel="1" attrs="{'invisible': [('only_summary' ,'=', True)]}"/>
+					</group>
+					<footer>
+						<button name="sale_summary_generate_report" string="Print" type="object" class="btn-primary"/>
+						<button string="Cancel" class="btn-default" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>  
+
+		<record id="action_report_sale_summary" model="ir.actions.act_window">
+			<field name="name">Sales Summary</field>
+			<field name="res_model">pos.sale.summary.wizard</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+		<menuitem id="menu_report_parent"
+			name="Other Reports"
+			parent="point_of_sale.menu_point_root"
+			sequence="20"/>
+		
+		<menuitem id="menu_report_sale_summary" name="Sales Summary" action="action_report_sale_summary" parent="menu_report_parent" sequence="1"/>
+
+	</data>
+</odoo>
+

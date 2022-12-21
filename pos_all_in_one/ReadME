@@ -1,0 +1,45 @@
+
+Version 15.0.0.1 : (19-11-21)
+		- Solve mutli company issue.
+
+Date : 31-12-2021
+Version : 15.0.0.2
+    - Solve Traceback error for Loyalty Configuration
+    - Solve issue which is generated while register payment.
+
+Date : 17-02-2022
+Version : 15.0.0.3
+    - Solve the issue of generating multiple delivery orders for the same pos order while validate payment with partial payment multiple times for one order
+    - Solve the issue of showing all the enable currency while Enable Multi-Currency Conversation
+    - Make proper view for product variant wizard
+
+Version 15.0.0.4 : (01-03-22)
+        - Solved amount currency value passing issue.
+        - Allow user to pay multiple times in multi currency.
+
+Version 15.0.0.5 : (04-03-22)
+        - Display other currency in payment lines and also in receipt.
+
+Version 15.0.0.6 : (16-05-22)
+        -- Solved product load issue, In this issue load field image_1920 insted of this useing imageUrl and load product image.
+
+Version 15.0.0.7 : (26-05-22)
+        -- When wee do partial payment and after two or more days when we do full payment and then checked payment symmary in this it is also show old payment info fixed that.
+        -- Sync product details when we edit/create product from the pos.
+
+Version 15.0.0.8 : (18-08-22)
+        -- Refund button is not working fixed that issue.
+
+Version 15.0.0.9 : (02-09-22)
+        -- Solved numpad hide/show issue.
+
+Version 15.0.1.0 : (24-11-22)
+        -- IN the receipt now multi currency amount show based on condition 
+
+Version 15.0.1.1 : (07-12-22)
+        -- update security file
+        -- Update the template name ProductTemplatePopupWidget to ProductTemplatePopupWidgetCustom
+        
+
+Version 15.0.1.2 : (19-12-22)
+        -- When we try to close the session if there is an partial order is pending at that time we can not close the session fixed that issue.

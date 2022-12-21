@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<template>
+
+
+	<t t-name="ProductTemplatePopupWidgetCustom" owl="1">
+		<div class="modal-dialog">
+			<div class="popup popup-confirm" style="height: 450px;">
+				<p class="title" style="background-color: #7f82ac; color: #fff;">Products Variants</p>
+				<p style="color: #0075AC;">Select Your Variants</p>
+				<div class="body" style="height: 300px; overflow  : auto; font-size: 15px">
+ 					<div t-if="props.variant_ids.length != 0" class="product-list">
+		                <t t-foreach="props.variant_ids" t-as="product" t-key="product.id">
+		                	<ProductProduct product="product"/>
+		                </t>
+		            </div>
+				</div>
+				<div class="footer" style="background-color: #7f82ac; color: #fff; bottom:-43px;">
+					<div id="cancel" class="button cancel" style="color: #131212; background: white;" t-on-click="go_back_screen">
+						Cancel
+					</div>
+				</div>
+			</div>
+		</div>
+	</t>
+
+	<t t-extend="ProductTemplate" t-inherit="point_of_sale.ProductItem" t-inherit-mode="extension" owl="1">
+			<xpath expr="//div[hasclass('product-img')]" position="replace">
+				<div class="product-img">
+					<i role="img" aria-label="Info" title="Info" class="product-info-button fa fa-info-circle"
+                    t-on-click.stop="onProductInfoClick()"/>
+					<t t-if="props.product.product_variant_count == 1">
+						<t t-if="props.product.type != 'consu' and props.product.type != 'service'">
+							<t t-if="env.pos.config.pos_display_stock">
+								<t t-if="env.pos.config.pos_stock_type == 'onhand'">
+									<span class="stock-tag" id="stockqty" style="position: absolute;top: 25px;left: 5px;font-size: 11px;border-radius: 2px;background-color: #7f82ac;color: white;padding: 2px;width: 16px;height: 15px;display: flex;justify-content: center;align-items: center;">
+										<t t-if="env.pos.config.show_stock_location != 'specific'">
+											<t t-esc="props.product.bi_on_hand"/>
+										</t>
+									</span>
+								</t>
+								<t t-if="env.pos.config.pos_stock_type == 'incoming'">
+									<span class="stock-tag" style="right: 90px;">
+										<t t-esc="props.product.incoming_qty"/>
+									</span>
+								</t>
+								<t t-if="env.pos.config.pos_stock_type == 'outgoing'">
+									<span class="stock-tag" style="right: 90px;">
+										<t t-esc="props.product.outgoing_qty"/>
+									</span>
+								</t>
+								<t t-if="env.pos.config.pos_stock_type == 'available'">
+									<span class="stock-tag" id="availqty" style="right: 90px;">
+										<t t-if="env.pos.config.show_stock_location == 'specific'">
+											<t t-esc="props.product.bi_available"/>
+										</t>
+										<t t-if="env.pos.config.show_stock_location == 'all'">
+											<t t-esc="props.product.virtual_available"/>
+										</t>
+									</span>
+								</t>
+							</t>
+						</t>
+					</t>
+	                <img t-att-src="imageUrl" t-att-alt="props.product.display_name" />
+	                <span class="price-tag">
+	                    <t t-if="props.product.product_variant_count > 1">
+							<t t-esc="props.product.product_variant_count"/> Variants
+						</t>
+						<t t-else="">
+							<t t-esc="price" />
+						</t>
+	                </span>
+            	</div>
+			</xpath>
+		<xpath expr="//div[hasclass('product-name')]" position="replace">
+		    <div class="product-name" t-attf-id="article_product_{{props.product.id}}">
+		    	<t t-if="props.product.product_variant_count > 1">
+                	<t t-esc="props.product.template_name" />
+                </t>
+                <t t-else="">
+                	<t t-esc="props.product.display_name" />
+                </t>
+            </div>
+        </xpath>
+	</t>
+
+	<t t-name="ProductTemplateListWidget" owl="1">
+		<div class='productt-list-container'>
+			<div class="productt-list-scroller touch-scrollable  scrollable-y">
+				<div class="productt-list">
+				</div>
+			</div>
+			<span class="placeholder-ScrollbarWidget" />
+		</div>
+	</t>
+
+	<t t-name="ProductProduct" owl="1">
+		<article class="product" tabindex="0"
+                 t-on-click="trigger('click-product-template', props.product)"
+                 t-att-data-product-id="props.product.id"
+                 t-attf-aria-labelledby="article_product_{{props.product.id}}">
+            <div class="product-img">
+                <img t-att-src="imageUrl" t-att-alt="props.product.display_name" />
+				<t t-if="props.product.type != 'consu' and props.product.type != 'service'">
+					<t t-if="env.pos.config.pos_display_stock">
+						<t t-if="env.pos.config.pos_stock_type == 'onhand'">
+							<span class="stock-tag" id="stockqty" style="position: absolute;top: 25px;left: 5px;font-size: 11px;border-radius: 2px;background-color: #7f82ac;color: white;padding: 2px;width: 16px;height: 15px;display: flex;justify-content: center;align-items: center;">
+								<t t-if="env.pos.config.show_stock_location != 'specific'">
+									<t t-esc="props.product.bi_on_hand"/>
+								</t>
+							</span>
+						</t>
+						<t t-if="env.pos.config.pos_stock_type == 'incoming'">
+							<span class="stock-tag" style="position: absolute;top: 25px;left: 5px;font-size: 11px;border-radius: 2px;background-color: #7f82ac;color: white;padding: 2px;width: 16px;height: 15px;display: flex;justify-content: center;align-items: center;">
+								<t t-esc="props.product.incoming_qty"/>
+							</span>
+						</t>
+						<t t-if="env.pos.config.pos_stock_type == 'outgoing'">
+							<span class="stock-tag" style="position: absolute;top: 25px;left: 5px;font-size: 11px;border-radius: 2px;background-color: #7f82ac;color: white;padding: 2px;width: 16px;height: 15px;display: flex;justify-content: center;align-items: center;">
+								<t t-esc="props.product.outgoing_qty"/>
+							</span>
+						</t>
+						<t t-if="env.pos.config.pos_stock_type == 'available'">
+							<span class="stock-tag" id="availqty" style="position: absolute;top: 25px;left: 5px;font-size: 11px;border-radius: 2px;background-color: #7f82ac;color: white;padding: 2px;width: 16px;height: 15px;display: flex;justify-content: center;align-items: center;">
+								<t t-if="env.pos.config.show_stock_location == 'specific'">
+									<t t-esc="props.product.bi_available"/>
+								</t>
+								<t t-if="env.pos.config.show_stock_location == 'all'">
+									<t t-esc="props.product.virtual_available"/>
+								</t>
+							</span>
+						</t>
+					</t>
+				</t>
+                <span class="price-tag">
+                    <t t-esc="price" />
+                </span>
+            </div>
+            <div class="product-name" t-attf-id="article_product_{{props.product.id}}">
+                <t t-esc="props.product.display_name" />
+            </div>
+        </article>
+	</t>
+
+</template>

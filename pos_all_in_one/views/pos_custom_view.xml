@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="inherit_view_pos_config_partial_payment" model="ir.ui.view">
+			<field name="name">inherit.view.pos.config.partial.payment</field>
+			<field name="model">pos.config</field>
+			<field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//div[@id = 'posted_div']" position="after">
+					<div id="partial_pay_div" class="col-xs-12 col-md-6 o_setting_box">
+						<div class="o_setting_left_pane">
+							<field name="allow_partical_payment"/>
+						</div>
+						<div class="o_setting_right_pane">
+							<label for="allow_partical_payment"/>
+						</div>
+					</div>
+					<div id="partial_pay_prod" class="col-xs-12 col-md-6 o_setting_box">
+						<div class="o_setting_right_pane" attrs="{
+						'invisible': [('allow_partical_payment' ,'=', False)]
+						}">
+							<label for="partial_product_id"/>
+							<div class="text-muted">
+								Set Product for partial payment calculation.
+							</div>
+							<div class="content-group mt16">
+								<field name="partial_product_id" attrs="{'required': [('allow_partical_payment', '!=', False)]}"/>
+							</div>
+						</div>
+					</div>
+				</xpath>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="pos_sale_order_discount_type">
+			<field name="name">pos.order.view.discount.form</field>
+			<field name="model">pos.order</field>
+			<field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='partner_id']" position="after">
+					<field name="is_partial" invisible="1"/>
+					<field name="amount_due" invisible="1"/>
+					<field name="amount_paid"  invisible="1"/>
+				</xpath>
+			</field>
+		</record>
+	</data>
+</odoo>

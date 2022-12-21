@@ -1,0 +1,890 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="pos_reports_template" inherit_id="point_of_sale.template" xml:space="preserve">
+
+	
+
+	<t t-name="ReportOrderButtonWidget" owl="1">
+			<button class="control-button button order_summary" t-on-click="button_click">
+				<i class='fa fa-shopping-cart' />Order Summary
+			</button>
+	</t>
+
+	<t t-name="ReportLocationButtonWidget" owl="1">
+		<button class="control-button button location_summary" t-on-click="button_click">
+			<i class='fa fa-industry' />Audit Report
+		</button>
+	</t>
+
+	<t t-name="ReportProductButtonWidget" owl="1">
+			<button class="control-button button product_summary col-md-6" t-on-click="button_click">
+				<i class='fa fa-sticky-note' />Product Summary
+			</button>
+	</t>
+
+	<t t-name="ReportPaymentButtonWidget" owl="1">
+		<button class="control-button button payment_summary" t-on-click="payment_summary_func">
+			<i class='fa fa-credit-card' />Payment Summary
+		</button>
+	</t>
+
+	<t t-name="ProductScreen" t-inherit="point_of_sale.ProductScreen" t-inherit-mode="extension" owl="1">
+
+		<xpath expr="//div[hasclass('control-buttons')]" position="inside">
+				<ReportLocationButtonWidget
+					t-if="env.pos.config.loc_summery"
+					style="width:46%; font-size:13pt;"/>
+
+				<ReportCategoryButtonWidget
+					t-if="env.pos.config.product_categ_summery"
+					style="width:46%; font-size:13pt;"/>
+
+				<ReportOrderButtonWidget
+					t-if="env.pos.config.order_summery"
+					style="width:46%; font-size:13pt;"/>
+
+				<ReportProductButtonWidget
+					t-if="env.pos.config.product_summery"
+					style="width:46%; font-size:13pt;"/>
+
+				<ReportPaymentButtonWidget
+					t-if="env.pos.config.payment_summery"
+					style="width:94%; font-size:13pt;"/>
+		</xpath>
+	</t>
+
+
+
+	<t t-name="ReportCategoryButtonWidget" owl="1">
+		<button class="control-button button category_summary" t-on-click="button_click">
+			<i class='fa fa-bar-chart' />Category Summary
+		</button>
+	</t>
+
+	<t t-name="OrderReceiptWidget" owl="1">
+		<div class='receipt-screen screen'>
+			<div class='screen-content'>
+				<div class='top-content'>
+					<span class='button next' t-on-click="next_screen" style="background-color:#6EC89B; color:white">
+						Exit
+						<i class='fa fa-close' style="margin-left:5px;"></i>
+					</span>
+				</div>
+				<div class="centered-content touch-scrollable">
+					<div class="button print-order" t-on-click="print">
+						<i class='fa fa-print'></i> Print Receipt Order Summary
+					</div>
+					<div class="pos-receipt-container order-receipt" style="text-align: center;">
+						<XMLPosOrderSummaryReceipt
+							t-ref="order-receipt"
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</t>
+
+	<t t-name="ProductReceiptWidget" owl="1">
+		<div class='receipt-screen screen'>
+			<div class='screen-content'>
+				<div class='top-content'>
+					<span class='button next' style="background-color:#6EC89B; color:white" t-on-click="next_screen">
+						Exit
+						<i class='fa fa-close' style="margin-left:5px;"></i>
+					</span>
+				</div>
+				<div class="centered-content touch-scrollable">
+					<div class="button print-product" t-on-click="print_product">
+						<i class='fa fa-print'></i> Print Receipt Product Summary
+					</div>
+					<div class="pos-receipt-container pos-product-receipt" style="text-align: center;">
+						<XMLPosProductSummaryReceipt
+								order="print_product"
+								t-ref="order-receipt"
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</t>
+
+	<t t-name="LocationReceiptWidget" owl="1">
+		<div class='receipt-screen screen'>
+			<div class='screen-content'>
+				<div class='top-content'>
+
+					<span class='button next' style="background-color:#6EC89B; color:white" t-on-click="next_screen">
+						Exit
+						<i class='fa fa-close' style="margin-left:5px;"></i>
+					</span>
+				</div>
+				<div class="centered-content touch-scrollable">
+					<div class="button print-loc" t-on-click="print">
+						<i class='fa fa-print'></i> Print Receipt Location Summary
+					</div>
+					<div class="pos-receipt-container location-receipt" style="text-align: center;">
+						<LLocationSummaryReceipt order="print_location"/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</t>
+
+
+	<t t-name="PopupOrderWidget" owl="1">
+		<div class="modal-dialog">
+		  <div class="popup" style="height: 400px;">
+			<p class="title" style="background-color: #7f82ac; color: #fff;">Order Summary</p>
+			<div class="body" t-on-click="renderElement">
+				<div id="ordr_dt_strt" class="alert" style="color: #ec1010; font-size: inherit; margin: 5px; text-align: center;">
+					<span class="closebtn"></span>
+					Please fill Start Date.
+				</div>
+				<div id="ordr_dt_end" class="alert" style="color: #ec1010; font-size: inherit; margin: 5px; text-align: center;">
+					<span class="closebtn"></span>
+					Please fill End Date.
+				</div>
+				<div class="form-group" id="form1">
+					<input id="ordr_crnt_ssn" class="ordr_crnt_ssn" type="checkbox"
+						style="min-height: 15px !important;width: 25px !important;box-shadow: none !important;"/>
+					<label for="ordr_crnt_ssn">Current Session</label>
+				</div>
+
+				<div class="left_pane" id="order_st" style="width: 49%;display:inline-block;">
+					<p class="text-center">Start Date</p>
+					<input type="date" name="st_date" id="ord_st_date"/>
+				</div>
+				<div class="right_pane" id="order_end" style="width: 50%;display:inline-block;">
+					<p class="text-center">End Date</p>
+					<input type="date" name="ed_date" id="ord_end_date"/>
+				</div>
+				<div class="full_bottom" style="margin-top: 30px;">
+					<span class="label">States</span>
+					<select class="oredr_state" id="ord_state">
+						<option>Select State</option>
+						<option value="draft">New</option>
+						<option value="cancel">Cancelled</option>
+						<option value="paid">Paid</option>
+						<option value="done">Posted</option>
+						<option value="invoiced">Invoiced</option>
+					</select>
+				</div>
+			</div>
+			<div class="footer" style="background-color: #7f82ac; color: #fff;position:fixed; bottom:0;">
+					<div class="button print-order" t-on-click="print_order" style="background-color: #E0E0E0; color: black;">
+						Print
+					</div>
+					<div class="button cancel-order" t-on-click="go_back_screen" style="background-color: #E0E0E0; color: black;">
+						Close
+					</div>
+				</div>
+		  </div>
+		</div>
+	</t>
+
+	<t t-name="PopupProductWidget" owl="1">
+		<div class="modal-dialog">
+		  <div class="popup" style="height: 360px;">
+			<p class="title" style="background-color: #7f82ac; color: #fff;">Product Summary</p>
+			<div class="body" style="max-height:200px;" t-on-click="renderElement">
+				<div id="prod_dt_strt" class="alert" style="color: #ec1010; font-size: inherit; margin: 5px; text-align: center;">
+					<span class="closebtn"></span>
+					Please fill Start Date.
+				</div>
+				<div id="prod_dt_end" class="alert" style="color: #ec1010; font-size: inherit; margin: 5px; text-align: center;">
+					<span class="closebtn"></span>
+					Please fill End Date.
+				</div>
+				<div class="form-group" id="form1">
+					<input id="prod_crnt_ssn" class="prod_crnt_ssn" type="checkbox"
+						style="min-height: 15px !important;width: 25px !important;box-shadow: none !important;"/>
+					<label for="prod_crnt_ssn">Current Session</label>
+				</div>
+				<div class="left_pane" id="prod_st_dt" style="width: 49%;display:inline-block;">
+					<p class="text-center">Start Date</p>
+					<input type="date" name="st_date" id="pro_st_date"/>
+				</div>
+				<div class="right_pane" id="prod_end_dt" style="width: 50%;display:inline-block;">
+					<p class="text-center">End Date</p>
+					<input type="date" name="ed_date" id="pro_ed_date"/>
+				</div>
+			</div>
+			<div class="footer" style="background-color: #7f82ac; color: #fff;position:fixed;bottom:0;">
+				<div class="button print-product" t-on-click="print_product" style="background-color: #E0E0E0; color: black;">
+					Print
+				</div>
+				<div class="button cancel-product" t-on-click="go_back_screen" style="background-color: #E0E0E0; color: black;">
+					Close
+				</div>
+			</div>
+		  </div>
+		</div>
+	</t>
+
+	<t t-name="PopupLocationWidget" owl="1">
+		<div class="modal-dialog">
+		  <div class="popup" style="height: 400px;">
+			<p class="title" style="background-color: #7f82ac; color: #fff;">Audit Report</p>
+			<section>
+				<div class="body">
+					<div>
+						<ul class="tabs">
+							<li class="tab">
+								<input type="radio" name="tabs" id="tab1" checked="checked"/>
+								<label for="tab1" style="margin-left: 20px;margin-right: 5px;">Sessions </label>
+								<div id="tab-content1" class="content" style="min-width:420px; float:left">
+									<div class='location-detail2 required-field'>
+										<div id="select_ssn" class="alert" style="color: #ec1010; font-size: inherit; margin: 5px; text-align: center;">
+											<span class="closebtn"></span>
+											Please Select Session.
+										</div>
+										<span class='label' style="text-align: center;display: block;">Sessions</span>
+										<select class="select_session_id" name='select_session_id' style="height: 40px;margin-top: 20px;min-width: 200px;margin-left: 120px;" t-on-click="renderElement">
+											<option style="font-size: 14px; padding: 5px;" value=''>Select Session </option>
+											<t t-foreach='env.pos.pos_sessions' t-as='ssn' t-key='ssn'>
+												<option t-att-value='ssn.id'>
+													<t t-esc='ssn.name'/>
+												</option>
+											</t>
+										</select>
+									</div>
+								</div>
+							</li>
+							<li class="tab">
+								<input type="radio" name="tabs" id="tab2" />
+								<label for="tab2">Locations</label>
+								<div id="tab-content2" class="content" style="min-width:420px;">
+									<div class='location-detail2 required-field'>
+										<div id="select_loc" class="alert" style="color: #ec1010; font-size: inherit; margin: 5px; text-align: center;">
+											<span class="closebtn"></span>
+											Please Select Location.
+										</div>
+										<span class='label' style="text-align: center;display: block;">Stock Locations</span>
+										<select class="summery_location_id" name='location_id' style="height: 40px;margin-top: 20px;margin-left: 30px;max-width: 390px;">
+											<option style="font-size: 14px; padding: 5px;" value=''>Select Stock Locations</option>
+											<t t-foreach='env.pos.prd_locations' t-as='loc'>
+												<option t-att-value='loc.id'>
+													<t t-esc='loc.location_id[1]'/>/<t t-esc='loc.name'/>
+												</option>
+											</t>
+										</select>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<div class="footer" style="background-color: #7f82ac; color: #fff;float:left;margin-top:190px;">
+				<div class="button print-location" style="background-color: #E0E0E0; color:black;" t-on-click="print_location">
+					Print
+				</div>
+				<div class="button cancel-loc" style="background-color: #E0E0E0; color: black;" t-on-click="go_back_screen">
+					Close
+				</div>
+			</div>
+		  </div>
+		</div>
+	</t>
+
+	<t t-name="LLocationSummaryReceipt" owl="1">
+		<div class="pos-receipt">
+			<t t-set="obj" t-value="get_location_receipt_render_env()"/>
+			<img class="pos-receipt-logo" t-att-src='env.pos.company_logo_base64' alt="Logo"/>
+			<br/>
+			<div class="pos-receipt-contact">
+				<t t-if='env.pos.company.contact_address'>
+					<div><t t-esc='env.pos.company.contact_address' /></div>
+				</t>
+				<t t-if='env.pos.company.phone'>
+					<div>Tel:<t t-esc='env.pos.company.phone' /></div>
+				</t>
+				<t t-if='env.pos.company.vat'>
+					<div>VAT:<t t-esc='env.pos.company.vat' /></div>
+				</t>
+				<t t-if='env.pos.company.email'>
+					<div><t t-esc='env.pos.company.email' /></div>
+				</t>
+				<t t-if='env.pos.company.website'>
+					<div><t t-esc='env.pos.company.website' /></div>
+				</t>
+				<br/>
+
+				<t t-if='env.pos.get_cashier()'>
+					<div class='cashier'>
+						<div>--------------------------------</div>
+						<div>Served by <t t-esc='env.pos.get_cashier().name' /></div>
+					</div>
+				</t>
+			</div>
+			<br />
+			<t t-if="obj.ssn">
+				<div class="pos-center-align">
+				<strong>Session Summary</strong>
+				</div><br />
+			</t>
+
+			<t t-if="!obj.ssn">
+				<div class="pos-center-align">
+				<strong>Location Summary</strong>
+				</div><br />
+			</t>
+			<br />
+			<table class='orderlines' style="margin: 0px auto;">
+				<colgroup>
+					<col width='40%' />
+					<col width='30%' />
+					<col width='30%' />
+				</colgroup>
+				<thead>
+					<tr style="border-bottom: 2px solid black;">
+						<th>Product</th>
+						<th style="text-align: center;">Sold qty</th>
+						<th class="pos-right-align">Available qty</th>
+					</tr>
+				</thead>
+				<tbody>
+				<tr t-foreach="obj.loc_summery" t-as="product">
+
+					<td style="float: left;">
+						<t t-esc="product"/>
+					</td>
+					<td class="pos-center-align">
+						<t t-esc="obj.loc_summery[product]['qty']"/>
+					</td>
+					<td  style="text-align: center;">
+						<t t-esc="obj.loc_summery[product]['avail_qty']"/>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+			<hr style="border-bottom: 2px solid black;"/>
+		</div>
+	</t>
+
+	<t t-name="XMLPosOrderSummaryReceipt" owl="1">
+		<div class="pos-receipt" style="color: black;">
+
+			<t t-set="obj" t-value="get_order_receipt_render_env()"/>
+			<img class="pos-receipt-logo" t-att-src='env.pos.company_logo_base64' alt="Logo"/>
+			<br/>
+			<div class="pos-receipt-contact">
+				<t t-if='env.pos.company.contact_address'>
+					<div><t t-esc='env.pos.company.contact_address' /></div>
+				</t>
+				<t t-if='env.pos.company.phone'>
+					<div>Tel:<t t-esc='env.pos.company.phone' /></div>
+				</t>
+				<t t-if='env.pos.company.vat'>
+					<div>VAT:<t t-esc='env.pos.company.vat' /></div>
+				</t>
+				<t t-if='env.pos.company.email'>
+					<div><t t-esc='env.pos.company.email' /></div>
+				</t>
+				<t t-if='env.pos.company.website'>
+					<div><t t-esc='env.pos.company.website' /></div>
+				</t>
+				<br/>
+
+				<t t-if='env.pos.get_cashier()'>
+					<div class='cashier'>
+						<div>Served by <t t-esc='env.pos.get_cashier().name' /></div>
+					</div>
+				</t>
+			</div>
+			<br />
+			<t t-if="!obj.order_current_session">
+				<div class="receipt-periods">
+					Start Date: <span style="float:right;" t-esc="obj.st_date"/>
+				</div>
+				<div class="receipt-periods">
+					End Date: <span style="float:right;" t-esc="obj.ed_date"/>
+				</div>
+			</t>
+			<br/>
+			<div class="pos-center-align">
+			<strong>Order Summary</strong>
+			</div><br />
+
+			<table class='receipt-orderlines' style="margin: 0px auto;">
+				<colgroup>
+					<col width='25%' />
+					<col width='25%' />
+					<col width='30%' />
+					<col width='20%' />
+				</colgroup>
+				<thead>
+					<tr style="border-bottom: 2px solid black;">
+						<th>Name</th>
+						<th class="pos-center-align">State</th>
+						<th class="pos-center-align">Order Date</th>
+						<th class="pos-right-align">Amount</th>
+					</tr>
+				</thead>
+				<tbody style="font-size:14px;">
+					<t t-set="tot" t-value="0.0"/>
+					<tr t-foreach="obj.summery" t-as="summery1">
+						<td>
+							<t t-esc="summery1.name"/>
+
+						</td>
+						<td class="pos-center-align">
+							<t t-esc="summery1.state"/>
+						</td>
+						<td class="pos-center-align">
+							<t t-esc="summery1.date"/>
+						</td>
+						<td class="pos-right-align">
+							<t t-esc="env.pos.format_currency_no_symbol(summery1.total,'Product Price')"/>
+							<t t-set="tot" t-value="tot + summery1.total" />
+						</td>
+					</tr>
+					<br />
+					<tr>
+						<th style="padding-top: 10px;">Total:</th>
+						<td></td>
+						<td></td>
+						<td class="pos-right-align" style="padding-top: 10px;">
+							<t t-esc="env.pos.format_currency_no_symbol(tot,'Product Price')"/>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+		</div>
+	</t>
+
+	<t t-name="XMLPosProductSummaryReceipt" owl="1">
+		<div class="pos-receipt">
+
+			<t t-set="obj" t-value="get_product_receipt_render_env()"/>
+			<img class="pos-receipt-logo" t-att-src='env.pos.company_logo_base64' alt="Logo"/>
+			<br/>
+			<div class="pos-receipt-contact">
+				<t t-if='env.pos.company.contact_address'>
+					<div><t t-esc='env.pos.company.contact_address' /></div>
+				</t>
+				<t t-if='env.pos.company.phone'>
+					<div>Tel:<t t-esc='env.pos.company.phone' /></div>
+				</t>
+				<t t-if='env.pos.company.vat'>
+					<div>VAT:<t t-esc='env.pos.company.vat' /></div>
+				</t>
+				<t t-if='env.pos.company.email'>
+					<div><t t-esc='env.pos.company.email' /></div>
+				</t>
+				<t t-if='env.pos.company.website'>
+					<div><t t-esc='env.pos.company.website' /></div>
+				</t>
+				<br/>
+
+				<t t-if='env.pos.get_cashier()'>
+					<div class='cashier'>
+						<div>--------------------------------</div>
+						<div>Served by <t t-esc='env.pos.get_cashier().name' /></div>
+					</div>
+				</t>
+			</div>
+			<br />
+			<t t-if="!obj.prod_current_session">
+				<div class="receipt-periods">
+					Start Date: <span style="float:right;" t-esc="obj.p_st_date"/>
+				</div>
+				<div class="receipt-periods">
+					End Date: <span style="float:right;" t-esc="obj.p_ed_date"/>
+				</div>
+			</t>
+			<br/>
+			<div class="pos-center-align">
+			<strong>Product Summary</strong>
+			</div><br />
+			<div>
+				<table class='receipt-orderlines' style="margin: 0px auto;">
+					<colgroup>
+						<col width='50%' />
+						<col width='50%' />
+					</colgroup>
+					<thead>
+						<tr style="border-bottom: 2px solid black;">
+							<th>Product</th>
+							<th class="pos-right-align">Quantity</th>
+						</tr>
+					</thead>
+					<tbody>
+						<t t-set="tot1" t-value="0.0"/>
+						<tr t-foreach="obj.p_summery" t-as="p_summery1">
+							<td><t t-esc="p_summery1.name"/></td>
+							<td class="pos-right-align">
+								<t t-esc="p_summery1.total"/>
+								<t t-set="tot1" t-value="tot1 + p_summery1.total"/>
+							</td>
+						</tr>
+						<tr style="border-top: 2px solid black;">
+							<th>Total:</th>
+							<td class="pos-right-align">
+								<t t-esc="tot1"/>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<br />
+		</div>
+	</t>
+
+	<!-- ====================================== Payment-Summary========================== -->
+	<t t-name="PopupPaymentWidget" owl="1" >
+		<div class="modal-dialog" t-on-click="render_element">
+		  <div class="popup" style="height: 400px;">
+			<p class="title" style="background-color: #7f82ac; color: #fff;">Payment Summary</p>
+			<div class="body">
+				<div id="dt_strt" class="alert" style="color: #ec1010; font-size: inherit; margin: 5px; text-align: center;">
+					<span class="closebtn"></span>
+					Please fill Start Date.
+				</div>
+				<div id="dt_end" class="alert" style="color: #ec1010; font-size: inherit; margin: 5px; text-align: center;">
+					<span class="closebtn"></span>
+					Please fill End Date.
+				</div>
+				<div class="form-group" id="form1">
+					<input id="pymnt_crnt_ssn" class="pymnt_crnt_ssn" type="checkbox"
+						style="min-height: 15px !important;width: 25px !important;box-shadow: none !important;"/>
+					<label for="pymnt_crnt_ssn">Current Session</label>
+				</div>
+				<div class="left_pane" id="strt_dt" style="width: 49%;display:inline-block;">
+					<p class="text-center">Start Date</p>
+					<input type="date" name="st_date" id="pay_st_date" required="1"/>
+				</div>
+				<div class="right_pane" id="end_dt" style="width: 50%;display:inline-block;">
+					<p class="text-center">End Date</p>
+					<input type="date" name="ed_date" id="pay_ed_date" required="1"/>
+				</div>
+				<div class="full_bottom" style="margin-top: 30px;">
+					<span class="label">Summary</span>&#160;&#160;
+					<select class="smry" id="smry_payment">
+						<option>Salespersons</option>
+						<option>Journals</option>
+					</select>
+				</div>
+			</div>
+			<div class="footer" style="background-color: #7f82ac; color: #fff;float:left;position:fixed;bottom:0">
+					<div class="button print-payment" t-on-click="render_payment_summary" style="background-color: #E0E0E0; color: black;">
+						Print
+					</div>
+					<div class="button cancel" t-on-click="go_back_screen" style="background-color: #E0E0E0; color: black;">
+						Close
+					</div>
+				</div>
+		  </div>
+		</div>
+	</t>
+
+	<t t-name="PaymentReceiptWidget" owl="1">
+		<div class='receipt-screen screen'>
+			<div class='screen-content'>
+				<div class='top-content'>
+					<span class='button next' t-on-click="next_screen" style="background-color:#6EC89B; color:white">
+						Exit
+						<i class='fa fa-close' style="margin-left:5px;"></i>
+					</span>
+				</div>
+				<div class="centered-content touch-scrollable">
+					<div class="button print-payment" t-on-click="print">
+						<i class='fa fa-print'></i> Print Receipt Payment Summary
+					</div>
+					<div class="pos-receipt-container pos-payment-receipt" style="text-align: center;">
+						<XMLPosPaymentSummaryReceipt
+							t-ref="order-receipt"
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</t>
+
+
+	<t t-name="XMLPosPaymentSummaryReceipt" owl="1">
+		<div class="pos-receipt">
+			<t t-set="obj" t-value="get_payment_receipt_render_env()"/>
+
+ 			<img class="pos-receipt-logo" t-att-src='env.pos.company_logo_base64' alt="Logo"/>
+			<br/>
+			<div class="pos-receipt-contact">
+				<t t-if='env.pos.company.phone'>
+					<div><t t-esc='env.pos.company.phone' /></div>
+				</t>
+				<t t-if='env.pos.company.phone'>
+					<div>Tel:<t t-esc='env.pos.company.phone' /></div>
+				</t>
+				<t t-if='env.pos.company.vat'>
+					<div>VAT:<t t-esc='env.pos.company.vat' /></div>
+				</t>
+				<t t-if='env.pos.company.email'>
+					<div><t t-esc='env.pos.company.email' /></div>
+				</t>
+				<t t-if='env.pos.company.website'>
+					<div><t t-esc='env.pos.company.website' /></div>
+				</t>
+				<br/>
+
+				<t t-if='obj.pos.get_cashier()'>
+					<div class='cashier'>
+
+						<div>Served by <t t-esc='obj.pos.get_cashier().name' /></div>
+					</div>
+				</t>
+			</div>
+			<br />
+			<t t-if="!obj.is_current_session">
+				<div class="receipt-periods">
+					Start Date: <span style="float:right;" t-esc="obj.st_date_pay"/>
+				</div>
+				<div class="receipt-periods">
+					End Date: <span style="float:right;" t-esc="obj.ed_date_pay"/>
+				</div>
+			</t>
+			<br/>
+			<t t-if="obj.smry_payment == 'Salespersons'">
+				<span style="text-align: center;"><h3>Payment Summary </h3></span>
+				<span style="text-align: center;"><h4>Salesperson:<t t-esc="obj.pos.get_cashier().name"/></h4></span>
+			</t>
+			<t t-if="obj.smry_payment == 'Journals'">
+				<span style="text-align: center;"><h3>Journal Summary </h3></span>
+			</t>
+			<t t-foreach="obj.pay_summary" t-as="pay" >
+				<div class="receipt-periods-month">
+					<t t-if="pay">
+						<div style="text-align: center;">
+							<strong>Month: <span  t-esc="pay[0]"/></strong>
+						</div>
+					</t>
+					<table class='receipt-orderlines' style="margin: 0px auto;margin-top:15px;min-width: 80%;">
+						<colgroup>
+							<col width='50%' />
+							<col width='50%' />
+						</colgroup>
+						<thead style="border-bottom:2px solid black;padding-bottom:5px;">
+							<th class="text-center">Journal</th>
+							<th class="pos-right-align">Amount</th>
+						</thead>
+						<tbody>
+							<t t-set="total" t-value="0"/>
+							<t t-foreach="pay[1]" t-as="lines">
+								<t t-foreach="lines" t-as="jrnl">
+									<tr>
+										<td style="padding:5px 0;">
+											<span t-esc="jrnl"/>
+										</td>
+										<td class="pos-right-align">
+											<span t-esc="obj.pos.format_currency(lines[jrnl])"/>
+											<t t-set="total" t-value="total + lines[jrnl]"/>
+										</td>
+									</tr>
+								</t>
+							</t>
+							<tr t-if="obj.final_total" style="border-top:2px solid black;">
+								<td style="padding:5px 0;">
+									<strong>Total</strong>
+								</td>
+								<td class="pos-right-align">
+									<value t-att-value-decimals='obj.pos.currency.decimals'><span t-esc="obj.pos.format_currency(total)"/></value>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				<br/><br/>
+				</div>
+			</t>
+			<span style="text-align: center;"><h3>Total Summary </h3></span>
+			<table  class='receipt-orderlines' style="margin: 0px auto;margin-top:15px;min-width: 80%;">
+				<colgroup>
+					<col width='50%' />
+					<col width='50%' />
+				</colgroup>
+				<thead style="border-bottom:2px solid black;padding-bottom:5px;">
+					<th class="text-center">Journal</th>
+					<th class="pos-right-align">Amount</th>
+				</thead>
+				<tbody>
+					<t t-set="fn_total" t-value="0"/>
+					<tr t-foreach='obj.payments' t-as='payment'>
+						<td style="padding:5px 0;"><t t-esc="payment['name']" /></td>
+						<td class="pos-right-align">
+							<value t-att-value-decimals='obj.pos.currency.decimals'><span t-esc="obj.pos.format_currency(payment['total'])"/></value>
+						</td>
+						<t t-set="fn_total" t-value="fn_total + payment['total']"/>
+					</tr>
+					<tr style="border-top:2px solid black;">
+						<td style="padding:5px 0;"></td>
+						<td class="pos-right-align">
+							<value t-att-value-decimals='env.pos.currency.decimals'><span t-esc="env.pos.format_currency(fn_total)"/></value>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</t>
+
+	<!-- ====================================== Category-Summary========================== -->
+
+	<t t-name="PopupCategoryWidget" owl="1">
+		<div class="modal-dialog" t-on-click="renderElement">
+		  <div class="popup" style="height: 360px;">
+			<p class="title" style="background-color: #7f82ac; color: #fff;">Category Summary</p>
+			<div class="body">
+				<div id="categ_dt_strt" class="alert" style="color: #ec1010; font-size: inherit; margin: 5px; text-align: center;">
+					<span class="closebtn"></span>
+					Please fill Start Date.
+				</div>
+				<div id="categ_dt_end" class="alert" style="color: #ec1010; font-size: inherit; margin: 5px; text-align: center;">
+					<span class="closebtn"></span>
+					Please fill End Date.
+				</div>
+				<div class="form-group" id="form1">
+					<input id="categ_crnt_ssn" class="categ_crnt_ssn" type="checkbox"
+						style="min-height: 15px !important;width: 25px !important;box-shadow: none !important;"/>
+					<label for="categ_crnt_ssn">Current Session</label>
+				</div>
+				<div class="left_pane" id="ct_st_dt" style="width: 49%;display:inline-block;">
+					<p class="text-center">Start Date</p>
+					<input type="date" name="st_date" id="categ_st_date"/>
+				</div>
+				<div class="right_pane" id="ct_end_dt" style="width: 50%;display:inline-block;">
+					<p class="text-center">End Date</p>
+					<input type="date" name="ed_date" id="categ_ed_date"/>
+				</div>
+			</div>
+			<div class="footer" style="background-color: #7f82ac; color: #fff;bottom:0;position:fixed">
+					<div class="button print" t-on-click="renderElement" style="background-color: #E0E0E0; color: black;">
+						Print
+					</div>
+					<div class="button cancel" t-on-click="go_back_screen" style="background-color: #E0E0E0; color: black;">
+						Close
+					</div>
+				</div>
+		  </div>
+		</div>
+	</t>
+
+	<t t-name="CategoryReceiptWidget" owl="1">
+		<div class='receipt-screen screen'>
+			<div class='screen-content'>
+				<div class='top-content'>
+					<span class='button next' t-on-click="next_screen" style="background-color:#6EC89B; color:white" >
+						Exit
+						<i class='fa fa-close' style="margin-left:5px;"></i>
+					</span>
+				</div>
+				<div class="centered-content touch-scrollable">
+					<div class="button print-categ" t-on-click="print_categ">
+						<i class='fa fa-print'></i> Print Receipt Product Category
+					</div>
+					<div class="pos-receipt-container pos-category-receipt" style="text-align: center;">
+						<XMLPosCategorySummaryReceipt order="render_category_summary"/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</t>
+
+	<t t-name="XMLPosCategorySummaryReceipt" owl="1">
+		<div class="pos-receipt">
+			<t t-set="obj" t-value="get_category_receipt_render_env()"/>
+			<img class="pos-receipt-logo" t-att-src='env.pos.company_logo_base64' alt="Logo"/>
+			<br/>
+			<div class="pos-receipt-contact">
+				<t t-if='env.pos.company.contact_address'>
+					<div><t t-esc='env.pos.company.contact_address' /></div>
+				</t>
+				<t t-if='env.pos.company.phone'>
+					<div>Tel:<t t-esc='env.pos.company.phone' /></div>
+				</t>
+				<t t-if='env.pos.company.vat'>
+					<div>VAT:<t t-esc='env.pos.company.vat' /></div>
+				</t>
+				<t t-if='env.pos.company.email'>
+					<div><t t-esc='env.pos.company.email' /></div>
+				</t>
+				<t t-if='env.pos.company.website'>
+					<div><t t-esc='env.pos.company.website' /></div>
+				</t>
+				<br/>
+
+				<t t-if='env.pos.get_cashier()'>
+					<div class='cashier'>
+						<div>--------------------------------</div>
+						<div>Served by <t t-esc='env.pos.get_cashier().name' /></div>
+					</div>
+				</t>
+			</div>
+			<br />
+			<t t-if="!obj.categ_current_session">
+				<div class="receipt-periods">
+					Start Date: <span style="float:right;" t-esc="obj.st_date_categ"/>
+				</div>
+				<div class="receipt-periods">
+					End Date: <span style="float:right;" t-esc="obj.ed_date_categ"/>
+				</div>
+			</t>
+
+			<t t-if="!obj.categ_current_session">
+				<br/>
+				<div class="receipt-periods-month">
+					<span><strong>Month : </strong></span>
+					<t t-if="obj.st_month_categ">
+						<strong><t t-esc="obj.st_month_categ"/></strong>
+					</t>
+					<t t-if="obj.ed_month_categ">
+						<t t-if="obj.ed_month_categ != obj.st_month_categ">
+							<strong>To</strong>
+							<strong><t t-esc="obj.ed_month_categ"/></strong>
+						</t>
+					</t>
+				</div>
+			</t>
+			<br/>
+			<div>
+				<table class='receipt-orderlines' style="margin: 0px auto;margin-top:32px;" >
+					<colgroup>
+						<col width='33%' />
+						<col width='33%' />
+						<col width='33%' />
+					</colgroup>
+					<thead style="border-bottom:2px solid black;padding-bottom:5px;">
+						<th class="text-center">Category</th>
+						<th class="pos-right-align">Quantity</th>
+						<th class="pos-right-align">Total</th>
+					</thead>
+					<tbody>
+						<tr t-foreach="obj.cate_summary" t-as="category_data">
+							<td style="padding:5px 0;">
+								<span t-esc="category_data.name"/>
+							</td>
+							<td class="pos-center-align">
+								<span t-esc="category_data.total"/>
+							</td>
+							<td class="pos-right-align">
+								<span t-esc="env.pos.format_currency(category_data.sum)"/>
+							</td>
+						</tr>
+						<tr t-if="obj.final_total" style="border-top:2px solid black;">
+							<td style="padding:5px 0;">
+								<strong>Total</strong>
+							</td>
+							<td style="padding:5px 0;">
+								<p/>
+							</td>
+							<td class="pos-right-align">
+								<value t-att-value-decimals='env.pos.currency.decimals'><span t-esc="env.pos.format_currency(obj.final_total)"/></value>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<br/>
+		</div>
+	</t>
+	
+</templates>
+	
+	

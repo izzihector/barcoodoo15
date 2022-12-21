@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="pos_bag_charges_template" inherit_id="point_of_sale.template" xml:space="preserve">
+
+	<t t-name="PosBagButton" owl="1">
+		<span class="control-button pos_bag odoo-theme-color">
+			<i class="fa fa-shopping-bag"></i>
+			<span>Bag</span>
+		</span>
+	</t>
+
+	<t t-name="PosBagPopup" owl="1">
+		<div class="modal-dialog">
+			<Draggable>
+				<div class="popup" style="height: 450px;">
+					<header class="title drag-handle">
+						List of Bag Charges
+					</header>
+					<div class="body traceback" style="font-family: 'Lato-Reg';">
+						<div class='div-container' style="height: 300px;">
+							<div class="product-list">
+								<span class='product bag-category' t-foreach="bags || []" t-as="item" t-att-data-product-id="item.id" t-on-click="click_on_bag_product">
+								   <div class="product-img">
+										<img t-att-src='item.bag_image_url' alt="Product image"/>
+										  <span class="price-tag">
+											<t t-esc="env.pos.format_currency(item.lst_price,'Product Price')"/>
+										 </span>
+										<div class="product-name">
+											<t t-esc="item.display_name"/>
+										</div>
+								   </div>
+
+							   </span>
+							</div>
+						</div>
+					</div>
+					<footer class="footer">
+						<div class="button cancel odoo-theme-button" t-on-click="cancel">
+							Close
+						</div>
+					</footer>
+				</div>
+			</Draggable>
+		</div>
+	</t>
+
+	</templates>
+	
+	

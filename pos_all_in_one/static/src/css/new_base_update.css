@@ -1,0 +1,68 @@
+/*.pos .leftpane {
+    border-right: solid 3px #787878;
+    background: #e2e2e2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    max-width: 600px;
+    left: 200px;
+}
+
+.pos .order-container{
+    top: 0px;
+    width:67%;
+    height: 100%;
+    background: white;
+    flex-grow: 1;
+    overflow: hidden;
+    overflow-y: auto;
+    margin-left: 200px;
+}
+
+.pos .leftpane .pads .subpads {
+    display: flex;
+    flex-direction: row;
+    margin-left: 200px;
+}*/
+.actn-btn-div{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    padding: 8px 16px 0px 11px;
+    margin-bottom: -6px;
+}
+
+.action-btn{
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+    border: solid 1px #bfbfbf !important;
+    display: inline-block !important;
+    line-height: 38px;
+    min-width: 80px;
+    text-align: center;
+    border-radius: 3px !important;
+    padding: 0px 10px;
+    font-size: 18px !important;
+    margin-left: 6px;
+    margin-bottom: 6px;
+    cursor: pointer !important;
+    overflow: hidden;
+    transition: all linear 150ms;
+    background: #875a7b !important;
+    color: white !important;
+}
+
+.stock-tag{
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    vertical-align: top;
+    color: white;
+    line-height: 13px;
+    background: #7f82ac;
+    padding: 2px 5px;
+    border-radius: 2px;
+
+}

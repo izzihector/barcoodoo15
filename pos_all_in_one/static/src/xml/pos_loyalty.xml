@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<templates id="pos_loyalty_odoo_template" inherit_id="point_of_sale.template" xml:space="preserve">
+
+		<t t-name="OrderWidget" t-inherit="point_of_sale.OrderWidget" t-inherit-mode="extension" owl="1">
+			<xpath expr="//div[hasclass('order')]" position="inside">
+				<t t-if="env.pos.get_client() and loyalty_points and env.pos.pos_loyalty_setting.length > 0">
+					<div class='loyalty-items' style="padding-bottom: 10px; padding-left: 15px;padding-right: 15px;"><i><b style="font-weight: bold; color: #0075AC;font-size: 20px;">+
+						<span><t t-esc="loyalty_points"/></span> Loyalty Points. Total:<span><t t-esc="temp_loyalty_point"/></span></b></i>
+					</div>
+				</t>
+			</xpath>
+		</t>
+
+		<!-- ClientDetails -->
+		<t t-extend="ClientDetailsEdit" t-inherit="point_of_sale.ClientDetailsEdit" t-inherit-mode="extension" owl="1">
+			<xpath expr="//div[hasclass('client-details-left')]" position="inside">
+				<t t-if="env.pos.pos_loyalty_setting.length > 0">
+					<div class="client-detail">
+						<span class='label'>Loyalty Points</span>
+						<span> <t t-esc='props.partner.loyalty_points'/></span>
+					</div>
+				</t>
+			</xpath>
+		</t>
+
+
+		<!-- ClientListScreenWidget -->
+		<t t-extend="ClientListScreenWidget" t-inherit="point_of_sale.ClientListScreen" t-inherit-mode="extension" owl="1">
+			<xpath expr="//table//thead//tr" position="inside">
+				<t t-if="env.pos.pos_loyalty_setting.length > 0">
+					<th>Loyalty Points</th>
+				</t>
+			</xpath>
+		</t>
+
+		<!-- ClientLineWidget -->
+		<t t-extend="ClientLine" t-inherit="point_of_sale.ClientLine" t-inherit-mode="extension" owl="1">
+			<xpath expr="//tr" position="inside">
+				<t t-if="env.pos.pos_loyalty_setting.length > 0">
+					<td class="text-center">
+						<center><t t-esc='props.partner.loyalty_points or "0"' /></center>
+					</td>
+				</t>
+			</xpath>
+		</t>
+
+
+		<!-- LoyaltyButtonWidget -->
+		<t t-name="LoyaltyButton" owl="1">
+			<span class="control-button loyalty-button" style="background: #875a7b !important;color: white !important;">
+				<i class="fa fa-gift"></i>
+				<span>Redeem</span>
+			</span>
+		</t>
+
+		<!-- LoyaltyPopupWidget -->
+
+		<t t-name="LoyaltyPopupWidget" owl="1">
+			<div role="dialog" class="modal-dialog">
+				<Draggable>
+					<div class="popup" style="min-width: 50%;">
+						<header class="title drag-handle">
+							Loyalty Reedemption
+						</header>
+						<main class="body" style="font-family: 'Lato-Reg';">
+							<div>
+								<p style="color: #0075AC;">Hello <b><t t-esc="props.partner.name"/> !!! </b></p>
+								<p style="color: #0075AC;">Your Loyalty Points: <b><t t-esc="props.partner.loyalty_points"/></b>Point(s) </p>
+								<p  style="color: #0075AC;">Your Loyalty Balance:
+									<b><t t-esc="env.pos.format_currency(props.partner.loyalty_amount)"/></b>
+								</p>
+								<div>
+									<p style="color: #0075AC;">Enter number of points to Redeem: </p>
+									<input id ="entered_item_qty" type="text" placeholder="Enter points to redeem" class="input-field" name="code"></input>
+								</div>
+							</div>
+						</main>
+						<footer class="footer">
+							<div class="button cancel odoo-theme-button" t-on-click="cancel">Close</div>
+							<div class="button confirm odoo-theme-button" t-on-click="redeemPoints">Reedem Now </div>
+						</footer>
+					</div>
+				</Draggable>
+			</div>
+		</t>
+
+		<t t-name="OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+			<xpath expr="//div[hasclass('before-footer')]" t-operation="before">
+				<table class='receipt-change' style="min-width: 100%;">
+					<t t-if="(env.pos.get_client() and (props.order.is_paying_partial == false)) and (env.pos.pos_loyalty_setting.length > 0)">
+						<tr>
+							<td>Earned Loyalty Points:</td>
+							<td class="pos-right-align"><t t-esc="props.order.get_total_loyalty()"/></td>
+						</tr>
+						<tr>
+							<td>Total Loyalty Points:</td>
+							<td class="pos-right-align"><t t-esc="env.pos.get_client().loyalty_points + props.order.get_total_loyalty()"/></td>
+						</tr>
+					</t>
+				</table>
+			</xpath>
+		</t>
+		
+	</templates>
+	
+	

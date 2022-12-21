@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
+        <xpath expr="//img[hasclass('pos-receipt-logo')]" position="replace">
+            <t t-if="env.pos.config.pos_logo">
+                <img t-att-src="receipt.receipt_logo_url" alt="Logo" class="pos-receipt-logo" />
+            </t>
+            <t t-else="">
+                <img class="pos-receipt-logo" t-att-src="receipt.company.logo" alt="Logo" />
+            </t>
+        </xpath>
+    </t>
+
+    <t t-extend="SetSaleOrderButton" t-inherit="pos_sale.SetSaleOrderButton" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o_sale_order_button')]" position="replace">
+            <div class="control-button o_sale_order_button" style="display:none !important;">
+                <i class="fa fa-link" role="img" aria-label="Set Sale Order"
+                   title="Set Sale Order" /> Quotation/Order
+            </div>
+        </xpath>
+    </t>
+
+    <t t-extend="ProductInfoButton" t-inherit="point_of_sale.ProductInfoButton"  t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('control-button')]" position="replace">
+            <div class="control-button" style="display:none !important;">
+                <i class="fa fa-info-circle" role="img" aria-label="Info" title="Info"/>
+                Info
+            </div>
+        </xpath>
+    </t>
+</templates>

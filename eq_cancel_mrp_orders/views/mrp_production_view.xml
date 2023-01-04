@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="inherit_mrp_production_form_view" model="ir.ui.view">
+		<field name="name">mrp.production.form</field>
+		<field name="model">mrp.production</field>
+		<field name="inherit_id" ref="mrp.mrp_production_form_view" />
+		<field name="arch" type="xml">
+			<xpath expr="//button[@name='action_cancel']" position="replace">
+				<button name="action_cancel" type="object" string="Cancel"
+					attrs="{'invisible': ['|', '|',  ('id', '=', False), ('is_locked', '=', False), ('state', '=', 'cancel')]}"
+					groups="eq_cancel_mrp_orders.group_cancel_manufacturing_orders"/>
+				<button name="action_reset_to_draft" type="object" string="Reset To Draft"
+					class="oe_highlight" attrs="{'invisible': [('state', '!=', 'cancel')]}"/>
+			</xpath>
+			<xpath expr="//button[@name='action_cancel'][last()]" position="replace">
+			</xpath>
+		</field>
+	</record>
+
+	<record id="inherit_stock_stock_scrap_form_view" model="ir.ui.view">
+		<field name="name">stock.scrap.form</field>
+		<field name="model">stock.scrap</field>
+		<field name="inherit_id" ref="stock.stock_scrap_form_view" />
+		<field name="arch" type="xml">
+			<field name="product_id" position="attributes">
+				<attribute name="attrs">{'readonly': [('state', 'in', ('done',
+					'cancel'))]}</attribute>
+			</field>
+			<field name="scrap_qty" position="attributes">
+				<attribute name="attrs">{'readonly': [('state', 'in', ('done',
+					'cancel'))]}</attribute>
+			</field>
+			<field name="product_uom_id" position="attributes">
+				<attribute name="attrs">{'readonly': [('state', 'in', ('done',
+					'cancel'))]}</attribute>
+			</field>
+			<field name="lot_id" position="attributes">
+				<attribute name="attrs">{'invisible': [('tracking', '=', 'none')],
+					'required': [('tracking', '!=', 'none')],
+					'readonly': [('state', 'in',
+					('done',
+					'cancel'))]}
+				</attribute>
+			</field>
+			<field name="package_id" position="attributes">
+				<attribute name="attrs">{'readonly': [('state', 'in', ('done',
+					'cancel'))]}</attribute>
+			</field>
+			<field name="owner_id" position="attributes">
+				<attribute name="attrs">{'readonly': [('state', 'in', ('done',
+					'cancel'))]}</attribute>
+			</field>
+			<field name="location_id" position="attributes">
+				<attribute name="attrs">{'readonly': [('state', 'in', ('done',
+					'cancel'))]}</attribute>
+			</field>
+			<field name="production_id" position="attributes">
+				<attribute name="attrs">{'readonly': [('state', 'in', ('done',
+					'cancel'))]}</attribute>
+			</field>
+			<field name="scrap_location_id" position="attributes">
+				<attribute name="attrs">{'readonly': [('state', 'in', ('done',
+					'cancel'))]}</attribute>
+			</field>
+			<field name="picking_id" position="attributes">
+				<attribute name="attrs">{'invisible': [('picking_id', '=', False)],
+					'readonly': [('state', 'in', ('done', 'cancel'))]}
+				</attribute>
+			</field>
+		</field>
+	</record>
+
+</odoo>

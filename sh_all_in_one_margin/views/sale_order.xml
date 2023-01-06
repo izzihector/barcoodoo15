@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="sh_sale_order_all_margin_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.all.margin.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook//page//field//tree//field[@name='product_uom_qty']" position="before">
+                <field name="product_margin_amount" readonly="1" />
+                <field name="product_cost_price" invisible="1" />
+                <field name="total_margin_amount" />
+            </xpath>
+
+            <xpath expr="//field[@name='note']" position="before">
+                <group>
+                    <group>
+                        <field name="margin_amount" style="widt: 250px;" />
+                        <field name="cost_amount" invisible="1" />
+                        <field name="margin_per" style="widt: 250px;" />
+                        <field name="line_margin_amount_total" style="width:250px;" />
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="sh_sale_quotation_all_margin_tree_inherit" model="ir.ui.view">
+        <field name="name">sale.quotation.all.margin.tree</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//tree//field[@name='amount_total']" position="before">
+                <field name="margin_per" optional = "show" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="sh_sale_order_all_margin_tree_inherit" model="ir.ui.view">
+        <field name="name">sale.order.all.margin.tree</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//tree//field[@name='amount_total']" position="before">
+                <field name="margin_per" optional = "show"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

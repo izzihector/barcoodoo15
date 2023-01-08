@@ -12,10 +12,11 @@
     'website': 'https://www.datainteger.com',
 	"license": "OPL-1",
     'category': 'Sales/Point of Sale',
-    'version': '15.0.0',
+    'version': '15.1.0',
 
     'depends': [
-        'point_of_sale'
+        'point_of_sale',
+        'pos_all_in_one',
     ],
 
     'data': [
@@ -25,6 +26,7 @@
     'assets': {
         'point_of_sale.assets': [
             'hide_pos_opencashbox/static/src/js/HideCashBoxChrome.js',
+            'hide_pos_opencashbox/static/src/js/ProductScreen.js',
         ],
     },
 

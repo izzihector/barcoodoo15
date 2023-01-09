@@ -12,7 +12,7 @@
     'website': 'https://www.datainteger.com',
 	"license": "OPL-1",
     'category': 'Sales/Point of Sale',
-    'version': '15.1.0',
+    'version': '15.2.0',
 
     'depends': [
         'point_of_sale',

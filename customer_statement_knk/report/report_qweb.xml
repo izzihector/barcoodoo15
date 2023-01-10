@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_customer_template">
+        <t t-call="web.external_layout">
+            <t t-set="o" t-value="o"/>
+           <div class="page">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h3>Customer Statement</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-7">
+                        <t t-esc="from_date"/> <b>TO</b> <t t-esc="to_date"/>
+                    </div>
+                    <div class="col-5">
+                        <!-- <span t-field="o.name"/><br/> -->
+                        <span t-raw="o.contact_address.replace('\n\n', '\n').replace('\n', '&lt;br&gt;')"/>
+                        <span t-field="o.vat"/>
+                    </div>
+                </div>
+
+                <table class="table o_main_table">
+                    <thead>
+                        <tr class="text-center">
+                            <th>Date</th>
+                            <th>Particulars</th>
+                            <th>Vch Type</th>
+                            <th>Vch No.</th>
+                            <th>Debit</th>
+                            <th>Credit</th>
+                        </tr>
+                    </thead>
+                    <t t-set="opening_balance" t-value="o.get_customer_opbalance(from_date, to_date)"/>
+                    <t t-set="total_debit" t-value="0.0"/>
+                    <t t-set="total_credit" t-value="0.0"/>
+                    <t t-if="opening_balance['balance'] &gt; 0">
+                        <t t-set="total_debit" t-value="total_debit+opening_balance['balance']"/>
+                    </t>
+                    <t t-if="opening_balance['balance'] &lt; 0">
+                        <t t-set="total_credit" t-value="total_credit+opening_balance['balance']"/>
+                    </t>
+                    <tr>
+                        <td></td>
+                        <td><strong>Opening Balance</strong></td>
+                        <td></td>
+                        <td></td>
+                        <td class="text-center"><t t-if="opening_balance['balance'] &gt; 0"><strong><t t-esc="opening_balance['balance']" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></strong></t></td>
+                        <td class="text-center"><t t-if="opening_balance['balance'] &lt; 0"><strong><t t-esc="opening_balance['balance']" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></strong></t></td>
+                    </tr>
+                    <tr t-foreach="o.get_customer_statements(from_date, to_date)" t-as="stmt">
+                        <td><t t-esc="stmt.date"/></td>
+                        <td><t t-esc="stmt.move_id.name"/></td>
+                        <td></td>
+                        <td></td>
+                        <td class="text-center"><t t-esc="stmt.debit" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></td>
+                        <td class="text-center"><t t-esc="stmt.credit" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></td>
+
+                        <t t-set="total_debit" t-value="total_debit+stmt.debit" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                        <t t-set="total_credit" t-value="total_credit+stmt.credit" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="text-center"><t t-esc="total_debit" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></td>
+                        <td class="text-center"><t t-esc="total_credit" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></td>
+                    </tr>
+                    <tr>
+                        <t t-set="closing_bal" t-value="total_debit-total_credit"/>
+                        <td></td>
+                        <td><strong>Closing Balance</strong></td>
+                        <td></td>
+                        <td></td>
+                        <td class="text-center"><t t-if="closing_bal &lt; 0"><strong><t t-esc="closing_bal" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></strong></t></td>
+                        <td class="text-center"><t t-if="closing_bal &gt; 0"><strong><t t-esc="closing_bal" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></strong></t></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="text-center">
+                            <t t-if="closing_bal &lt; 0">
+                                <strong><t t-esc="total_debit+closing_bal" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></strong>
+                            </t>
+                            <t t-else=""><strong><t t-esc="total_debit" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></strong></t>
+                        </td>
+                        <td class="text-center">
+                            <t t-if="closing_bal &gt; 0"><strong><t t-esc="total_credit+closing_bal" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></strong></t>
+                            <t t-else=""><strong><t t-esc="total_credit" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></strong></t>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </t>
+    </template>
+    <template id="report_customer_statement_pdf">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="customer_statement_knk.report_customer_template"/>
+            </t>
+        </t>
+    </template>
+</odoo>
+
+

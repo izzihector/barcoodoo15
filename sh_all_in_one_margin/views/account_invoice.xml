@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="sh_account_move_all_margin_form_inherit" model="ir.ui.view">
+        <field name="name">account.move.all.margin.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook//page//field[@name='invoice_line_ids']//tree//field[@name='quantity']" position="before">
+                <field name="product_margin_amount" readonly="1" />
+                <field name="total_margin_amount" />
+                <field name="product_cost_price" invisible="1" />
+            </xpath>
+
+            <xpath expr="//field[@name='narration']" position="before">
+                <group>
+                    <group>
+                        <field name="margin_amount" style="width: 250px;" />
+                        <field name="cost_amount" invisible="1" />
+                        <field name="margin_per" style="width: 250px;" />
+                        <field name="line_margin_amount_total" style="width: 250px;" />
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="sh_account_move_all_margin_tree_inherit" model="ir.ui.view">
+        <field name="name">account.move.all.margin.tree</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_invoice_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//tree//field[@name='amount_total_signed']" position="before">
+                <field name="margin_per" optional = "show"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="pos_config_view_form_hide_pos_opencashbox" model="ir.ui.view">
+            <field name="name">pos.config.form.view</field>
+            <field name="model">pos.config</field>
+            <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@id='iface_orderline_customer_notes']" position="before">
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="hide_pos_opencashbox"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="hide_pos_opencashbox"/>
+                            <div class="text-muted">
+                                Hide Opening Cash Control Popup
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

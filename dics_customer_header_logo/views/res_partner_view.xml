@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="dics_customer_header_form_view" model="ir.ui.view">
+            <field name="name">DICS Customer header Form View</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+               <xpath expr="//field[@name='company_type']" position="after">
+                    <field name="header_logo" widget="image" class="float-left oe_avatar" />
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

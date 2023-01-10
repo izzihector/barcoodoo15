@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="dics_customer_header_invoice_report" inherit_id="web.external_layout_standard">
+        <xpath expr="//div[hasclass('col-3')]" position="replace">
+            <div class="col-3 mb4">
+                <t t-if="is_from_invoice">
+                    <img t-if="o.partner_id.header_logo"
+                         t-att-src="image_data_uri(o.partner_id.header_logo)"
+                         style="max-height: 45px;" alt="Logo"/>
+                </t>
+                <t t-if="is_from_customer_statement">
+                    <img t-if="o.header_logo"
+                         t-att-src="image_data_uri(o.header_logo)"
+                         style="max-height: 45px;" alt="Logo"/>
+                </t>
+
+            </div>
+        </xpath>
+    </template>
+
+    <template id="report_invoice_document_inherit_partner_logo" inherit_id="account.report_invoice_document">
+        <xpath expr="//t[@t-set='address']" position="before">
+            <t t-set="is_from_invoice" t-value="true"/>
+        </xpath>
+    </template>
+
+
+    <template id="report_customer_statement_inherit_partner_logo" inherit_id="customer_statement_knk.report_customer_template">
+        <xpath expr="//div[hasclass('page')]" position="before">
+            <t t-set="is_from_customer_statement" t-value="true"/>
+        </xpath>
+    </template>
+</odoo>

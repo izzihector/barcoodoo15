@@ -1,6 +1,6 @@
 {
     'name': 'DICS Customer Header Logo',
-    'version': '15.0.0',
+    'version': '15.0.0.1',
     'description': """
                     IN This Module We Have Added Header Logo field in the Customer,
                     and in the Invoice Report Replaced the Company Logo to Customer Header Logo
